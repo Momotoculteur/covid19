@@ -1,0 +1,24 @@
+<mat-toolbar>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item fxLayout="row" fxLayoutAlign="space-around center">
+          <mat-icon>home</mat-icon>
+          <span>Accueil</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item fxLayout="row" fxLayoutAlign="space-around center">
+          <fa-icon class="icon" class="icon" [icon]="iconFrance"></fa-icon>
+          <span>Données France</span>
+        </button>
+        <button mat-menu-item fxLayout="row" fxLayoutAlign="space-around center">
+          <fa-icon class="icon" [icon]="iconWorld"></fa-icon>
+          <span>Données Monde</span>
+        </button>
+
+      </mat-menu>
+
+    <span>Covid-19 Data Visualisation</span>
+</mat-toolbar>

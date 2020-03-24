@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "covid19-france": {
+    "covid19": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,14 +17,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/covid19-france",
+            "outputPath": "dist/covid19",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -66,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "covid19-france:build"
+            "browserTarget": "covid19:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "covid19-france:build:production"
+              "browserTarget": "covid19:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "covid19-france:build"
+            "browserTarget": "covid19:build"
           }
         },
         "test": {
@@ -114,15 +113,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "covid19-france:serve"
+            "devServerTarget": "covid19:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "covid19-france:serve:production"
+              "devServerTarget": "covid19:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "covid19-france"
+    }
+  },
+  "defaultProject": "covid19"
 }
