@@ -4,18 +4,23 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item fxLayout="row" fxLayoutAlign="space-around center">
-          <mat-icon>home</mat-icon>
+        <button (click)="updateFooterNavInfos(eFooterNav.WELCOME)" routerLink="/welcome" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="17px">
+          <fa-icon class="icon" [icon]="iconHome"></fa-icon>
           <span>Accueil</span>
         </button>
         <mat-divider></mat-divider>
-        <button mat-menu-item fxLayout="row" fxLayoutAlign="space-around center">
-          <fa-icon class="icon" class="icon" [icon]="iconFrance"></fa-icon>
+        <button (click)="updateFooterNavInfos(eFooterNav.FRANCE)" routerLink="/france" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="28px">
+          <fa-icon class="icon" [icon]="iconFrance"></fa-icon>
           <span>Données France</span>
         </button>
-        <button mat-menu-item fxLayout="row" fxLayoutAlign="space-around center">
+        <button (click)="updateFooterNavInfos(eFooterNav.GLOBAL)" routerLink="/global" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
           <fa-icon class="icon" [icon]="iconWorld"></fa-icon>
           <span>Données Monde</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button (click)="updateFooterNavInfos(eFooterNav.INFOS)" routerLink="/infos" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="25px">
+          <fa-icon class="icon" [icon]="iconQuestion"></fa-icon>
+          <span>A propos</span>
         </button>
 
       </mat-menu>

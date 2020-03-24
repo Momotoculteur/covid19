@@ -1,14 +1,17 @@
 <div>
     
 <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex class="mainContener">
-    <div>
-        <span>Bastien MAURICE</span>
-    </div>
-    <div>
+
+    <div class="navWebsite">
         <a href="https://deeplylearning.fr" target="_blank">
             deeplylearning.fr
-        </a>
+        </a>    
     </div>
+
+    <div>
+        <span>{{navFooterInfo}}</span>
+    </div>
+
     <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px">
         <a href="https://twitter.com/Momotoculteur" target="_blank">
             <fa-icon class="icon" [icon]="iconTwitter"></fa-icon>
@@ -23,4 +26,5 @@
             <fa-icon class="icon" [icon]="iconLinkedin"></fa-icon>
         </a>
     </div>
+    
 </div>

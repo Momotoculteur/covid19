@@ -13,12 +13,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatDividerModule} from '@angular/material/divider';
+import { InfosComponent } from './core/infos/infos.component';
+import { WelcomeComponent } from './core/welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    InfosComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,  
