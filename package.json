@@ -28,6 +28,9 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "angular-plotly.js": "^2.0.0",
+    "plotly.js": "^1.52.3",
+    "plotly.js-dist": "^1.52.3",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

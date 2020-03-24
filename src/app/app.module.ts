@@ -15,6 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatDividerModule} from '@angular/material/divider';
 import { InfosComponent } from './core/infos/infos.component';
 import { WelcomeComponent } from './core/welcome/welcome.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { WelcomeComponent } from './core/welcome/welcome.component';
     WelcomeComponent
   ],
   imports: [
-    BrowserModule,  
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -34,9 +36,12 @@ import { WelcomeComponent } from './core/welcome/welcome.component';
     MatButtonModule,
     FlexLayoutModule,
     FontAwesomeModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

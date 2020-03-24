@@ -4,12 +4,28 @@
     <div fxLayout="row" fxLayoutAlign="center" fxFlex>
         <div fxLayout="row" fxLayoutAlign="center" fxFlex fxLayoutGap="20px">
             <div fxFlexAlign="center">
-                <img class="imgMoi" src="../../../assets/img/moi.png">
+                <img class="imgMoi" src="assets/img/moi.png">
             </div>
             <div fxFlexAlign="center">
-                <h1>
-                    <span class="upper">B</span>astien <span class="upper">M</span>aurice
-                </h1>
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                    <h1>
+                        <span class="upper">B</span>astien <span class="upper">M</span>aurice
+                    </h1>
+                    <div fxLayoutGap="10px">
+                        <a href="https://twitter.com/Momotoculteur" target="_blank">
+                            <fa-icon class="icon" [icon]="iconTwitter"></fa-icon>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCLLCNVzeuqaWPTEvOZLKtUw" target="_blank">
+                            <fa-icon class="icon" [icon]="iconYoutube"></fa-icon>
+                        </a>
+                        <a href="https://github.com/Momotoculteur" target="_blank">
+                            <fa-icon class="icon" [icon]="iconGithub"></fa-icon>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bmaurice10/" target="_blank">
+                            <fa-icon class="icon" [icon]="iconLinkedin"></fa-icon>
+                        </a>
+                    </div>
+                </div>
                 <div>
                     Développeur junior, j’ai un profil spécialisé dans le développement logiciel et les systèmes embarqués. Je m’intéresse depuis peu au domaine de la data science.
                 </div>
@@ -30,6 +46,40 @@
                     <span class="upper">T</span>echnologies & <span class="upper">F</span>ramework
                 </h1>
             </div>
+            <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="50px">
+                <div fxLayout="column">
+                    <div>
+                        Web
+                    </div>
+                    <div>
+                        Ui
+                    </div>
+                    <div>
+                        IDE
+                    </div>
+                    <div>
+                        Licence
+                    </div>
+
+
+                </div>
+                <div fxLayout="column">
+                    <div>
+                        Angular 9
+                    </div>
+                    <div>
+                        Material components
+                    </div>
+                    <div>
+                        VisualCode
+                    </div>
+                    <button class="licenceDetailsButton" mat-icon-button (click)="openDialog()">
+                        <mat-icon class="licenceDetails">more_horiz</mat-icon>
+                    </button>
+
+                </div>
+            </div>
+
 
         </div>
 
@@ -39,6 +89,30 @@
                 <h1>
                     <span class="upper">D</span>ata <span class="upper">S</span>ources
                 </h1>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="50px">
+                <div fxLayout="column">
+                    <div>
+                        Dépôt projet
+                    </div>
+                    <div>
+                        Dépôt données France
+                    </div>
+                    <div>
+                        Dépôt données Monde
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <a href="https://github.com/Momotoculteur/covid19" target="_blank">
+                        https://github.com/Momotoculteur/covid19
+                    </a>
+                    <a href="https://github.com/opencovid19-fr/data" target="_blank">
+                        https://github.com/opencovid19-fr/data
+                    </a>
+                    <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">
+                        https://github.com/CSSEGISandData/COVID-19
+                    </a>
+                </div>
             </div>
 
         </div>

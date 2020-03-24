@@ -4,9 +4,9 @@ import { EFooterNav } from 'src/app/shared/enum/EFooterNav';
 import { FooterComService } from '../service/footer-com.service';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
 
