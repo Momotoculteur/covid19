@@ -13,6 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { FloatingButtonModule } from '../shared/module/floating-button/floating-button.module';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ResizableModule } from 'angular-resizable-element';
+import {MatTooltipModule} from '@angular/material/tooltip';
 PlotlyModule.plotlyjs = PlotlyJS;
 
 
@@ -28,7 +32,11 @@ PlotlyModule.plotlyjs = PlotlyJS;
     FlexLayoutModule,
     FloatingButtonModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule,
+    MatSidenavModule,
+    ResizableModule,
+    MatTooltipModule
   ]
 })
 export class FranceModule { }

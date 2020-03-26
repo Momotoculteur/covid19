@@ -11,9 +11,7 @@ export class FranceRow {
     private reanimation: number;
     private hospitalise: number;
     private gueris: number;
-    private sourceNom: string;
-    private sourceUrl: string;
-    private sourceType: string;
+
 
     constructor(
         _date: Date,
@@ -25,9 +23,6 @@ export class FranceRow {
         _reanimation: number,
         _hospitalise: number,
         _gueris: number,
-        _sourceNom: string,
-        _sourceUrl: string,
-        _sourceType: string,
     ) {
         this.date = _date;
         this.typeCarte = _typeCarte;
@@ -38,9 +33,6 @@ export class FranceRow {
         this.reanimation = _reanimation;
         this.hospitalise = _hospitalise;
         this.gueris = _gueris;
-        this.sourceNom = _sourceNom;
-        this.sourceUrl = _sourceUrl;
-        this.sourceType = _sourceType;
     }
 
     public getDate(): Date {
@@ -70,15 +62,7 @@ export class FranceRow {
     public getGueris(): number {
         return this.gueris;
     }
-    public getSourceNom(): string {
-        return this.sourceNom;
-    }
-    public getSourceUrl(): string {
-        return this.sourceUrl;
-    }
-    public getSourceType(): string {
-        return this.sourceType;
-    }
+
 
     public setDate(_date: Date): void {
         this.date = _date;
@@ -107,16 +91,6 @@ export class FranceRow {
    public setGueris(_gueris: number): void {
         this.gueris = _gueris;
    }
-   public setSourceNom(_sourceNom: string): void {
-        this.sourceNom = _sourceNom;
-   }
-   public setSourceUrl(_sourceUrl: string): void {
-        this.sourceUrl = _sourceUrl;
-   }
-   public setSourceType(_sourceType: string): void {
-        this.sourceType = _sourceType;
-   }
-
 
 
 

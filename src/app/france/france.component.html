@@ -1,17 +1,70 @@
-<div fxFill fxLayout="column">
-  <div fxFlex=30px>
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link
-        *ngFor="let link of navLinks"
-        [routerLink]="link.link"
-        routerLinkActive #rla="routerLinkActive"
-        [active]="rla.isActive">
-        {{link.label}}
-      </a>
-    </nav>
-  </div>
+<div fxFill>
+    <div 
+        
+        [style.width]="widthSidebar + 'px'"
+        mwlResizable
+        [enableGhostResize]="true"
+        [resizeEdges]="{ bottom: false, right: isOpenSidebar, top: false, left: false }"
+        (resizeEnd)="onResizeEnd($event)"
+        [validateResize]="validate"
+        resizeCursorPrecision="5"
+        >
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between">
+            <div fxFlex *ngIf="isOpenSidebar">
+                param
+            </div>
 
-  <div fxFlex>
-    <router-outlet></router-outlet>
-  </div>
+            <div fxLayout="row" fxFlex="30px">
+                <div fxFlex fxLayoutAlign="center">
+                    <button fxFlex class="buttonSidebarClose icon" mat-button (click)="toggleSidebar()">
+                        <mat-icon *ngIf="isOpenSidebar">
+                            keyboard_arrow_left
+                        </mat-icon>
+                        <mat-icon *ngIf="!isOpenSidebar">
+                            keyboard_arrow_right
+                        </mat-icon>
+
+                    </button>
+                </div>
+                <div class="dividerSidebar" fxFlex="2px"></div>
+
+            </div>
+        </div>
+
+        
+    </div>
+    <div fxFlex fxLayout="column">
+        <div fxFlex=50px>
+            <nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive
+                    #rla="routerLinkActive" [active]="rla.isActive">
+                    {{link.label}}
+                </a>
+            </nav>
+        </div>
+
+        <div fxFlex>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- FLOATING BUTTON ACTIONS -->
+<div class="floatingButtonContener">
+    <floating-button direction="up" animationMode="fling">
+        <floating-button-trigger spin="true">
+            <button matTooltipPosition="left" mat-fab matTooltip="Paramètres">
+                <mat-icon class="spin360">menu</mat-icon>
+            </button>
+        </floating-button-trigger>
+
+        <floating-button-action>
+            <button matTooltipPosition="left" matTooltip="Ouvrir menu paramètres" mat-mini-fab (click)="toggleSidebar()">
+                <mat-icon>build</mat-icon>
+            </button>
+        </floating-button-action>
+    </floating-button>
 </div>

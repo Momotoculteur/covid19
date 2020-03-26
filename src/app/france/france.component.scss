@@ -1,3 +1,36 @@
 .mat-tab-links, .mat-tab-label, .mat-tab-link {
-    height: 30px;
+    height: 50px;
 }
+
+.mat-tab-label-active {
+    font-weight: bold;
+}
+
+
+.dividerSidebar {
+    background-color: #323233;
+}
+
+.icon:hover{
+    color: #EC407A;
+}
+
+.icon {
+    color: #F48FB1;
+}
+
+mwlResizable {
+    box-sizing: border-box; // required for the enableGhostResize option to work
+}
+.floatingButtonContener {
+    position:fixed;
+	bottom:40px;
+	right:20px;
+}
+
+.buttonSidebarClose {
+    padding: 0;
+    width: 20px;
+    min-width: 0px;
+}
+

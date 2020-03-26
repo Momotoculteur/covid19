@@ -1,52 +1,116 @@
 <div fxFlexFill fxLayout="row" fxLayoutAlign="center">
 
-    <div fxFlex="10" fxLayout="column">
+    <div fxFlex="10" fxLayout="column" fxLayoutGap="20px">
+        <!-- GRANULARITE CARTE -->
         <div fxLayout="column">
             <div>
                 Granularité Carte
             </div>
-            <div fxLayout="row">
-                <mat-radio-group
-                    [(ngModel)]="granuCarte">
-                    <mat-radio-button *ngFor="let granu of typeGranu" [value]="granu">
-                        {{granu}}
-                    </mat-radio-button>
+            <div>
+                <mat-radio-group (change)="updateFiltredData()" [(ngModel)]="currentGranulariteCarte">
+                    <div fxLayout="column" fxLayoutGap="5px">
+                        <mat-radio-button *ngFor="let granu of typeGranu" [value]="granu">
+                            {{granu}}
+                        </mat-radio-button>
+                    </div>
                 </mat-radio-group>
             </div>
         </div>
-        <div>
+        <mat-divider></mat-divider>
+        <!-- AFFICHAGE GRAPHE -->
+        <div fxLayout="column">
+            <div>
+                Affichage des graphes
+            </div>
+            <div>
+
+            </div>
+
 
         </div>
-    
+
 
     </div>
 
-    <div fxFlex="45">
-carte
-    
+    <div fxFlex="40">
+        carte
+
 
     </div>
 
-    <div fxFlex="45">
+    <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-around">
+        <!-- LIGNE HAUT -->
+        <div fxFlex fxLayout="row">
+            <div fxFlex>
+                <plotly-plot 
+                    [style]="{width: '100%', height: '100%'}" 
+                    [useResizeHandler]="true"
+                    [data]="graphConfirmed.data" 
+                    [config]="graphConfirmed.config" 
+                    [layout]="graphConfirmed.layout">
+                </plotly-plot>
+            </div>
+            <div fxFlex>
+                <plotly-plot 
+                [style]="{width: '100%', height: '100%'}" 
 
-    graph
+                    [useResizeHandler]="true" 
+                    [data]="graphActive.data" 
+                    [config]="graphActive.config"
+                    [layout]="graphActive.layout">
+                </plotly-plot>
+            </div>
+        </div>
+
+        <!-- LIGNE BAS -->
+        <div fxFlex fxLayout="row">
+            <div fxFlex>
+                <plotly-plot 
+                    [style]="{width: '100%', height: '100%'}" 
+                    [useResizeHandler]="true" 
+                    [data]="graphDeath.data" 
+                    [config]="graphDeath.config"
+                    [layout]="graphDeath.layout">
+                </plotly-plot>
+            </div>
+            <div fxFlex>
+                <plotly-plot 
+                    [style]="{width: '100%', height: '100%'}" 
+                    [useResizeHandler]="true" 
+                    [data]="graphRecovered.data" 
+                    [config]="graphRecovered.config"
+                    [layout]="graphRecovered.layout">
+                </plotly-plot>
+            </div>
+        </div>
+
+        <div fxFlex fxLayout="row">
+            <div fxFlex>
+                <plotly-plot 
+                    [style]="{width: '100%', height: '100%'}" 
+                    [useResizeHandler]="true" 
+                    [data]="graphHospitalised.data" 
+                    [config]="graphHospitalised.config"
+                    [layout]="graphHospitalised.layout">
+                </plotly-plot>
+            </div>
+            <div fxFlex>
+                <plotly-plot 
+                    [style]="{width: '100%', height: '100%'}" 
+                    [useResizeHandler]="true" 
+                    [data]="graphHReanimation.data" 
+                    [config]="graphHReanimation.config"
+                    [layout]="graphHReanimation.layout">
+                </plotly-plot>
+            </div>
+        </div>
+
+
 
     </div>
- 
+
 
 
 
 </div>
 
-<!-- FLOATING BUTTON ACTIONS -->
-<div class="floatingButtonContener">
-    <floating-button direction="up" animationMode="fling">
-        <floating-button-trigger spin="true">
-            <button mat-fab ><mat-icon class="spin360">menu</mat-icon></button>
-        </floating-button-trigger>
-    
-        <floating-button-action>
-            <button mat-mini-fab><mat-icon>build</mat-icon></button>
-        </floating-button-action>
-    </floating-button>
-</div>
