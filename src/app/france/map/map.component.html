@@ -1,1 +1,52 @@
-<p>map works!</p>
+<div fxFlexFill fxLayout="row" fxLayoutAlign="center">
+
+    <div fxFlex="10" fxLayout="column">
+        <div fxLayout="column">
+            <div>
+                Granularité Carte
+            </div>
+            <div fxLayout="row">
+                <mat-radio-group
+                    [(ngModel)]="granuCarte">
+                    <mat-radio-button *ngFor="let granu of typeGranu" [value]="granu">
+                        {{granu}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    
+
+    </div>
+
+    <div fxFlex="45">
+carte
+    
+
+    </div>
+
+    <div fxFlex="45">
+
+    graph
+
+    </div>
+ 
+
+
+
+</div>
+
+<!-- FLOATING BUTTON ACTIONS -->
+<div class="floatingButtonContener">
+    <floating-button direction="up" animationMode="fling">
+        <floating-button-trigger spin="true">
+            <button mat-fab ><mat-icon class="spin360">menu</mat-icon></button>
+        </floating-button-trigger>
+    
+        <floating-button-action>
+            <button mat-mini-fab><mat-icon>build</mat-icon></button>
+        </floating-button-action>
+    </floating-button>
+</div>

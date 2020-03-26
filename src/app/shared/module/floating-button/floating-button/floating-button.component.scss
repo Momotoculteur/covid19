@@ -1,0 +1,181 @@
+@mixin floating-button-container($box-orient, $flex-direction) {
+    -webkit-box-orient: $box-orient;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+}
+
+@mixin floating-button-box-order($ordinal-group, $order) {
+    -webkit-box-ordinal-group: $ordinal-group;
+    -webkit-order: $order;
+    order: $order;
+}
+
+@mixin floating-button-action($box-orient, $box-direction, $flex-direction, $ordinal-group, $order, $action-item-margin-direction) {
+    -webkit-box-orient: $box-orient;
+    -webkit-box-direction: $box-direction;
+    -webkit-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+    @include floating-button-box-order($ordinal-group, $order);
+
+    & .eco-fab-action-item {
+        margin-#{$action-item-margin-direction}: 10px;
+    }
+}
+
+floating-button {
+    display: inline-block;
+
+    &.eco-opened {
+        .floating-button-container {
+            floating-button-trigger.eco-spin {
+                .spin180 {
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+                .spin360 {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+
+    .floating-button-container {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        z-index: 20;
+
+        floating-button-trigger {
+            pointer-events: auto;
+            z-index: 24;
+
+            &.eco-spin {
+                .spin180, .spin360 {
+                    -webkit-transition: all .6s cubic-bezier(.4, 0, .2, 1);
+                    transition: all .6s cubic-bezier(.4, 0, .2, 1);
+                }
+            }
+        }
+
+        floating-button-action {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            position: absolute;
+            height: 0;
+            width: 0
+        }
+    }
+
+    &.eco-fling {
+        .floating-button-container {
+            floating-button-action {
+                & .eco-fab-action-item {
+                    display: block;
+                    opacity: 1;
+                    -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                    transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                }
+            }
+        }
+    }
+
+    &.eco-scale {
+        .floating-button-container {
+            floating-button-action {
+                & .eco-fab-action-item {
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                    -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                    transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                    -webkit-transition-duration: .14286s;
+                    transition-duration: .14286s;
+                }
+            }
+        }
+    }
+
+    &.eco-down {
+
+        floating-button-action {
+            bottom: 2px;
+            left: 7px;
+        }
+
+        .floating-button-container {
+            @include floating-button-container(vertical, column);
+
+            & floating-button-trigger {
+                @include floating-button-box-order(2, 1);
+            }
+
+            & floating-button-action {
+                @include floating-button-action(vertical, normal, column, 3, 2, top);
+            }
+        }
+    }
+
+    &.eco-up {
+        floating-button-action {
+            top: 2px;
+            left: 7px;
+        }
+
+        .floating-button-container {
+            @include floating-button-container(vertical, column);
+
+            & floating-button-trigger {
+                @include floating-button-box-order(3, 2);
+            }
+
+            & floating-button-action {
+                @include floating-button-action(vertical, reverse, column-reverse, 2, 1, bottom);
+            }
+        }
+    }
+
+    &.eco-left {
+        floating-button-action {
+            top: 7px;
+            left: 2px;
+        }
+
+        .floating-button-container {
+            @include floating-button-container(horizontal, row);
+
+            & floating-button-trigger {
+                @include floating-button-box-order(3, 2);
+            }
+
+            & floating-button-action {
+                @include floating-button-action(horizontal, normal, row-reverse, 2, 1, right);
+            }
+        }
+    }
+
+    &.eco-right {
+        floating-button-action {
+            top: 7px;
+            right: 2px;
+        }
+
+        .floating-button-container {
+            @include floating-button-container(horizontal, row);
+
+            & floating-button-trigger {
+                @include floating-button-box-order(2, 1);
+            }
+
+            & floating-button-action {
+                @include floating-button-action(horizontal, normal, row, 3, 2, left);
+            }
+        }
+    }
+
+}

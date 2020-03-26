@@ -7,8 +7,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 import { PlotlyModule } from 'angular-plotly.js';
 import { MapComponent } from './map/map.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FloatingButtonModule } from '../shared/module/floating-button/floating-button.module';
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 PlotlyModule.plotlyjs = PlotlyJS;
+
 
 @NgModule({
   declarations: [FranceComponent, MapComponent],
@@ -16,7 +22,13 @@ PlotlyModule.plotlyjs = PlotlyJS;
     CommonModule,
     FranceRoutingModule,
     PlotlyModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule,
+    MatIconModule,
+    FlexLayoutModule,
+    FloatingButtonModule,
+    MatRadioModule,
+    FormsModule
   ]
 })
 export class FranceModule { }
