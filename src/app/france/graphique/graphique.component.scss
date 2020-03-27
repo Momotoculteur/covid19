@@ -1,9 +1,3 @@
-.contenerParams {
-    //border-radius: 10px;
-    //border: solid;
-}
-
-
 .dividerSidebar {
     background-color: #323233;
 }
@@ -41,4 +35,8 @@ mwlResizable {
 
 .dateInput{
     width: 150px;
+}
+
+.scrollable {
+    overflow: auto;
 }

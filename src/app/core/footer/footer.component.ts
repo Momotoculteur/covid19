@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faTwitter, faYoutube, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { EFooterNav } from 'src/app/shared/enum/EFooterNav';
-import { FooterComService } from '../service/footer-com.service';
+import { FooterComService } from 'src/app/shared/service/footer-com.service';
 
 @Component({
     selector: 'app-footer',

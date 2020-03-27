@@ -1,0 +1,8 @@
+.noScrollable {
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+
+.scrollable {
+    overflow: auto;
+}

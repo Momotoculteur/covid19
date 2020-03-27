@@ -17,6 +17,7 @@ import { InfosComponent } from './core/infos/infos.component';
 import { WelcomeComponent } from './core/welcome/welcome.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
   ],
   bootstrap: [AppComponent],
 })

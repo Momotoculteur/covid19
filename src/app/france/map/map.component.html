@@ -1,111 +1,97 @@
 <div fxFlexFill fxLayout="row" fxLayoutAlign="center">
+    <div 
+        [style.width]="widthSidebar + 'px'"
+        mwlResizable
+        [enableGhostResize]="true"
+        [resizeEdges]="{ bottom: false, right: isOpenSidebar, top: false, left: false }"
+        (resizeEnd)="onResizeEnd($event)"
+        [validateResize]="validate"
+        resizeCursorPrecision="5"
+        >
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between">
+            <div fxFlex *ngIf="isOpenSidebar" fxLayout="column" fxLayoutGap="20px">
+                
+                 <!-- TITRE --> 
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <h1>
+                        Paramètres 
+                    </h1>
+                </div>
 
-    <div fxFlex="10" fxLayout="column" fxLayoutGap="20px">
-        <!-- GRANULARITE CARTE -->
-        <div fxLayout="column">
-            <div>
-                Granularité Carte
-            </div>
-            <div>
-                <mat-radio-group (change)="updateFiltredData()" [(ngModel)]="currentGranulariteCarte">
-                    <div fxLayout="column" fxLayoutGap="5px">
-                        <mat-radio-button *ngFor="let granu of typeGranu" [value]="granu">
-                            {{granu}}
-                        </mat-radio-button>
+                <!--GRANULARITE CARTE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Granularité Carte
+                        </h3> 
                     </div>
-                </mat-radio-group>
+                    <div class="contentTemplate">
+                        <mat-radio-group (change)="refreshGraph()" [(ngModel)]="currentGranulariteCarte">
+                            <div fxLayout="column" fxLayoutGap="5px">
+                                <mat-radio-button *ngFor="let granu of allMapviewType" [value]="granu">
+                                    {{granu}}
+                                </mat-radio-button>
+                            </div>
+                        </mat-radio-group>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!--DATE CARTE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Choix Date
+                        </h3> 
+                    </div>
+
+                     
+                    <div class="contentTemplate">
+                        <mat-form-field class="dateInput">
+                            <input (dateChange)="updateDate($event.value)" [value]="currentDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div fxLayout="row" fxFlex="30px">
+                <div fxFlex fxLayoutAlign="center">
+                    <button fxFlex class="buttonSidebarClose icon" mat-button (click)="toggleSidebar()">
+                        <mat-icon *ngIf="isOpenSidebar">
+                            keyboard_arrow_left
+                        </mat-icon>
+                        <mat-icon *ngIf="!isOpenSidebar">
+                            keyboard_arrow_right
+                        </mat-icon>
+
+                    </button>
+                </div>
+                <div class="dividerSidebar" fxFlex="2px"></div>
+
             </div>
         </div>
-        <mat-divider></mat-divider>
-        <!-- AFFICHAGE GRAPHE -->
-        <div fxLayout="column">
-            <div>
-                Affichage des graphes
-            </div>
-            <div>
 
-            </div>
-
-
-        </div>
-
-
+        
     </div>
-
-    <div fxFlex="40">
+    <div fxFlex>
         carte
 
 
     </div>
 
-    <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-around">
+    <div fxFlex>
         <!-- LIGNE HAUT -->
-        <div fxFlex fxLayout="row">
-            <div fxFlex>
                 <plotly-plot 
                     [style]="{width: '100%', height: '100%'}" 
                     [useResizeHandler]="true"
-                    [data]="graphConfirmed.data" 
-                    [config]="graphConfirmed.config" 
-                    [layout]="graphConfirmed.layout">
+                    [data]="globalGraph.data" 
+                    [config]="globalGraph.config" 
+                    [layout]="globalGraph.layout">
                 </plotly-plot>
-            </div>
-            <div fxFlex>
-                <plotly-plot 
-                [style]="{width: '100%', height: '100%'}" 
-
-                    [useResizeHandler]="true" 
-                    [data]="graphActive.data" 
-                    [config]="graphActive.config"
-                    [layout]="graphActive.layout">
-                </plotly-plot>
-            </div>
-        </div>
-
-        <!-- LIGNE BAS -->
-        <div fxFlex fxLayout="row">
-            <div fxFlex>
-                <plotly-plot 
-                    [style]="{width: '100%', height: '100%'}" 
-                    [useResizeHandler]="true" 
-                    [data]="graphDeath.data" 
-                    [config]="graphDeath.config"
-                    [layout]="graphDeath.layout">
-                </plotly-plot>
-            </div>
-            <div fxFlex>
-                <plotly-plot 
-                    [style]="{width: '100%', height: '100%'}" 
-                    [useResizeHandler]="true" 
-                    [data]="graphRecovered.data" 
-                    [config]="graphRecovered.config"
-                    [layout]="graphRecovered.layout">
-                </plotly-plot>
-            </div>
-        </div>
-
-        <div fxFlex fxLayout="row">
-            <div fxFlex>
-                <plotly-plot 
-                    [style]="{width: '100%', height: '100%'}" 
-                    [useResizeHandler]="true" 
-                    [data]="graphHospitalised.data" 
-                    [config]="graphHospitalised.config"
-                    [layout]="graphHospitalised.layout">
-                </plotly-plot>
-            </div>
-            <div fxFlex>
-                <plotly-plot 
-                    [style]="{width: '100%', height: '100%'}" 
-                    [useResizeHandler]="true" 
-                    [data]="graphHReanimation.data" 
-                    [config]="graphHReanimation.config"
-                    [layout]="graphHReanimation.layout">
-                </plotly-plot>
-            </div>
-        </div>
-
-
 
     </div>
 
@@ -114,3 +100,20 @@
 
 </div>
 
+
+<!-- FLOATING BUTTON ACTIONS  -->
+<div class="floatingButtonContener">
+    <floating-button direction="up" animationMode="fling">
+        <floating-button-trigger spin="true">
+            <button matTooltipPosition="left" mat-fab matTooltip="Paramètres">
+                <mat-icon class="spin360">menu</mat-icon>
+            </button>
+        </floating-button-trigger>
+
+        <floating-button-action>
+            <button matTooltipPosition="left" matTooltip="Ouvrir menu paramètres" mat-mini-fab (click)="toggleSidebar()">
+                <mat-icon>build</mat-icon>
+            </button>
+        </floating-button-action>
+    </floating-button>
+</div>

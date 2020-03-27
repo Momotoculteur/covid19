@@ -12,16 +12,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FloatingButtonModule } from '../shared/module/floating-button/floating-button.module';
 import {MatRadioModule} from '@angular/material/radio';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ResizableModule } from 'angular-resizable-element';
 import {MatTooltipModule} from '@angular/material/tooltip';
-PlotlyModule.plotlyjs = PlotlyJS;
-
+import {MatCheckboxModule} from '@angular/material/checkbox';PlotlyModule.plotlyjs = PlotlyJS;
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { GraphiqueComponent } from './graphique/graphique.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
-  declarations: [FranceComponent, MapComponent],
+  declarations: [FranceComponent, MapComponent, GraphiqueComponent],
   imports: [
     CommonModule,
     FranceRoutingModule,
@@ -36,7 +42,18 @@ PlotlyModule.plotlyjs = PlotlyJS;
     MatDividerModule,
     MatSidenavModule,
     ResizableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    MatDatepickerModule
   ]
 })
 export class FranceModule { }

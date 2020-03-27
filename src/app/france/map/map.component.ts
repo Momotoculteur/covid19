@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { EGranulariteCarte } from '../../shared/enum/EGranulariteCarte';
 import { HttpClient } from '@angular/common/http';
-import * as xml2js from 'xml2js';
 import { FranceRow } from 'src/app/shared/class/FranceRow';
-import { G_FRANCE_DATA_PATH } from 'src/app/shared/constant/CGlobal';
+import { G_FRANCE_DATA_PATH, UPDATE_PLOTLY_VIEW, LAST_DATE } from 'src/app/shared/constant/CGlobal';
 
 import * as clonedeep from 'lodash.clonedeep';
+import { ResizeEvent } from 'angular-resizable-element';
+
+const MIN_WIDTH_SIDEBAR = 200;
+let OLD_WIDTH_SIDEBAR = 200;
+
+const DEFAULT_COUNTRY = 'FRA';
+const DEFAULT_REGION = 'REG-75';
+const DEFAULT_DEPARTEMENTAL = 'DEP-33';
 
 @Component({
     selector: 'app-map',
@@ -14,118 +21,122 @@ import * as clonedeep from 'lodash.clonedeep';
 })
 export class MapComponent implements OnInit {
 
-    public currentGranulariteCarte: EGranulariteCarte;
-    public typeGranu: EGranulariteCarte[];
+
 
     public allData: FranceRow[];
     public filtredData: FranceRow[];
 
-    public lastDate: Date;
-
     public nbEntree: number;
 
+    public isDisplayed_graphDeath: boolean;
+    public isDisplayed_graphRecovered: boolean;
+    public isDisplayed_graphActive: boolean;
+    public isDisplayed_graphConfirmed: boolean;
+    public isDisplayed_graphHospitalized: boolean;
+    public isDisplayed_graphReanimated: boolean;
 
-    public graphDeath = {
+    public currentGranulariteCarte: EGranulariteCarte;
+    public allMapviewType: EGranulariteCarte[];
+    public isOpenSidebar: boolean;
+    public widthSidebar: number;
+
+    public minDate: Date;
+    public maxDate: Date;
+    public currentDate: Date;
+
+    
+
+    public globalGraph = {
         data: [],
         layout: {
-            title: 'Cas décédés',
-            autosize: true
+            title: 'Graphique global',
+            autosize: true,
         },
         config: {
             responsive: true
         }
     };
 
-    public graphRecovered = {
-        data: [],
-        layout: {
-            title: 'Cas guérris',
-            autosize: true
-        },
-        config: {
-            responsive: true
-        }
-    };
 
-    public graphActive = {
-        data: [],
-        layout: {
-            title: 'Cas actifs',
-            autosize: true
-        },
-        config: {
-            responsive: true
-        }
-    };
 
-    public graphConfirmed = {
-        data: [],
-        layout: {
-            title: 'Cas confirmés',
-            autosize: true
-        },
-        config: {
-            responsive: true
-        }
-    };
-
-    public graphHospitalised = {
-        data: [],
-        layout: {
-            title: 'Cas hospitalisés',
-            autosize: true
-        },
-        config: {
-            responsive: true
-        }
-    };
-
-    public graphHReanimation = {
-        data: [],
-        layout: {
-            title: 'Cas réanimés',
-            autosize: true
-        },
-        config: {
-            responsive: true
-        }
-    };
-
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient
+    ) {
+        
         this.currentGranulariteCarte = EGranulariteCarte.PAYS;
-        this.typeGranu = [EGranulariteCarte.DEPARTEMENT, EGranulariteCarte.REGION, EGranulariteCarte.PAYS];
+        this.allMapviewType = [EGranulariteCarte.PAYS, EGranulariteCarte.REGION, EGranulariteCarte.DEPARTEMENT];
+        this.isOpenSidebar = true;
+        this.widthSidebar = OLD_WIDTH_SIDEBAR;
+        
+
         this.nbEntree = 0;
         this.allData = [];
-
-        this.lastDate = new Date('2020-03-23');
+        this.minDate = new Date('01-02-2020');
+        this.maxDate = new Date('01-02-2020');
+        this.currentDate = LAST_DATE;
 
         this.loadData();
     }
 
-    public updateFiltredData(): void {
-        this.filtredData = this.allData.filter(currentData =>
-            currentData.getDate().getDate() === this.lastDate.getDate()
-            && currentData.getDate().getMonth() === this.lastDate.getMonth()
-            && currentData.getDate().getFullYear() === this.lastDate.getFullYear()
-            && currentData.getTypeCarte() === this.currentGranulariteCarte);
+    public onResizeEnd(event: ResizeEvent): void {
+        console.log(event.rectangle.width)
+        OLD_WIDTH_SIDEBAR = event.rectangle.width;
+        this.widthSidebar = event.rectangle.width;
+        UPDATE_PLOTLY_VIEW();
+    }
 
-        switch(this.currentGranulariteCarte) {
+    public validate(event: ResizeEvent): boolean {
+        if (
+          event.rectangle.width &&
+          (event.rectangle.width < MIN_WIDTH_SIDEBAR)
+        ) {
+          return false;
+        }
+        return true;
+    }
+
+    public refreshGraph(): void {
+        this.updateFiltredData();
+    }
+
+    public updateDate(newDate: Date): void {
+        console.log(newDate)
+        this.currentDate = newDate;
+        this.refreshGraph();
+    }
+
+
+    public updateFiltredData(): void {
+        /*
+        this.filtredData = this.allData.filter(currentData =>
+            currentData.getDate().getDate() === LAST_DATE.getDate()
+            && currentData.getDate().getMonth() === LAST_DATE.getMonth()
+            && currentData.getDate().getFullYear() === LAST_DATE.getFullYear()
+            && currentData.getTypeCarte() === this.currentGranulariteCarte);
+            */
+        this.cleanAllDataGraph();
+        let tmpDefaultDisplay;
+        switch (this.currentGranulariteCarte) {
             case EGranulariteCarte.PAYS : {
-                this.loadGraphDataForCountry();
+                tmpDefaultDisplay = DEFAULT_COUNTRY;
                 break;
             }
             case EGranulariteCarte.REGION : {
-                this.loadGraphDataForRegion();
+                tmpDefaultDisplay = DEFAULT_REGION;
                 break;
             }
             case EGranulariteCarte.DEPARTEMENT : {
-                this.loadGraphDataForDepartemental();
+                tmpDefaultDisplay = DEFAULT_DEPARTEMENTAL;
                 break;
             }
         }
 
-        console.log(this.filtredData)
-
+        this.filtredData.forEach((row: FranceRow) => {
+            if (row.getCodeTypeCarte() === tmpDefaultDisplay
+                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                this.addRow(row);
+            }
+        });
 
     }
 
@@ -160,7 +171,16 @@ export class MapComponent implements OnInit {
                         Number(currentLine[6]),
                         Number(currentLine[7]),
                         Number(currentLine[8]),
-                        ));
+                        Number(currentLine[9]),
+                        Number(currentLine[10]),
+                        Number(currentLine[11])
+                    ));
+                    if (new Date(currentLine[0]).getTime() > this.maxDate.getTime()) {
+                        this.maxDate = new Date(currentLine[0]);
+                    }
+                    if (new Date(currentLine[0]).getTime() < this.minDate.getTime()) {
+                        this.minDate = new Date(currentLine[0]);
+                    }
                 }
     
                 this.nbEntree++;
@@ -173,30 +193,77 @@ export class MapComponent implements OnInit {
 
     }
 
+    private addRow(row: FranceRow): void {
+        const completeDate = row.getDate().getDate() + '-' + row.getDate().getMonth() + '-' + row.getDate().getFullYear();
+        this.globalGraph.data.push({
+            x: [completeDate],
+            y: [row.getDeces()],
+            type: 'bar',
+            name: 'Décés'
+        });
 
-    private loadGraphDataForCountry(): void {
-        this.cleanAllGraph();
+        this.globalGraph.data.push({
+            x: [completeDate],
+            y: [row.getCasConfirme()],
+            name: 'Cas confirmés',
+            type: 'bar'
+        });
+
+        this.globalGraph.data.push({
+            x: [completeDate],
+            y: [row.getReanimation()],
+            name: 'Cas réanimés',
+            type: 'bar'
+        });
+
+        this.globalGraph.data.push({
+            x: [completeDate],
+            y: [row.getHospitalise()],
+            name: 'Cas hospitalisés',
+            type: 'bar'
+        });
+
+        this.globalGraph.data.push({
+            x: [completeDate],
+            y: [row.getGueris()],
+            name: 'Cas guérris',
+            type: 'bar'
+        });
+
+        this.globalGraph.data.push({
+            x: [completeDate],
+            y: [row.getActif()],
+            name: 'Cas actifs',
+            type: 'bar'
+        });
 
     }
 
-    private loadGraphDataForRegion(): void {
-        this.cleanAllGraph();
+    public toggleSidebar(): void {
+        this.isOpenSidebar = !this.isOpenSidebar;
+        if (this.isOpenSidebar) {
+            this.widthSidebar = OLD_WIDTH_SIDEBAR;
+        } else {
+            this.widthSidebar = 30;
+        }
+        UPDATE_PLOTLY_VIEW();
 
     }
 
-    private loadGraphDataForDepartemental(): void {
-        this.cleanAllGraph();
+
+    private isDateEqual(date1: Date, date2: Date): boolean {
+        if (date1.getMonth() === date2.getMonth()
+            && date1.getFullYear() === date2.getFullYear()
+            && date1.getDate() === date2.getDate()) {
+            return true;
+        } else {
+            return false;
+        }
     }
+ 
 
-    public addRow(graph) {
-
-    }
-
-    private cleanAllGraph(): void {
-        this.graphDeath.data = [];
-        this.graphRecovered.data = [];
-        this.graphActive.data = [];
-        this.graphConfirmed.data = [];
+    private cleanAllDataGraph(): void {
+        this.globalGraph.data = [];
     }
 
 

@@ -1,24 +1,25 @@
 <mat-toolbar>
-
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button (click)="updateFooterNavInfos(eFooterNav.WELCOME)" routerLink="/welcome" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="17px">
+        <button (click)="updateNavInfos(eFooterNav.WELCOME, EHeaderNav.BLANK)" routerLink="/welcome" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="17px">
           <fa-icon class="icon" [icon]="iconHome"></fa-icon>
           <span>Accueil</span>
         </button>
         <mat-divider></mat-divider>
-        <button (click)="updateFooterNavInfos(eFooterNav.FRANCE)" routerLink="/france" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="28px">
+        <button (click)="updateNavInfos(eFooterNav.FRANCE, EHeaderNav.FRANCE)" routerLink="/france" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="28px">
           <fa-icon class="icon" [icon]="iconFrance"></fa-icon>
           <span>Données France</span>
         </button>
-        <button (click)="updateFooterNavInfos(eFooterNav.GLOBAL)" routerLink="/global" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
+        <button (click)="updateNavInfos(eFooterNav.GLOBAL, EHeaderNav.MONDE)" routerLink="/global" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
           <fa-icon class="icon" [icon]="iconWorld"></fa-icon>
           <span>Données Monde</span>
         </button>
         <mat-divider></mat-divider>
-        <button (click)="updateFooterNavInfos(eFooterNav.INFOS)" routerLink="/infos" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="25px">
+        <button (click)="updateNavInfos(eFooterNav.INFOS, EHeaderNav.BLANK)" routerLink="/infos" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="25px">
           <fa-icon class="icon" [icon]="iconQuestion"></fa-icon>
           <span>A propos</span>
         </button>
@@ -26,4 +27,15 @@
       </mat-menu>
 
     <span>Covid-19 Data Visualisation</span>
+    </div>
+    <div>
+      {{detailledMenu}}
+    </div>
+    <div>
+
+    </div>
+  </div>
+
+
+
 </mat-toolbar>

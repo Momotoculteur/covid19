@@ -6,31 +6,12 @@
     font-weight: bold;
 }
 
-
-.dividerSidebar {
-    background-color: #323233;
+.scrollable {
+    overflow: auto;
 }
 
-.icon:hover{
-    color: #EC407A;
-}
-
-.icon {
-    color: #F48FB1;
-}
-
-mwlResizable {
-    box-sizing: border-box; // required for the enableGhostResize option to work
-}
-.floatingButtonContener {
-    position:fixed;
-	bottom:40px;
-	right:20px;
-}
-
-.buttonSidebarClose {
-    padding: 0;
-    width: 20px;
-    min-width: 0px;
+.noScroll{
+    overflow: hidden;
+    flex-wrap: nowrap;
 }
 
