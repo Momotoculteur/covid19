@@ -38,37 +38,29 @@ export class GraphiqueComponent implements OnInit {
     public minDate: Date;
     public maxDate: Date;
     public currentDate: Date;
-    public currentDateMin: Date;
-    public currentDateMax: Date;
+    public selectedDateMin: Date;
+    public selectedDateMax: Date;
 
     public uniqueDate: boolean;
 
     public uniqueGraphique: boolean;
     public listTypeGraph: EGraphType[];
-    public selectedListTypeGraph: FormControl;
     
     public allGraphics: IGraphicDefinition[];
     public selectedSpecificGraphicsList: EGraphType[];
 
-    public currentPlotType: EPlotType;
+    public selectedPlotType: EPlotType;
     public listPlotType: EPlotType[];
 
     public aliasPlotType = EPlotType;
 
     public allBarSubmob: EBarMode[];
     public selectedBarSubmod: EBarMode;
-    public allScatterSubmod: EScatterMode[];
 
-    public globalGraph = {
-        data: [],
-        layout: {
-            title: 'Graphique global',
-            autosize: true,
-        },
-        config: {
-            responsive: true
-        }
-    };
+    public allScatterSubmod: EScatterMode[];
+    public selectedScatterSubmod: string;
+
+
 
     constructor(
         private http: HttpClient,
@@ -86,44 +78,63 @@ export class GraphiqueComponent implements OnInit {
             EGraphType.REANIMATED,
             EGraphType.RECOVERED
         ];
-        this.currentPlotType = EPlotType.BAR;
+        this.selectedPlotType = EPlotType.BAR;
         this.listPlotType = [EPlotType.BAR, EPlotType.SCATTER];
-        this.selectedListTypeGraph = new FormControl();
         this.allGraphics = [];
         this.nbEntree = 0;
         this.allData = [];
         this.minDate = new Date('01-02-2020');
         this.maxDate = new Date('01-02-2020');
-        const tmpCurrentDateMin = new Date(LAST_DATE);
-        tmpCurrentDateMin.setDate(tmpCurrentDateMin.getDate() - 1);
-        this.currentDateMin = tmpCurrentDateMin;
-        this.currentDateMax = new Date(LAST_DATE);
+        const tmpselectedDateMin = new Date(LAST_DATE);
+        tmpselectedDateMin.setDate(tmpselectedDateMin.getDate() - 1);
+        this.selectedDateMin = tmpselectedDateMin;
+        this.selectedDateMax = new Date(LAST_DATE);
         this.currentDate = LAST_DATE;
         this.uniqueGraphique = true;
         this.selectedSpecificGraphicsList = [];
 
         this.allBarSubmob = [EBarMode.GROUP, EBarMode.STACK];
         this.selectedBarSubmod = EBarMode.GROUP;
-        this.allScatterSubmod = [EScatterMode.LINES, EScatterMode.POINTS]
-
+        this.allScatterSubmod = [EScatterMode.LINES, EScatterMode.MARKERS];
+        this.selectedScatterSubmod = 'lines';
         this.initializeGlobalGraphics();
         this.loadData();
     }
 
     public updateGraphicType(newType: EPlotType): void {
-        this.currentPlotType = newType;
+        this.selectedPlotType = newType;
         this.allGraphics.forEach((currentGraphic) => {
             currentGraphic.data.forEach((currentData) => {
-                currentData.type = this.currentPlotType.toLowerCase();
+                currentData.type = this.selectedPlotType.toLowerCase();
             });
         });
     }
 
     public updateBarSubmod(newVal: EBarMode): void {
         this.selectedBarSubmod = newVal;
-        console.log(this.selectedBarSubmod)
-        this.allGraphics.forEach((currentGraphic) => {
+        this.allGraphics.forEach((currentGraphic: IGraphicDefinition) => {
             currentGraphic.layout.barmode = this.selectedBarSubmod.toLowerCase();
+        });
+    }
+
+    public updateScatterSubmod(newVal: EScatterMode[]): void {
+        this.selectedScatterSubmod = '';
+        let index = 1;
+        newVal.forEach((submod: EScatterMode) => {
+            this.selectedScatterSubmod += submod.toLowerCase();
+            if (index < newVal.length) {
+                this.selectedScatterSubmod += '+';
+            }
+            index++;
+        });
+
+        console.log(this.selectedScatterSubmod);
+        console.log('---------------')
+
+        this.allGraphics.forEach((currentGraphic) => {
+            currentGraphic.data.forEach((data) => {
+                data.mode = 'lines';
+            });
         });
     }
 
@@ -155,8 +166,9 @@ export class GraphiqueComponent implements OnInit {
         dataToPush.push({
             x: xData,
             y: yData,
-            type: EPlotType.BAR,
-            name: graphicName
+            type: this.selectedPlotType,
+            name: graphicName,
+            mode: 'lines'
         });
         const toPush: IGraphicDefinition = {
             data: dataToPush,
@@ -215,11 +227,11 @@ export class GraphiqueComponent implements OnInit {
 
     }
     public updateDateCurrentMin(newVal: Date): void {
-        this.currentDateMin = newVal;
+        this.selectedDateMin = newVal;
         this.updateFiltredData();
     }
     public updateDateCurrentMax(newVal: Date): void {
-        this.currentDateMax = newVal;
+        this.selectedDateMax = newVal;
         this.updateFiltredData();
     }
 
@@ -258,7 +270,7 @@ export class GraphiqueComponent implements OnInit {
         } else {
             this.filtredData.forEach((row: FranceRow) => {
                 if (row.getCodeTypeCarte() === tmpDefaultDisplay
-                    && this.isDateBetween(row.getDate(), this.currentDateMin, this.currentDateMax)) {
+                    && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                     this.addRow(row);
                 }
             });
@@ -354,77 +366,75 @@ export class GraphiqueComponent implements OnInit {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getDeces()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas Décés',
                         marker : {
                             color: 'red'
                         },
                         legendgroup: 'Décés',
-                        showlegend: hideLegendfAlreadyExist
-                    
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getCasConfirme()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas confirmés',
                         marker : {
                             color: 'grey'
                         },
                         legendgroup: 'Confirmés',
                         showlegend: hideLegendfAlreadyExist,
-
+                        mode: this.selectedScatterSubmod
                     });
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getReanimation()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas réanimés',
                         marker : {
                             color: 'orange'
                         },
                         legendgroup: 'Réanimés',
-                        showlegend: hideLegendfAlreadyExist
-
-
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getHospitalise()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas hospitalisés',
                         marker : {
                             color: 'yellow'
                         },
                         legendgroup: 'Hospitalisés',
-                        showlegend: hideLegendfAlreadyExist
-
-
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getGueris()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas guérris',
                         marker : {
                             color: 'green'
                         },
                         legendgroup: 'Guérris',
-                        showlegend: hideLegendfAlreadyExist
-
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getActif()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas actifs',
                         marker : {
                             color: 'blue'
                         },
                         legendgroup: 'Actifs',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
-
                     break;
                 }
 
@@ -433,12 +443,13 @@ export class GraphiqueComponent implements OnInit {
                         x: [completeDate],
                         y: [row.getActif()],
                         name: 'Cas actifs',
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'blue'
                         },
                         legendgroup: 'Actifs',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     break;
                 }
@@ -447,12 +458,13 @@ export class GraphiqueComponent implements OnInit {
                         x: [completeDate],
                         y: [row.getCasConfirme()],
                         name: 'Cas confirmés',
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'grey'
                         },
                         legendgroup: 'Confirmés',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     break;
                 }
@@ -460,13 +472,14 @@ export class GraphiqueComponent implements OnInit {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getDeces()],
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         name: 'Cas Décés',
                         marker : {
                             color: 'red'
                         },
                         legendgroup: 'Décés',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     break;
                 }
@@ -475,12 +488,13 @@ export class GraphiqueComponent implements OnInit {
                         x: [completeDate],
                         y: [row.getHospitalise()],
                         name: 'Cas hospitalisés',
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'yellow'
                         },
                         legendgroup: 'Hospitalisés',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     break;
                 }
@@ -489,12 +503,13 @@ export class GraphiqueComponent implements OnInit {
                         x: [completeDate],
                         y: [row.getReanimation()],
                         name: 'Cas réanimés',
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'orange'
                         },
                         legendgroup: 'Réanimés',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     break;
                 }
@@ -503,31 +518,19 @@ export class GraphiqueComponent implements OnInit {
                         x: [completeDate],
                         y: [row.getGueris()],
                         name: 'Cas guérris',
-                        type: this.currentPlotType.toLowerCase(),
+                        type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'green'
                         },
                         legendgroup: 'Guérris',
-                        showlegend: hideLegendfAlreadyExist
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
                     });
                     break;
                 }
 
-
-
             }
-        })
-
-
-
-
-
-
-
-
-
-
-
+        });
 
     }
 

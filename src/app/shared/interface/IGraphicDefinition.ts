@@ -10,7 +10,7 @@ export interface IGraphicDefinition {
         autosize: boolean;
         bargap?: number;
         bargroupgap?: number;
-        barmode: string;
+        barmode?: string;
     };
     typeGraphic: string;
 }
@@ -25,5 +25,6 @@ export interface IGaphicDataDefinition {
     };
     legendgroup?: string;
     showlegend?: boolean;
+    mode?: string;
 }
 

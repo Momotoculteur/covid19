@@ -1,6 +1,6 @@
 <mat-toolbar>
-  <div fxLayout="row" fxLayoutAlign="space-between">
-    <div>
+  <div fxLayout="row" fxLayoutAlign="space-between" fxFlex>
+    <div fxFlex>
           <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
       </button>
@@ -28,10 +28,12 @@
 
     <span>Covid-19 Data Visualisation</span>
     </div>
-    <div>
-      {{detailledMenu}}
+    <div fxFlex fxLayoutAlign="center">
+      <div fxLayout="column" fxLayoutAlign="center">
+        {{detailledMenu}}
+      </div>
     </div>
-    <div>
+    <div fxFlex>
 
     </div>
   </div>
