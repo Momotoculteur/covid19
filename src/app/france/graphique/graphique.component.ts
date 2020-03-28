@@ -11,6 +11,7 @@ import { IGraphicDefinition, IGaphicDataDefinition } from 'src/app/shared/interf
 import { EPlotType } from 'src/app/shared/enum/EPlotType';
 import { EBarMode } from '../../shared/enum/EBarMode';
 import { EScatterMode } from '../../shared/enum/EScatterMode';
+import { ELegend } from 'src/app/shared/enum/ELegends';
 
 const MIN_WIDTH_SIDEBAR = 300;
 let OLD_WIDTH_SIDEBAR = 300;
@@ -60,6 +61,9 @@ export class GraphiqueComponent implements OnInit {
     public allScatterSubmod: EScatterMode[];
     public selectedScatterSubmod: string;
 
+    public selectedGap: number;
+    public selectedGapGroup: number;
+
 
 
     constructor(
@@ -97,8 +101,37 @@ export class GraphiqueComponent implements OnInit {
         this.selectedBarSubmod = EBarMode.GROUP;
         this.allScatterSubmod = [EScatterMode.LINES, EScatterMode.MARKERS];
         this.selectedScatterSubmod = 'lines';
+
+        this.selectedGap = 0.1;
+        this.selectedGapGroup = 0.1;
+
+
+
+
         this.initializeGlobalGraphics();
         this.loadData();
+    }
+
+    public updateBarGap(newValue: number, typeBar: string) {
+        switch (typeBar) {
+            case 'gap': {
+                this.selectedGap = newValue;
+                this.allGraphics.forEach((currentGraphic) => {
+                    currentGraphic.layout.bargap = this.selectedGap;
+                });
+                console.log('bar ' + this.selectedGap)
+                break;
+            }
+            case 'gapGroup': {
+                this.selectedGapGroup = newValue;
+                this.allGraphics.forEach((currentGraphic) => {
+                    currentGraphic.layout.bargroupgap = this.selectedGapGroup;
+                });
+                console.log('barGroup ' + this.selectedGapGroup)
+
+                break;
+            }
+        }
     }
 
     public updateGraphicType(newType: EPlotType): void {
@@ -128,8 +161,6 @@ export class GraphiqueComponent implements OnInit {
             index++;
         });
 
-        console.log(this.selectedScatterSubmod);
-        console.log('---------------')
 
         this.allGraphics.forEach((currentGraphic) => {
             currentGraphic.data.forEach((data) => {
@@ -167,7 +198,6 @@ export class GraphiqueComponent implements OnInit {
             x: xData,
             y: yData,
             type: this.selectedPlotType,
-            name: graphicName,
             mode: 'lines'
         });
         const toPush: IGraphicDefinition = {
@@ -178,8 +208,8 @@ export class GraphiqueComponent implements OnInit {
             layout: {
                 title: graphicName,
                 autosize: true,
-                bargap: 0.1,
-                bargroupgap: 0.1,
+                bargap: this.selectedGap,
+                bargroupgap: this.selectedGapGroup,
                 barmode: this.selectedBarSubmod.toLowerCase()
 
             },
@@ -276,8 +306,7 @@ export class GraphiqueComponent implements OnInit {
             });
         }
 
-
-        console.log(this.allGraphics);
+        console.log(this.allGraphics)
 
 
     }
@@ -352,7 +381,7 @@ export class GraphiqueComponent implements OnInit {
 
     private addRow(row: FranceRow): void {
         const completeDate = row.getDate().getDate() + '-' + row.getDate().getMonth() + '-' + row.getDate().getFullYear();
-
+        console.log(row)
         this.allGraphics.forEach((currentGraphics) => {
             let hideLegendfAlreadyExist: boolean;
             if (currentGraphics.data.length > 0) {
@@ -363,86 +392,129 @@ export class GraphiqueComponent implements OnInit {
 
             switch (currentGraphics.typeGraphic) {
                 case EGraphType.GLOBAL: {
-                    currentGraphics.data.push({
-                        x: [completeDate],
-                        y: [row.getDeces()],
-                        type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas Décés',
-                        marker : {
-                            color: 'red'
-                        },
-                        legendgroup: 'Décés',
-                        showlegend: hideLegendfAlreadyExist,
-                        mode: this.selectedScatterSubmod
-                    });
-                    currentGraphics.data.push({
-                        x: [completeDate],
-                        y: [row.getCasConfirme()],
-                        type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas confirmés',
-                        marker : {
-                            color: 'grey'
-                        },
-                        legendgroup: 'Confirmés',
-                        showlegend: hideLegendfAlreadyExist,
-                        mode: this.selectedScatterSubmod
-                    });
-                    currentGraphics.data.push({
-                        x: [completeDate],
-                        y: [row.getReanimation()],
-                        type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas réanimés',
-                        marker : {
-                            color: 'orange'
-                        },
-                        legendgroup: 'Réanimés',
-                        showlegend: hideLegendfAlreadyExist,
-                        mode: this.selectedScatterSubmod
-                    });
-                    currentGraphics.data.push({
-                        x: [completeDate],
-                        y: [row.getHospitalise()],
-                        type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas hospitalisés',
-                        marker : {
-                            color: 'yellow'
-                        },
-                        legendgroup: 'Hospitalisés',
-                        showlegend: hideLegendfAlreadyExist,
-                        mode: this.selectedScatterSubmod
-                    });
-                    currentGraphics.data.push({
-                        x: [completeDate],
-                        y: [row.getGueris()],
-                        type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas guérris',
-                        marker : {
-                            color: 'green'
-                        },
-                        legendgroup: 'Guérris',
-                        showlegend: hideLegendfAlreadyExist,
-                        mode: this.selectedScatterSubmod
-                    });
-                    currentGraphics.data.push({
-                        x: [completeDate],
-                        y: [row.getActif()],
-                        type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas actifs',
-                        marker : {
-                            color: 'blue'
-                        },
-                        legendgroup: 'Actifs',
-                        showlegend: hideLegendfAlreadyExist,
-                        mode: this.selectedScatterSubmod
-                    });
-                    break;
-                }
+                    if (currentGraphics.data.length === 0) {
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getDeces()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.DEATH,
+                            marker : {
+                                color: 'red'
+                            },
+                            legendgroup: 'Décés',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getCasConfirme()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.CONFIRMED,
+                            marker : {
+                                color: 'grey'
+                            },
+                            legendgroup: 'Confirmés',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getReanimation()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.REANIMATED,
+                            marker : {
+                                color: 'orange'
+                            },
+                            legendgroup: 'Réanimés',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getHospitalise()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.HOSPITALIZED,
+                            marker : {
+                                color: 'yellow'
+                            },
+                            legendgroup: 'Hospitalisés',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getGueris()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.RECOVERED,
+                            marker : {
+                                color: 'green'
+                            },
+                            legendgroup: 'Guérris',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getActif()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.ACTIVE,
+                            marker : {
+                                color: 'blue'
+                            },
+                            legendgroup: 'Actifs',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        currentGraphics.data.forEach((currentData: IGaphicDataDefinition) => {
+                            switch (currentData.name) {
+                                case ELegend.ACTIVE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getActif());
+                                    break;
+                                }
+                                case ELegend.DEATH: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getDeces());
+                                    break;
+                                }
+                                case ELegend.REANIMATED: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getReanimation());
+                                    break;
+                                }
+                                case ELegend.RECOVERED: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getGueris());
+                                    break;
+                                }
+                                case ELegend.HOSPITALIZED: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getHospitalise());
+                                    break;
+                                }
+                                case ELegend.CONFIRMED: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getCasConfirme());
+                                    break;
+                                }
+                            }
+                        });
+                    }
+
+
+
+
+
+
+                break;
+            }
 
                 case EGraphType.ACTIVE: {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getActif()],
-                        name: 'Cas actifs',
+                        name: ELegend.ACTIVE,
                         type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'blue'
@@ -457,7 +529,7 @@ export class GraphiqueComponent implements OnInit {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getCasConfirme()],
-                        name: 'Cas confirmés',
+                        name: ELegend.CONFIRMED,
                         type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'grey'
@@ -473,7 +545,7 @@ export class GraphiqueComponent implements OnInit {
                         x: [completeDate],
                         y: [row.getDeces()],
                         type: this.selectedPlotType.toLowerCase(),
-                        name: 'Cas Décés',
+                        name: ELegend.DEATH,
                         marker : {
                             color: 'red'
                         },
@@ -487,7 +559,7 @@ export class GraphiqueComponent implements OnInit {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getHospitalise()],
-                        name: 'Cas hospitalisés',
+                        name: ELegend.HOSPITALIZED,
                         type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'yellow'
@@ -502,7 +574,7 @@ export class GraphiqueComponent implements OnInit {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getReanimation()],
-                        name: 'Cas réanimés',
+                        name: ELegend.REANIMATED,
                         type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'orange'
@@ -517,7 +589,7 @@ export class GraphiqueComponent implements OnInit {
                     currentGraphics.data.push({
                         x: [completeDate],
                         y: [row.getGueris()],
-                        name: 'Cas guérris',
+                        name: ELegend.RECOVERED,
                         type: this.selectedPlotType.toLowerCase(),
                         marker : {
                             color: 'green'

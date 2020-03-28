@@ -1,4 +1,4 @@
-import { EPlotType } from '../enum/EPlotType';
+import { ELegend } from '../enum/ELegends';
 
 export interface IGraphicDefinition {
     data: IGaphicDataDefinition[];
@@ -19,7 +19,7 @@ export interface IGaphicDataDefinition {
     x: any[];
     y: any[];
     type: string;
-    name: string;
+    name?: ELegend;
     marker?: {
         color: string;
     };

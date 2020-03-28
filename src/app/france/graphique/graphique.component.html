@@ -138,16 +138,47 @@
                                 <mat-select multiple (selectionChange)="updateScatterSubmod($event.value)">
                                   <mat-option *ngFor="let submod of allScatterSubmod" [value]="submod">{{submod}}</mat-option>
                                 </mat-select>
-                              </mat-form-field>
+                            </mat-form-field>
                         </div>
-                        <div class="contentTemplate" *ngIf="selectedPlotType === aliasPlotType.BAR">
-                            <mat-radio-group (change)="updateBarSubmod($event.value)" [(ngModel)]="selectedBarSubmod">
-                                <div fxLayout="column" fxLayoutGap="5px">
-                                    <mat-radio-button *ngFor="let submod of allBarSubmob" [value]="submod">
-                                        {{submod}}
-                                    </mat-radio-button>
+                        <div class="contentTemplate" *ngIf="selectedPlotType === aliasPlotType.BAR" fxLayout="column" fxLayoutGap="10px">
+                            
+                            <div>
+                                <mat-radio-group (change)="updateBarSubmod($event.value)" [(ngModel)]="selectedBarSubmod">
+                                    <div fxLayout="column" fxLayoutGap="5px">
+                                        <mat-radio-button *ngFor="let submod of allBarSubmob" [value]="submod">
+                                            {{submod}}
+                                        </mat-radio-button>
+                                    </div>
+                                </mat-radio-group>
+                            </div>
+                         
+                            <div fxLayout="column">
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <span>Gap bar</span>
+                                    <mat-slider
+                                        (change)="updateBarGap($event.value, 'gap')"
+                                        max="1"
+                                        min="0"
+                                        step="0.1"
+                                        thumbLabel="true"
+                                        [(ngModel)]="selectedGap">
+                                    </mat-slider>
+
                                 </div>
-                            </mat-radio-group>
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <span>Gap bar groupe</span>
+                                    <mat-slider
+                                        (change)="updateBarGap($event.value, 'gapGroup')"
+                                        max="1"
+                                        min="0"
+                                        step="0.1"
+                                        thumbLabel="true"
+                                        [(ngModel)]="selectedGapGroup">
+                                    </mat-slider>
+                                </div>
+                            </div>
+                            
+                        
                         </div>
                 </div>
 
@@ -183,15 +214,9 @@
             [data]="graphic.data" 
             [config]="graphic.config" 
             [layout]="graphic.layout">
-        </plotly-plot>
+            </plotly-plot>
         </div>
-
-
     </div>
-
-
-
-
 </div>
 
 

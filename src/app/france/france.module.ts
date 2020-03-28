@@ -25,7 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { GraphiqueComponent } from './graphique/graphique.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatSliderModule} from '@angular/material/slider';
 @NgModule({
   declarations: [FranceComponent, MapComponent, GraphiqueComponent],
   imports: [
@@ -50,7 +50,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatNativeDateModule,
     MatSlideToggleModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule
   ],
   providers: [
     MatDatepickerModule

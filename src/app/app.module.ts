@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,7 +42,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     HttpClientModule
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
   ],
   bootstrap: [AppComponent],
 })
