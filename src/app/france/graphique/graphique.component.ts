@@ -100,7 +100,8 @@ export class GraphiqueComponent implements OnInit {
         this.allBarSubmob = [EBarMode.GROUP, EBarMode.STACK];
         this.selectedBarSubmod = EBarMode.GROUP;
         this.allScatterSubmod = [EScatterMode.LINES, EScatterMode.MARKERS];
-        this.selectedScatterSubmod = 'lines';
+
+        this.selectedScatterSubmod = '';
 
         this.selectedGap = 0.1;
         this.selectedGapGroup = 0.1;
@@ -151,6 +152,7 @@ export class GraphiqueComponent implements OnInit {
     }
 
     public updateScatterSubmod(newVal: EScatterMode[]): void {
+        console.log(newVal)
         this.selectedScatterSubmod = '';
         let index = 1;
         newVal.forEach((submod: EScatterMode) => {
@@ -164,7 +166,7 @@ export class GraphiqueComponent implements OnInit {
 
         this.allGraphics.forEach((currentGraphic) => {
             currentGraphic.data.forEach((data) => {
-                data.mode = 'lines';
+                data.mode = this.selectedScatterSubmod;
             });
         });
     }

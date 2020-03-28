@@ -135,7 +135,7 @@
                         <div class="contentTemplate" *ngIf="selectedPlotType === aliasPlotType.SCATTER">
                             <mat-form-field>
                                 <mat-label>Liste submode</mat-label>
-                                <mat-select multiple (selectionChange)="updateScatterSubmod($event.value)">
+                                <mat-select multiple (selectionChange)="updateScatterSubmod($event.value)" [ngModel]="allScatterSubmod" >
                                   <mat-option *ngFor="let submod of allScatterSubmod" [value]="submod">{{submod}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
