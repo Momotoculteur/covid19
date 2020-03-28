@@ -46,7 +46,7 @@ export class GraphiqueComponent implements OnInit {
 
     public uniqueGraphique: boolean;
     public listTypeGraph: EGraphType[];
-    
+
     public allGraphics: IGraphicDefinition[];
     public selectedSpecificGraphicsList: EGraphType[];
 
@@ -80,20 +80,14 @@ export class GraphiqueComponent implements OnInit {
             EGraphType.DEATH,
             EGraphType.HOSPITALIZED,
             EGraphType.REANIMATED,
-            EGraphType.RECOVERED
+            EGraphType.RECOVERED,
+            EGraphType.RATE
         ];
         this.selectedPlotType = EPlotType.BAR;
         this.listPlotType = [EPlotType.BAR, EPlotType.SCATTER];
         this.allGraphics = [];
         this.nbEntree = 0;
         this.allData = [];
-        this.minDate = new Date('01-02-2020');
-        this.maxDate = new Date('01-02-2020');
-        const tmpselectedDateMin = new Date(LAST_DATE);
-        tmpselectedDateMin.setDate(tmpselectedDateMin.getDate() - 1);
-        this.selectedDateMin = tmpselectedDateMin;
-        this.selectedDateMax = new Date(LAST_DATE);
-        this.currentDate = LAST_DATE;
         this.uniqueGraphique = true;
         this.selectedSpecificGraphicsList = [];
 
@@ -195,7 +189,7 @@ export class GraphiqueComponent implements OnInit {
     }
 
     public addGraphics(graphicName: string, xData: number[], yData: number[], graphicType) {
-        const  dataToPush: IGaphicDataDefinition[] = [];
+        const dataToPush: IGaphicDataDefinition[] = [];
         dataToPush.push({
             x: xData,
             y: yData,
@@ -228,10 +222,10 @@ export class GraphiqueComponent implements OnInit {
 
     public validate(event: ResizeEvent): boolean {
         if (
-          event.rectangle.width &&
-          (event.rectangle.width < MIN_WIDTH_SIDEBAR)
+            event.rectangle.width &&
+            (event.rectangle.width < MIN_WIDTH_SIDEBAR)
         ) {
-          return false;
+            return false;
         }
         return true;
     }
@@ -278,15 +272,15 @@ export class GraphiqueComponent implements OnInit {
         this.cleanAllDataGraph();
         let tmpDefaultDisplay;
         switch (this.currentGranulariteCarte) {
-            case EGranulariteCarte.PAYS : {
+            case EGranulariteCarte.PAYS: {
                 tmpDefaultDisplay = DEFAULT_COUNTRY;
                 break;
             }
-            case EGranulariteCarte.REGION : {
+            case EGranulariteCarte.REGION: {
                 tmpDefaultDisplay = DEFAULT_REGION;
                 break;
             }
-            case EGranulariteCarte.DEPARTEMENT : {
+            case EGranulariteCarte.DEPARTEMENT: {
                 tmpDefaultDisplay = DEFAULT_DEPARTEMENTAL;
                 break;
             }
@@ -313,7 +307,7 @@ export class GraphiqueComponent implements OnInit {
 
     }
 
-    
+
     private isDateBetween(dateToCompare: Date, dateMin: Date, dateMax: Date): boolean {
         if (dateToCompare.getMonth() >= dateMin.getMonth()
             && dateToCompare.getFullYear() >= dateMin.getFullYear()
@@ -321,7 +315,7 @@ export class GraphiqueComponent implements OnInit {
             && dateToCompare.getMonth() <= dateMax.getMonth()
             && dateToCompare.getFullYear() <= dateMax.getFullYear()
             && dateToCompare.getDate() <= dateMax.getDate()
-            ) {
+        ) {
             return true;
         } else {
             return false;
@@ -332,10 +326,10 @@ export class GraphiqueComponent implements OnInit {
 
 
     private loadData(): void {
-        this.http.get(G_FRANCE_DATA_PATH, {responseType: 'text'})
-        .subscribe(data => {
-            this.parseXmlFile(data);
-        });
+        this.http.get(G_FRANCE_DATA_PATH, { responseType: 'text' })
+            .subscribe(data => {
+                this.parseXmlFile(data);
+            });
 
     }
 
@@ -347,7 +341,7 @@ export class GraphiqueComponent implements OnInit {
             if (csvLine.length && csvLine !== '') {
                 const currentLine = csvLine.split(',');
                 if (this.nbEntree === 0) {
-    
+
                 } else {
                     this.allData.push(new FranceRow(
                         new Date(currentLine[0]),
@@ -363,6 +357,14 @@ export class GraphiqueComponent implements OnInit {
                         Number(currentLine[10]),
                         Number(currentLine[11])
                     ));
+
+                    if (this.maxDate === undefined) {
+                        this.maxDate = new Date(currentLine[0]);
+                    }
+                    if (this.minDate === undefined) {
+                        this.minDate = new Date(currentLine[0]);
+                    }
+
                     if (new Date(currentLine[0]).getTime() > this.maxDate.getTime()) {
                         this.maxDate = new Date(currentLine[0]);
                     }
@@ -370,11 +372,14 @@ export class GraphiqueComponent implements OnInit {
                         this.minDate = new Date(currentLine[0]);
                     }
                 }
-    
                 this.nbEntree++;
             }
-            
         });
+        this.selectedDateMax = new Date(this.maxDate);
+        const tmpselectedDateMin = new Date(this.selectedDateMax);
+        tmpselectedDateMin.setDate(tmpselectedDateMin.getDate() - 1);
+        this.selectedDateMin = tmpselectedDateMin;
+        this.currentDate = new Date(this.maxDate);
 
         this.filtredData = clonedeep(this.allData);
         this.updateFiltredData();
@@ -400,7 +405,7 @@ export class GraphiqueComponent implements OnInit {
                             y: [row.getDeces()],
                             type: this.selectedPlotType.toLowerCase(),
                             name: ELegend.DEATH,
-                            marker : {
+                            marker: {
                                 color: 'red'
                             },
                             legendgroup: 'Décés',
@@ -412,7 +417,7 @@ export class GraphiqueComponent implements OnInit {
                             y: [row.getCasConfirme()],
                             type: this.selectedPlotType.toLowerCase(),
                             name: ELegend.CONFIRMED,
-                            marker : {
+                            marker: {
                                 color: 'grey'
                             },
                             legendgroup: 'Confirmés',
@@ -424,7 +429,7 @@ export class GraphiqueComponent implements OnInit {
                             y: [row.getReanimation()],
                             type: this.selectedPlotType.toLowerCase(),
                             name: ELegend.REANIMATED,
-                            marker : {
+                            marker: {
                                 color: 'orange'
                             },
                             legendgroup: 'Réanimés',
@@ -436,7 +441,7 @@ export class GraphiqueComponent implements OnInit {
                             y: [row.getHospitalise()],
                             type: this.selectedPlotType.toLowerCase(),
                             name: ELegend.HOSPITALIZED,
-                            marker : {
+                            marker: {
                                 color: 'yellow'
                             },
                             legendgroup: 'Hospitalisés',
@@ -448,7 +453,7 @@ export class GraphiqueComponent implements OnInit {
                             y: [row.getGueris()],
                             type: this.selectedPlotType.toLowerCase(),
                             name: ELegend.RECOVERED,
-                            marker : {
+                            marker: {
                                 color: 'green'
                             },
                             legendgroup: 'Guérris',
@@ -460,10 +465,34 @@ export class GraphiqueComponent implements OnInit {
                             y: [row.getActif()],
                             type: this.selectedPlotType.toLowerCase(),
                             name: ELegend.ACTIVE,
-                            marker : {
+                            marker: {
                                 color: 'blue'
                             },
                             legendgroup: 'Actifs',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getMortalityRate()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.MORTALITY_RATE,
+                            marker: {
+                                color: 'purple'
+                            },
+                            legendgroup: 'taux_mortalite',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getRecoveryRate()],
+                            type: this.selectedPlotType.toLowerCase(),
+                            name: ELegend.RECOVERY_RATE,
+                            marker: {
+                                color: 'pink'
+                            },
+                            legendgroup: 'taux_soin',
                             showlegend: hideLegendfAlreadyExist,
                             mode: this.selectedScatterSubmod
                         });
@@ -500,17 +529,21 @@ export class GraphiqueComponent implements OnInit {
                                     currentData.y.push(row.getCasConfirme());
                                     break;
                                 }
+                                case ELegend.RECOVERY_RATE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getRecoveryRate());
+                                    break;
+                                }
+                                case ELegend.MORTALITY_RATE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getMortalityRate());
+                                    break;
+                                }
                             }
                         });
                     }
-
-
-
-
-
-
-                break;
-            }
+                    break;
+                }
 
                 case EGraphType.ACTIVE: {
                     currentGraphics.data.push({
@@ -518,7 +551,7 @@ export class GraphiqueComponent implements OnInit {
                         y: [row.getActif()],
                         name: ELegend.ACTIVE,
                         type: this.selectedPlotType.toLowerCase(),
-                        marker : {
+                        marker: {
                             color: 'blue'
                         },
                         legendgroup: 'Actifs',
@@ -533,7 +566,7 @@ export class GraphiqueComponent implements OnInit {
                         y: [row.getCasConfirme()],
                         name: ELegend.CONFIRMED,
                         type: this.selectedPlotType.toLowerCase(),
-                        marker : {
+                        marker: {
                             color: 'grey'
                         },
                         legendgroup: 'Confirmés',
@@ -548,7 +581,7 @@ export class GraphiqueComponent implements OnInit {
                         y: [row.getDeces()],
                         type: this.selectedPlotType.toLowerCase(),
                         name: ELegend.DEATH,
-                        marker : {
+                        marker: {
                             color: 'red'
                         },
                         legendgroup: 'Décés',
@@ -563,7 +596,7 @@ export class GraphiqueComponent implements OnInit {
                         y: [row.getHospitalise()],
                         name: ELegend.HOSPITALIZED,
                         type: this.selectedPlotType.toLowerCase(),
-                        marker : {
+                        marker: {
                             color: 'yellow'
                         },
                         legendgroup: 'Hospitalisés',
@@ -578,7 +611,7 @@ export class GraphiqueComponent implements OnInit {
                         y: [row.getReanimation()],
                         name: ELegend.REANIMATED,
                         type: this.selectedPlotType.toLowerCase(),
-                        marker : {
+                        marker: {
                             color: 'orange'
                         },
                         legendgroup: 'Réanimés',
@@ -593,7 +626,7 @@ export class GraphiqueComponent implements OnInit {
                         y: [row.getGueris()],
                         name: ELegend.RECOVERED,
                         type: this.selectedPlotType.toLowerCase(),
-                        marker : {
+                        marker: {
                             color: 'green'
                         },
                         legendgroup: 'Guérris',
@@ -602,6 +635,52 @@ export class GraphiqueComponent implements OnInit {
                     });
                     break;
                 }
+
+                case EGraphType.RATE: {
+                    if (currentGraphics.data.length === 0) {
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getMortalityRate()],
+                            name: ELegend.MORTALITY_RATE,
+                            type: this.selectedPlotType.toLowerCase(),
+                            marker: {
+                                color: 'red'
+                            },
+                            legendgroup: 'taux_mortalite',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGraphics.data.push({
+                            x: [completeDate],
+                            y: [row.getRecoveryRate()],
+                            name: ELegend.RECOVERY_RATE,
+                            type: this.selectedPlotType.toLowerCase(),
+                            marker: {
+                                color: 'green'
+                            },
+                            legendgroup: 'taux_soin',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        break;
+                    } else {
+                        currentGraphics.data.forEach((currentData: IGaphicDataDefinition) => {
+                            switch (currentData.name) {
+                                case ELegend.RECOVERY_RATE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getRecoveryRate());
+                                    break;
+                                }
+                                case ELegend.MORTALITY_RATE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getMortalityRate());
+                                    break;
+                                }
+                            }
+                        });
+                    }
+                }
+
 
             }
         });
@@ -629,7 +708,7 @@ export class GraphiqueComponent implements OnInit {
             return false;
         }
     }
- 
+
 
     private cleanAllDataGraph(): void {
         this.allGraphics.forEach((graphics) => {
@@ -643,7 +722,7 @@ export class GraphiqueComponent implements OnInit {
 
 
 
-    
+
 
     ngOnInit(): void {
     }

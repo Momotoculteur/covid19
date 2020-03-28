@@ -4,5 +4,7 @@ export enum ELegend {
     REANIMATED = 'Réanimés',
     HOSPITALIZED = 'Hospitalisés',
     RECOVERED = 'Guéris',
-    ACTIVE = 'Actifs'
+    ACTIVE = 'Actifs',
+    MORTALITY_RATE = 'Taux mortalité',
+    RECOVERY_RATE = 'Taux soignés'
 }

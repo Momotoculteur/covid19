@@ -5,5 +5,6 @@ export enum EGraphType{
     RECOVERED = 'Soignés',
     REANIMATED = 'Réanimés',
     HOSPITALIZED = 'Hospitalisés',
-    GLOBAL = 'Global'
+    GLOBAL = 'Global',
+    RATE = 'Taux mortalité/soignés'
 }
