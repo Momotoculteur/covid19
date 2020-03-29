@@ -53,9 +53,18 @@
                                                 <!-- REGION -->
 
                         <div *ngIf="currentGranulariteCarte === aliasGranuCarte.REGION">
-                            <div>
+                            <div *ngIf="!uniqueGraphique">
                                 <mat-form-field>
-                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" multiple [(value)]="selectedMultipleRegion">
+                                    <mat-select (selectionChange)="updateFiltredData()" multiple [(value)]="selectedMultipleRegion">
+                                      <mat-option *ngFor="let region of allRegion" [value]="region">
+                                        {{region.codeTypeCarte}} {{region.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                            <div *ngIf="uniqueGraphique">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="updateFiltredData()" [(value)]="selectedUniqueRegion">
                                       <mat-option *ngFor="let region of allRegion" [value]="region">
                                         {{region.codeTypeCarte}} {{region.libeleTypeCarte}}
                                       </mat-option>
@@ -69,9 +78,19 @@
 
 
                         <div *ngIf="currentGranulariteCarte === aliasGranuCarte.DEPARTEMENT">
-                            <div>
+                            <div *ngIf="!uniqueGraphique">
                                 <mat-form-field>
-                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" multiple [(value)]="selectedMultipleDepartemental">
+                                    <mat-select (selectionChange)="updateFiltredData()" multiple [(value)]="selectedMultipleDepartemental">
+                                      <mat-option *ngFor="let dep of allDepartemental" [value]="dep">
+                                        {{dep.codeTypeCarte}} {{dep.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+
+                            <div *ngIf="uniqueGraphique">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="updateFiltredData()" [(value)]="selectedUniqueDepartemental">
                                       <mat-option *ngFor="let dep of allDepartemental" [value]="dep">
                                         {{dep.codeTypeCarte}} {{dep.libeleTypeCarte}}
                                       </mat-option>

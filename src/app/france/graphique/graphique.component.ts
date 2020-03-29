@@ -151,7 +151,8 @@ export class GraphiqueComponent implements OnInit {
     }
 
     public updateGraphAfterGranularityChange(): void {
-        this.redrawSpecificGraphicsList();
+        //this.redrawSpecificGraphicsList();
+        this.updateFiltredData();
     }
 
     public updateGraphicType(newType: EPlotType): void {
@@ -316,45 +317,115 @@ export class GraphiqueComponent implements OnInit {
             }
             case EGranulariteCarte.REGION: {
                 if (this.uniqueDate) {
-                    this.filtredData.forEach((row: FranceRow) => {
-                        this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
-                            if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
+                    if (this.uniqueGraphique) {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            if (this.selectedUniqueRegion.codeTypeCarte === row.getCodeTypeCarte()
                                 && this.isDateEqual(row.getDate(), this.currentDate)) {
-                                this.addRowMultipleDate(row);
+                                if (this.uniqueGraphique) {
+                                    this.addRow(row);
+                                } else {
+                                    this.addRowMultipleDate(row);
+                                }
                             }
                         });
-                    });
+                    } else {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
+                                if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
+                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                    if (this.uniqueGraphique) {
+                                        this.addRow(row);
+                                    } else {
+                                        this.addRowMultipleDate(row);
+                                    }
+                                }
+                            });
+                        });
+                    }
+
                 } else {
-                    this.filtredData.forEach((row: FranceRow) => {
-                        this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
-                            if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
-                                && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
-                                this.addRowMultipleDate(row);
+                    if (this.uniqueGraphique) {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            if (this.selectedUniqueRegion.codeTypeCarte === row.getCodeTypeCarte()
+                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                if (this.uniqueGraphique) {
+                                    this.addRow(row);
+                                } else {
+                                    this.addRowMultipleDate(row);
+                                }
                             }
                         });
-                    });
+                    } else {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
+                                if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
+                                    && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                        if (this.uniqueGraphique) {
+                                            this.addRow(row);
+                                        } else {
+                                            this.addRowMultipleDate(row);
+                                        }                            
+                                    }
+                            });
+                        });
+                    }
                 }
                 break;
             }
             case EGranulariteCarte.DEPARTEMENT: {
                 if (this.uniqueDate) {
-                    this.filtredData.forEach((row: FranceRow) => {
-                        this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
-                            if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
+                    if (this.uniqueGraphique) {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            if (this.selectedUniqueDepartemental.codeTypeCarte === row.getCodeTypeCarte()
                                 && this.isDateEqual(row.getDate(), this.currentDate)) {
-                                this.addRowMultipleDate(row);
+                                if (this.uniqueGraphique) {
+                                    this.addRow(row);
+                                } else {
+                                    this.addRowMultipleDate(row);
+                                }
                             }
                         });
-                    });
+                    } else {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
+                                if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
+                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                    if (this.uniqueGraphique) {
+                                        this.addRow(row);
+                                    } else {
+                                        this.addRowMultipleDate(row);
+                                    }
+                                }
+                            });
+                        });
+                    }
+
                 } else {
-                    this.filtredData.forEach((row: FranceRow) => {
-                        this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
-                            if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
-                                && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
-                                this.addRowMultipleDate(row);
+                    if (this.uniqueGraphique) {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            if (this.selectedUniqueDepartemental.codeTypeCarte === row.getCodeTypeCarte()
+                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                if (this.uniqueGraphique) {
+                                    this.addRow(row);
+                                } else {
+                                    this.addRowMultipleDate(row);
+                                }
                             }
                         });
-                    });
+                    } else {
+                        this.filtredData.forEach((row: FranceRow) => {
+                            this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
+                                if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
+                                    && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                        if (this.uniqueGraphique) {
+                                            this.addRow(row);
+                                        } else {
+                                            this.addRowMultipleDate(row);
+                                        }                            
+                                    }
+                            });
+                        });
+                    }
                 }
                 break;
             }
