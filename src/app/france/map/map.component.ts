@@ -101,12 +101,14 @@ export class MapComponent implements OnInit {
                 this.map.removeLayer(this.departementData);
                 this.map.addLayer(this.franceData);
 
+                console.log(this.franceData)
                 break;
             }
             case EGranulariteCarte.REGION: {
                 this.map.removeLayer(this.franceData);
                 this.map.removeLayer(this.departementData);
                 this.map.addLayer(this.regionData);
+                console.log(this.regionData)
 
                 break;
             }
@@ -114,7 +116,7 @@ export class MapComponent implements OnInit {
                 this.map.removeLayer(this.regionData);
                 this.map.removeLayer(this.franceData);
                 this.map.addLayer(this.departementData);
-
+                console.log(this.departementData)
                 break;
             }
 
