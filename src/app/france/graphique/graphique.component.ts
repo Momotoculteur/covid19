@@ -137,7 +137,6 @@ export class GraphiqueComponent implements OnInit {
                 this.allGraphics.forEach((currentGraphic) => {
                     currentGraphic.layout.bargap = this.selectedGap;
                 });
-                console.log('bar ' + this.selectedGap)
                 break;
             }
             case 'gapGroup': {
@@ -145,8 +144,6 @@ export class GraphiqueComponent implements OnInit {
                 this.allGraphics.forEach((currentGraphic) => {
                     currentGraphic.layout.bargroupgap = this.selectedGapGroup;
                 });
-                console.log('barGroup ' + this.selectedGapGroup)
-
                 break;
             }
         }
@@ -157,7 +154,7 @@ export class GraphiqueComponent implements OnInit {
     }
 
     public updateGraphicType(newType: EPlotType): void {
-        //this.selectedPlotType = newType;
+        this.selectedPlotType = newType;
         this.allGraphics.forEach((currentGraphic) => {
             currentGraphic.data.forEach((currentData) => {
                 currentData.type = this.selectedPlotType.toLowerCase();
@@ -166,14 +163,13 @@ export class GraphiqueComponent implements OnInit {
     }
 
     public updateBarSubmod(newVal: EBarMode): void {
-        //this.selectedBarSubmod = newVal;
+        this.selectedBarSubmod = newVal;
         this.allGraphics.forEach((currentGraphic: IGraphicDefinition) => {
             currentGraphic.layout.barmode = this.selectedBarSubmod.toLowerCase();
         });
     }
 
     public updateScatterSubmod(newVal: EScatterMode[]): void {
-        console.log(newVal)
         this.selectedScatterSubmod = '';
         let index = 1;
         newVal.forEach((submod: EScatterMode) => {
@@ -297,20 +293,18 @@ export class GraphiqueComponent implements OnInit {
 
     public updateFiltredData(): void {
         this.cleanAllDataGraph();
-        let tmpDefaultDisplay;
         switch (this.currentGranulariteCarte) {
             case EGranulariteCarte.PAYS: {
-                tmpDefaultDisplay = DEFAULT_COUNTRY;
                 if (this.uniqueDate) {
                     this.filtredData.forEach((row: FranceRow) => {
-                        if (row.getCodeTypeCarte() === tmpDefaultDisplay
+                        if (row.getCodeTypeCarte() === this.selectedUniqueCountry.codeTypeCarte
                             && this.isDateEqual(row.getDate(), this.currentDate)) {
                             this.addRow(row);
                         }
                     });
                 } else {
                     this.filtredData.forEach((row: FranceRow) => {
-                        if (row.getCodeTypeCarte() === tmpDefaultDisplay
+                        if (row.getCodeTypeCarte() === this.selectedUniqueCountry.codeTypeCarte
                             && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                             this.addRow(row);
                         }
@@ -320,27 +314,48 @@ export class GraphiqueComponent implements OnInit {
             }
             case EGranulariteCarte.REGION: {
                 if (this.uniqueDate) {
-                    tmpDefaultDisplay = DEFAULT_REGION;
                     this.filtredData.forEach((row: FranceRow) => {
-                        if (row.getCodeTypeCarte() === tmpDefaultDisplay
-                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
-                           console.log(row)
+                        if (row.getCodeTypeCarte() === this.selectedUniqueRegion.codeTypeCarte
+                            && this.isDateEqual(row.getDate(), this.currentDate)) {
                            this.addRowRegionUniqueDate(row);
                         }
-                    });    
+                    });
                 } else {
                     this.filtredData.forEach((row: FranceRow) => {
-                        if (row.getCodeTypeCarte() === tmpDefaultDisplay
+                        this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
+                            if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
                             && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
-                           this.addRowRegionMultipleDate(row);
-                        }
-                    });    
+                                console.log('TROUVE')
+                                console.log(row)
+                                this.addRowRegionMultipleDate(row);
+
+                            }
+                        });
+                    });
                 }
-            
                 break;
             }
             case EGranulariteCarte.DEPARTEMENT: {
-                tmpDefaultDisplay = DEFAULT_DEPARTEMENTAL;
+                if (this.uniqueDate) {
+                    this.filtredData.forEach((row: FranceRow) => {
+                        if (row.getCodeTypeCarte() === this.selectedUniqueDepartemental.codeTypeCarte
+                            && this.isDateEqual(row.getDate(), this.currentDate)) {
+                           this.addRowDepartementalUniqueDate(row);
+                        }
+                    });
+                } else {
+                    this.filtredData.forEach((row: FranceRow) => {
+                        this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
+                            if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
+                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                console.log('TROUVE')
+                                console.log(row)
+                                this.addRowDepartementalMultipleDate(row);
+
+                            }
+                        });
+                    });
+                }
                 break;
             }
         }
@@ -445,7 +460,6 @@ export class GraphiqueComponent implements OnInit {
 
     private addRow(row: FranceRow): void {
         const completeDate = row.getDate().getDate() + '-' + row.getDate().getMonth() + '-' + row.getDate().getFullYear();
-        console.log(row)
         this.allGraphics.forEach((currentGraphics) => {
             let hideLegendfAlreadyExist: boolean;
             if (currentGraphics.data.length > 0) {
