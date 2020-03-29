@@ -18,12 +18,13 @@ export class FranceComponent implements OnInit {
                 label: 'Graphique',
                 link: 'graphique',
                 index: 0
-            },
+            }
+            /*,
             {
                 label: 'Carte',
                 link: 'carte',
                 index: 1
-            }
+            }*/
         ];
 
     }

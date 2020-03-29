@@ -150,7 +150,7 @@ export class GraphiqueComponent implements OnInit {
     }
 
     public updateGraphAfterGranularityChange(): void {
-        this.updateFiltredData();
+        this.redrawSpecificGraphicsList();
     }
 
     public updateGraphicType(newType: EPlotType): void {
@@ -217,7 +217,7 @@ export class GraphiqueComponent implements OnInit {
             x: xData,
             y: yData,
             type: this.selectedPlotType,
-            mode: 'lines'
+            mode: this.selectedScatterSubmod
         });
         const toPush: IGraphicDefinition = {
             data: dataToPush,
@@ -293,6 +293,7 @@ export class GraphiqueComponent implements OnInit {
 
     public updateFiltredData(): void {
         this.cleanAllDataGraph();
+        console.log('_______________________')
         switch (this.currentGranulariteCarte) {
             case EGranulariteCarte.PAYS: {
                 if (this.uniqueDate) {
@@ -315,20 +316,19 @@ export class GraphiqueComponent implements OnInit {
             case EGranulariteCarte.REGION: {
                 if (this.uniqueDate) {
                     this.filtredData.forEach((row: FranceRow) => {
-                        if (row.getCodeTypeCarte() === this.selectedUniqueRegion.codeTypeCarte
-                            && this.isDateEqual(row.getDate(), this.currentDate)) {
-                           this.addRowRegionUniqueDate(row);
-                        }
+                        this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
+                            if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
+                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                this.addRowMultipleDate(row);
+                            }
+                        });
                     });
                 } else {
                     this.filtredData.forEach((row: FranceRow) => {
                         this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
                             if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
-                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
-                                console.log('TROUVE')
-                                console.log(row)
-                                this.addRowRegionMultipleDate(row);
-
+                                && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                this.addRowMultipleDate(row);
                             }
                         });
                     });
@@ -338,20 +338,19 @@ export class GraphiqueComponent implements OnInit {
             case EGranulariteCarte.DEPARTEMENT: {
                 if (this.uniqueDate) {
                     this.filtredData.forEach((row: FranceRow) => {
-                        if (row.getCodeTypeCarte() === this.selectedUniqueDepartemental.codeTypeCarte
-                            && this.isDateEqual(row.getDate(), this.currentDate)) {
-                           this.addRowDepartementalUniqueDate(row);
-                        }
+                        this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
+                            if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
+                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                this.addRowMultipleDate(row);
+                            }
+                        });
                     });
                 } else {
                     this.filtredData.forEach((row: FranceRow) => {
                         this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
                             if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
-                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
-                                console.log('TROUVE')
-                                console.log(row)
-                                this.addRowDepartementalMultipleDate(row);
-
+                                && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                this.addRowMultipleDate(row);
                             }
                         });
                     });
@@ -363,21 +362,272 @@ export class GraphiqueComponent implements OnInit {
         console.log(this.allGraphics)
     }
 
-    private addRowRegionUniqueDate(row: FranceRow): void {
+    private addRowMultipleDate(row: FranceRow): void {
+        const completeDate = row.getDate().getDate() + '-' + row.getDate().getMonth() + '-' + row.getDate().getFullYear();
 
+        this.allGraphics.forEach((currentGrap: IGraphicDefinition) => {
+            let hideLegendfAlreadyExist: boolean;
+            if (currentGrap.data.length > 0) {
+                hideLegendfAlreadyExist = false;
+            } else {
+                hideLegendfAlreadyExist = true;
+            }
+            switch (currentGrap.typeGraphic) {
+                case EGraphType.ACTIVE: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getActif()],
+                            name: row.getLibeleTypeCarte(),
+                            type: this.selectedPlotType.toLowerCase(),
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getActif());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getActif()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+                case EGraphType.CONFIRMED: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getCasConfirme()],
+                            name: row.getLibeleTypeCarte(),
+                            type: this.selectedPlotType.toLowerCase(),
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getCasConfirme());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getCasConfirme()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+                case EGraphType.DEATH: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getDeces()],
+                            name: row.getLibeleTypeCarte(),
+                            type: this.selectedPlotType.toLowerCase(),
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getDeces());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getDeces()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+                case EGraphType.HOSPITALIZED: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getHospitalise()],
+                            name: row.getLibeleTypeCarte(),
+                            type: this.selectedPlotType.toLowerCase(),
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getHospitalise());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getHospitalise()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+                case EGraphType.REANIMATED: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getReanimation()],
+                            name: row.getLibeleTypeCarte(),
+                            type: this.selectedPlotType.toLowerCase(),
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getReanimation());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getReanimation()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+                case EGraphType.RECOVERED: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getGueris()],
+                            name: row.getLibeleTypeCarte(),
+                            type: this.selectedPlotType.toLowerCase(),
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
+                            mode: this.selectedScatterSubmod
+                        });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getGueris());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getGueris()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+
+                /*
+                case EGraphType.RATE: {
+                    if (currentGrap.data.length === 0) {
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getMortalityRate()],
+                            name: ELegend.MORTALITY_RATE,
+                            type: this.selectedPlotType.toLowerCase(),
+                            marker: {
+                                color: 'red'
+                            },
+                            legendgroup: 'taux_mortalite',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        currentGrap.data.push({
+                            x: [completeDate],
+                            y: [row.getRecoveryRate()],
+                            name: ELegend.RECOVERY_RATE,
+                            type: this.selectedPlotType.toLowerCase(),
+                            marker: {
+                                color: 'green'
+                            },
+                            legendgroup: 'taux_soin',
+                            showlegend: hideLegendfAlreadyExist,
+                            mode: this.selectedScatterSubmod
+                        });
+                        break;
+                    } else {
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            switch (currentData.name) {
+                                case ELegend.RECOVERY_RATE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getRecoveryRate());
+                                    break;
+                                }
+                                case ELegend.MORTALITY_RATE: {
+                                    currentData.x.push(completeDate);
+                                    currentData.y.push(row.getMortalityRate());
+                                    break;
+                                }
+                            }
+                        });
+                    }
+                }*/
+            }
+        });
     }
 
-    private addRowRegionMultipleDate(row: FranceRow): void {
-        
-    }
 
-    private addRowDepartementalUniqueDate(row: FranceRow): void {
-
-    }
-
-    private addRowDepartementalMultipleDate(row: FranceRow): void {
-        
-    }
 
 
     private isDateBetween(dateToCompare: Date, dateMin: Date, dateMax: Date): boolean {
@@ -388,8 +638,11 @@ export class GraphiqueComponent implements OnInit {
             && dateToCompare.getFullYear() <= dateMax.getFullYear()
             && dateToCompare.getDate() <= dateMax.getDate()
         ) {
+            console.log('TRUUUE')
             return true;
         } else {
+            console.log('FAUSX')
+
             return false;
         }
     }
@@ -543,7 +796,7 @@ export class GraphiqueComponent implements OnInit {
                             showlegend: hideLegendfAlreadyExist,
                             mode: this.selectedScatterSubmod
                         });
-                        
+
                     } else {
                         currentGraphics.data.forEach((currentData: IGaphicDataDefinition) => {
                             switch (currentData.name) {

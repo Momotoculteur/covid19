@@ -19,7 +19,7 @@ export interface IGaphicDataDefinition {
     x: any[];
     y: any[];
     type: string;
-    name?: ELegend;
+    name?: string;
     marker?: {
         color: string;
     };

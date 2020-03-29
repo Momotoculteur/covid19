@@ -53,16 +53,7 @@
                                                 <!-- REGION -->
 
                         <div *ngIf="currentGranulariteCarte === aliasGranuCarte.REGION">
-                            <div *ngIf="uniqueDate">
-                                <mat-form-field>
-                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" [(value)]="selectedUniqueRegion">
-                                      <mat-option *ngFor="let region of allRegion" [value]="region">
-                                        {{region.codeTypeCarte}} {{region.libeleTypeCarte}}
-                                      </mat-option>
-                                    </mat-select>
-                                  </mat-form-field>
-                            </div>
-                            <div *ngIf="!uniqueDate">
+                            <div>
                                 <mat-form-field>
                                     <mat-select (selectionChange)="updateGraphAfterGranularityChange()" multiple [(value)]="selectedMultipleRegion">
                                       <mat-option *ngFor="let region of allRegion" [value]="region">
@@ -78,16 +69,7 @@
 
 
                         <div *ngIf="currentGranulariteCarte === aliasGranuCarte.DEPARTEMENT">
-                            <div *ngIf="uniqueDate">
-                                <mat-form-field>
-                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" [(value)]="selectedUniqueDepartemental">
-                                      <mat-option *ngFor="let dep of allDepartemental" [value]="dep">
-                                        {{dep.codeTypeCarte}} {{dep.libeleTypeCarte}}
-                                      </mat-option>
-                                    </mat-select>
-                                  </mat-form-field>
-                            </div>
-                            <div *ngIf="!uniqueDate">
+                            <div>
                                 <mat-form-field>
                                     <mat-select (selectionChange)="updateGraphAfterGranularityChange()" multiple [(value)]="selectedMultipleDepartemental">
                                       <mat-option *ngFor="let dep of allDepartemental" [value]="dep">
@@ -158,9 +140,9 @@
                             Graphique global
                         </mat-slide-toggle>
 
-                        <mat-form-field class="dateInput" *ngIf="!uniqueGraphique">
+                        <mat-form-field class="dateInput">
                             <mat-label>Liste graphique</mat-label>
-                            <mat-select multiple (selectionChange)="updateNumberOfGraphique($event.value)">
+                            <mat-select multiple (selectionChange)="updateNumberOfGraphique($event.value)" [disabled]="uniqueGraphique">
                               <mat-option *ngFor="let graph of listTypeGraph" [value]="graph">{{graph}}</mat-option>
                             </mat-select>
                           </mat-form-field>
