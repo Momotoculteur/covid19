@@ -33,6 +33,71 @@
                                 </mat-radio-button>
                             </div>
                         </mat-radio-group>
+
+
+                                                <!-- PAYS -->
+
+                        <div *ngIf="currentGranulariteCarte === aliasGranuCarte.PAYS">
+                            <div>
+                                <mat-form-field>
+                                    <mat-select [(value)]="selectedUniqueCountry">
+                                      <mat-option *ngFor="let country of allCountry" [value]="country">
+                                        {{country.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+
+
+                                                <!-- REGION -->
+
+                        <div *ngIf="currentGranulariteCarte === aliasGranuCarte.REGION">
+                            <div *ngIf="uniqueDate">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" [(value)]="selectedUniqueRegion">
+                                      <mat-option *ngFor="let region of allRegion" [value]="region">
+                                        {{region.codeTypeCarte}} {{region.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                            <div *ngIf="!uniqueDate">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" multiple [(value)]="selectedMultipleRegion">
+                                      <mat-option *ngFor="let region of allRegion" [value]="region">
+                                        {{region.codeTypeCarte}} {{region.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+
+
+                                                        <!-- DEPARTEMENT -->
+
+
+                        <div *ngIf="currentGranulariteCarte === aliasGranuCarte.DEPARTEMENT">
+                            <div *ngIf="uniqueDate">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" [(value)]="selectedUniqueDepartemental">
+                                      <mat-option *ngFor="let dep of allDepartemental" [value]="dep">
+                                        {{dep.codeTypeCarte}} {{dep.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                            <div *ngIf="!uniqueDate">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="updateGraphAfterGranularityChange()" multiple [(value)]="selectedMultipleDepartemental">
+                                      <mat-option *ngFor="let dep of allDepartemental" [value]="dep">
+                                        {{dep.codeTypeCarte}} {{dep.libeleTypeCarte}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
