@@ -34,7 +34,25 @@
                             </div>
                         </mat-radio-group>
                     </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!--DATE CARTE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Choix Date
+                        </h3> 
                     </div>
+                    <div class="contentTemplate">
+                        <mat-form-field class="dateInput">
+                            <input (dateChange)="updateDate($event.value)" [value]="currentDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                </div>
 
             </div>
             <div fxLayout="row" fxFlex="30px">

@@ -47,7 +47,7 @@ def augmentCountryFile():
 
     print('\tSauvegarde nouveau fichier...')
 
-    with open("../assets/data/france/geojsonCountry.json", "w", encoding='utf8') as outCountryFile:
+    with open("../assets/geo/france/geojsonCountry.json", "w", encoding='utf8') as outCountryFile:
         json.dump(customized, outCountryFile, indent=4, sort_keys=True, ensure_ascii=False)
 
 
@@ -89,7 +89,7 @@ def augmentRegionFile():
 
     print('\tSauvegarde nouveau fichier...')
 
-    with open("../assets/data/france/geojsonRegion.json", "w", encoding='utf8') as outRegionFile:
+    with open("../assets/geo/france/geojsonRegion.json", "w", encoding='utf8') as outRegionFile:
         json.dump(rawFranceRegionJson, outRegionFile, indent=4, sort_keys=True, ensure_ascii=False)
 
 
@@ -134,7 +134,7 @@ def augmentDepartementalFile():
 
     print('\tSauvegarde nouveau fichier...')
 
-    with open("../assets/data/france/geojsonDepartement.json", "w", encoding='utf8') as outDepFile:
+    with open("../assets/geo/france/geojsonDepartement.json", "w", encoding='utf8') as outDepFile:
         json.dump(rawFranceDepartementalJson, outDepFile, indent=4, sort_keys=True, ensure_ascii=False)
 
 
