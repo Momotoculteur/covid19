@@ -97,7 +97,8 @@ export class GraphiqueComponent implements OnInit {
             EGraphType.HOSPITALIZED,
             EGraphType.REANIMATED,
             EGraphType.RECOVERED,
-            EGraphType.RATE
+            EGraphType.RECOVERY_RATE,
+            EGraphType.MORTALITY_RATE
         ];
         this.selectedPlotType = EPlotType.BAR;
         this.listPlotType = [EPlotType.BAR, EPlotType.SCATTER];
@@ -577,52 +578,74 @@ export class GraphiqueComponent implements OnInit {
                     }
                     break;
                 }
-
-                /*
-                case EGraphType.RATE: {
+                case EGraphType.MORTALITY_RATE: {
                     if (currentGrap.data.length === 0) {
                         currentGrap.data.push({
                             x: [completeDate],
                             y: [row.getMortalityRate()],
-                            name: ELegend.MORTALITY_RATE,
+                            name: row.getLibeleTypeCarte(),
                             type: this.selectedPlotType.toLowerCase(),
-                            marker: {
-                                color: 'red'
-                            },
-                            legendgroup: 'taux_mortalite',
-                            showlegend: hideLegendfAlreadyExist,
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
                             mode: this.selectedScatterSubmod
                         });
+                    } else {
+                        let alreadyExist = false;
+                        currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getMortalityRate());
+                            }
+                        });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getMortalityRate()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
+                    }
+                    break;
+                }
+                case EGraphType.RECOVERY_RATE: {
+                    if (currentGrap.data.length === 0) {
                         currentGrap.data.push({
                             x: [completeDate],
                             y: [row.getRecoveryRate()],
-                            name: ELegend.RECOVERY_RATE,
+                            name: row.getLibeleTypeCarte(),
                             type: this.selectedPlotType.toLowerCase(),
-                            marker: {
-                                color: 'green'
-                            },
-                            legendgroup: 'taux_soin',
-                            showlegend: hideLegendfAlreadyExist,
+                            legendgroup: row.getLibeleTypeCarte(),
+                            showlegend: true,
                             mode: this.selectedScatterSubmod
                         });
-                        break;
                     } else {
+                        let alreadyExist = false;
                         currentGrap.data.forEach((currentData: IGaphicDataDefinition) => {
-                            switch (currentData.name) {
-                                case ELegend.RECOVERY_RATE: {
-                                    currentData.x.push(completeDate);
-                                    currentData.y.push(row.getRecoveryRate());
-                                    break;
-                                }
-                                case ELegend.MORTALITY_RATE: {
-                                    currentData.x.push(completeDate);
-                                    currentData.y.push(row.getMortalityRate());
-                                    break;
-                                }
+                            if (currentData.name === row.getLibeleTypeCarte() && !alreadyExist) {
+                                alreadyExist = true;
+                                currentData.x.push(completeDate);
+                                currentData.y.push(row.getRecoveryRate());
                             }
                         });
+                        if (!alreadyExist) {
+                            currentGrap.data.push({
+                                x: [completeDate],
+                                y: [row.getRecoveryRate()],
+                                name: row.getLibeleTypeCarte(),
+                                type: this.selectedPlotType.toLowerCase(),
+                                legendgroup: row.getLibeleTypeCarte(),
+                                showlegend: true,
+                                mode: this.selectedScatterSubmod
+                            });
+                        }
                     }
-                }*/
+                    break;
+                }
             }
         });
     }
@@ -926,7 +949,39 @@ export class GraphiqueComponent implements OnInit {
                     });
                     break;
                 }
+                case EGraphType.MORTALITY_RATE: {
+                    currentGraphics.data.push({
+                        x: [completeDate],
+                        y: [row.getMortalityRate()],
+                        name: ELegend.RECOVERED,
+                        type: this.selectedPlotType.toLowerCase(),
+                        marker: {
+                            color: 'purple'
+                        },
+                        legendgroup: 'Taux de mortalité',
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
+                    });
+                    break;
+                }
+                case EGraphType.RECOVERY_RATE: {
+                    currentGraphics.data.push({
+                        x: [completeDate],
+                        y: [row.getRecoveryRate()],
+                        name: ELegend.RECOVERED,
+                        type: this.selectedPlotType.toLowerCase(),
+                        marker: {
+                            color: 'pink'
+                        },
+                        legendgroup: 'Taux de soignés',
+                        showlegend: hideLegendfAlreadyExist,
+                        mode: this.selectedScatterSubmod
+                    });
+                    break;
+                }
 
+
+                /*
                 case EGraphType.RATE: {
                     if (currentGraphics.data.length === 0) {
                         currentGraphics.data.push({
@@ -970,7 +1025,7 @@ export class GraphiqueComponent implements OnInit {
                             }
                         });
                     }
-                }
+                }*/
 
 
             }
