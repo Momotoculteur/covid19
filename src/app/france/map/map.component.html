@@ -110,7 +110,7 @@
 <!-- LEGEND HAUT 
 *ngIf="isHoveringItem"
 -->
-<div class="legendTop" >
+<div class="legendTop" *nfIf="isHoveringItem">
     <div fxFlex fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column" fxLayoutAlign="center">
 
@@ -139,30 +139,31 @@
                 <h2 fxLayoutAlign="center" style="margin: 0px;margin-bottom: 10px;">
                     Moyenne {{selectedGranularityMap}}
                 </h2>
-                <div fxLayout="row" fxLayoutAlign="space-around">
-                    <div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
                         Min
                     </div>
-                    <h3 fxLayoutAlign="center" style="margin: 0px;">
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
                         {{onHoverLegendInfosValueMin}}0
                     </h3>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="space-around">
-                    <div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
                         Max
                     </div>
-                    <h3 fxLayoutAlign="center" style="margin: 0px;">
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
                         {{onHoverLegendInfosValuemax}}0
                     </h3>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="space-around">
-                    <div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
                         Moyenne
                     </div>
-                    <h3 fxLayoutAlign="center" style="margin: 0px;">
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
                         {{onHoverLegendInfosValueMean}}0
                     </h3>
                 </div>
+
 
         </div>
 

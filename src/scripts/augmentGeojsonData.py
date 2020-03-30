@@ -71,7 +71,7 @@ def augmentRegionFile():
         regionAugmented = []
         for index, row in ALL_FRANCE_DATA.iterrows():
             if (row['granularite'] == 'REGION'):
-                if( region['properties']['code']== re.sub( r'[a-zA-Z-]*', '', row['maille_code']) ):
+                if( region['properties']['code']== re.sub( r'([a-zA-Z-]*-)', '', row['maille_code']) ):
                     regionAugmented.append({
                         'date': row['date'],
                         'confirmed': row['cas_confirmes'],
@@ -117,7 +117,7 @@ def augmentDepartementalFile():
 
         for index, row in ALL_FRANCE_DATA.iterrows():
             if (row['granularite'] == 'DEPARTEMENT'):
-                if( departement['properties']['code']== re.sub( r'[a-zA-Z-]*', '', row['maille_code']) ):
+                if( departement['properties']['code']== re.sub( r'([a-zA-Z-]*-)', '', row['maille_code']) ):
                     depAugmented.append({
                         'date': row['date'],
                         'confirmed': row['cas_confirmes'],

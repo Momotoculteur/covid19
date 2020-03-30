@@ -337,11 +337,9 @@ export class MapComponent implements OnInit {
 
     public resetHighlight(e): void {
         this.isHoveringItem = false;
-        console.log('false');
 
         switch (this.selectedGranularityMap) {
             case EGranulariteCarte.PAYS: {
-                //this.franceLayer.resetStyle(e.target);
                 this.franceLayer.eachLayer((current) => {
                     current.setStyle({
                         weight: 2,
@@ -369,9 +367,6 @@ export class MapComponent implements OnInit {
                 break;
             }
         }
-
-        this.onHoverLegendInfos = ''
-        this.onHoverLegendInfosValue = null;
         this.ref.detectChanges();
     }
 
