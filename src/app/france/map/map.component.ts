@@ -409,10 +409,24 @@ export class MapComponent implements OnInit {
 
                 }
             });
-
         });
-        console.log(maxValue)
 
+
+
+
+
+
+        console.log(maxValue)
+        let tick = Math.round(maxValue / 7)
+        console.log(tick)
+        this.selectedLegendInfos = [
+            String(tick * 6),
+            String(tick * 5),
+            String(tick * 4),
+            String(tick * 3),
+            String(tick * 2),
+            String(tick)
+        ];
     }
 
     public dateChanged(newDate: Date): void {
