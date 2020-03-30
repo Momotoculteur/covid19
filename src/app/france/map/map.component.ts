@@ -8,8 +8,16 @@ import { latLng, tileLayer, circle, geoJSON } from 'leaflet';
 import { EGraphType } from '../../shared/enum/EGraphType';
 import { G_redGradient, G_orangeGradient, G_greenGradient } from 'src/app/shared/constant/CGradientLedendColor';
 
-interface ITemplateItemTopLegend {
-    name: string;
+interface ITemplateProps {
+    active: number;
+    confirmed: number;
+    date: Date;
+    death: number;
+    hospitalized: number;
+    mortalityRate: number;
+    recovered: number;
+    recoveredRate: number;
+    reanimated: number;
 }
 
 const MIN_WIDTH_SIDEBAR = 300;
@@ -28,9 +36,6 @@ export class MapComponent implements OnInit {
     public selectedGranularityMap: EGranulariteCarte;
     public listAllGranularityMap: EGranulariteCarte[];
     public aliasGranularityMap = EGranulariteCarte;
-    public minDate: Date;
-    public maxDate: Date;
-    public currentDate: Date;
     public selectedTypeGraph: EGraphType;
     public listTypeGraph: EGraphType[];
 
@@ -38,6 +43,21 @@ export class MapComponent implements OnInit {
     public franceLayer: L.GeoJSON;
     public regionLayer: L.GeoJSON;
     public departementLayer: L.GeoJSON;
+
+    // MIN/MAX de chaque courbe
+    public maximalDeath: number;
+    public maximalConfirmed: number;
+    public maximalActive: number;
+    public maximalHospitalized: number;
+    public maximalReanimated: number;
+    public maximalRecovered: number;
+    public maximalMortalityRate: number;
+    public maximalRecoveryRate: number;
+
+    // DATE
+    public selectedDate: Date;
+    public minDate: Date;
+    public maxDate: Date;
 
     // LAYER CONTROL
     public layersControl = [];
@@ -88,7 +108,6 @@ export class MapComponent implements OnInit {
         ];
         this.onHoverLegendInfos = '';
 
-
     }
 
 
@@ -131,7 +150,8 @@ export class MapComponent implements OnInit {
                     //layer.on('click', (e) => this.zoomToFeature(e));
                 }
             });
-            this.layersControl.push(this.franceLayer)
+            this.layersControl.push(this.franceLayer);
+            this.updateDateMinMaxSelected();
         });
 
         this.http.get(G_MAP_GEOJSON_DEPARTEMENT_PATH).subscribe((json: any) => {
@@ -301,6 +321,79 @@ export class MapComponent implements OnInit {
         this.onHoverLegendInfos = layer.feature.properties.nom as string;
         this.ref.detectChanges();
     }
+
+    public changeGranularity(): void {
+        this.updateMaximalValues();
+        this.updateDateMinMaxSelected();
+    }
+
+    public updateMaximalValues(): void {
+        switch (this.selectedGranularityMap) {
+            case EGranulariteCarte.PAYS: {
+                break;
+            }
+            case EGranulariteCarte.PAYS: {
+                break;
+            }
+            case EGranulariteCarte.PAYS: {
+                break;
+            }
+        }
+    }
+
+    private iteratorMaxMinValues(): void {
+
+    }
+
+    public updateDateMinMaxSelected(): void {
+        switch (this.selectedGranularityMap) {
+            case EGranulariteCarte.PAYS: {
+                this.iteratorDates(this.franceLayer);
+                break;
+            }
+            case EGranulariteCarte.REGION: {
+                this.iteratorDates(this.regionLayer);
+
+                break;
+            }
+            case EGranulariteCarte.DEPARTEMENT: {
+                this.iteratorDates(this.departementLayer);
+
+                break;
+            }
+        }
+    }
+
+    private iteratorDates(layer): void {
+
+        layer.eachLayer((current) => {
+            //let listProps: ITemplateProps[];
+            //listProps = current.feature.properties.value;
+            //current.feature.properties.value
+            
+            current.feature.properties.value.forEach((prop: ITemplateProps) => {    
+                if(this.minDate === undefined) {
+                    this.minDate = new Date(prop.date);
+                }    
+                if(this.maxDate === undefined) {
+                    this.maxDate = new Date(prop.date);
+                } 
+                if(this.selectedDate === undefined) {
+                    this.selectedDate = new Date(prop.date);
+                } 
+                if (new Date(prop.date) > this.maxDate ) {
+                    this.maxDate = new Date(prop.date);
+                    this.selectedDate = new Date(prop.date);
+                }
+
+                if (new Date(prop.date) < this.minDate ) {
+                    this.minDate = new Date(prop.date);
+                }
+            });
+        });
+    }
+
+
 
     onMapReady(map: L.Map) {
         this.leafletMap = map;

@@ -25,7 +25,7 @@
                         </h3> 
                     </div>
                     <div class="contentTemplate">
-                        <mat-radio-group [(ngModel)]="selectedGranularityMap" (change)="up()">
+                        <mat-radio-group [(ngModel)]="selectedGranularityMap" (change)="changeGranularity()">
                             <div fxLayout="column" fxLayoutGap="5px">
                                 <mat-radio-button *ngFor="let granu of listAllGranularityMap" [value]="granu">
                                     {{granu}}
@@ -55,8 +55,8 @@
                     </div>
                 </div>
 
-                <!--DATE CARTE -->
-                <!-- 
+                <!--DATE CARTE  (dateChange)="updateDate($event.value)"-->
+                
                 <div fxLayout="column">
                     <div fxLayout="row" fxLayoutAlign="center">
                         <h3>
@@ -65,13 +65,13 @@
                     </div>
                     <div class="contentTemplate">
                         <mat-form-field class="dateInput">
-                            <input (dateChange)="updateDate($event.value)" [value]="currentDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <input  [value]="selectedDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
                     </div>
                 </div>
-                -->
+                
 
             </div>
             <div fxLayout="row" fxFlex="30px">
