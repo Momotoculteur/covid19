@@ -25,7 +25,7 @@
                         </h3> 
                     </div>
                     <div class="contentTemplate">
-                        <mat-radio-group (change)="updateGranularity()" [(ngModel)]="selectedGranularityMap">
+                        <mat-radio-group [(ngModel)]="selectedGranularityMap">
                             <div fxLayout="column" fxLayoutGap="5px">
                                 <mat-radio-button *ngFor="let granu of listAllGranularityMap" [value]="granu">
                                     {{granu}}
@@ -76,7 +76,17 @@
 
     <!-- CONTENER MAP -->
     <div fxFlex>
-        <div style="height: 100vh;" id="map"></div>
+        <!--<div style="height: 100vh;" id="map"></div>-->
+        <div style="height: 100%;"
+            leaflet 
+            [leafletOptions]="layersOptions"
+            >
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.PAYS" [leafletLayer]="franceLayer"></div>
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.REGION" [leafletLayer]="regionLayer"></div>
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.DEPARTEMENT" [leafletLayer]="departementLayer"></div>
+
+            
+        </div>
     </div>
 
 <!-- FLOATING BUTTON ACTIONS  -->
