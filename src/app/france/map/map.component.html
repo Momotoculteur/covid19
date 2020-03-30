@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <!--DATE CARTE  (dateChange)="updateDate($event.value)"-->
+                <!--DATE CARTE  -->
                 
                 <div fxLayout="column">
                     <div fxLayout="row" fxLayoutAlign="center">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="contentTemplate">
                         <mat-form-field class="dateInput">
-                            <input  [value]="selectedDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <input (dateChange)="dateChanged($event.value)"  [value]="selectedDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>

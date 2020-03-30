@@ -3,7 +3,7 @@ import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { ResizeEvent } from 'angular-resizable-element';
 import { EGranulariteCarte } from 'src/app/shared/enum/EGranulariteCarte';
-import { G_MAP_GEOJSON_FRANCE_PATH, G_MAP_GEOJSON_DEPARTEMENT_PATH, G_MAP_GEOJSON_REGION_PATH } from 'src/app/shared/constant/CGlobal';
+import { G_MAP_GEOJSON_FRANCE_PATH, G_MAP_GEOJSON_DEPARTEMENT_PATH, G_MAP_GEOJSON_REGION_PATH, isDateEqual } from 'src/app/shared/constant/CGlobal';
 import { latLng, tileLayer, circle, geoJSON } from 'leaflet';
 import { EGraphType } from '../../shared/enum/EGraphType';
 import { G_redGradient, G_orangeGradient, G_greenGradient } from 'src/app/shared/constant/CGradientLedendColor';
@@ -152,11 +152,10 @@ export class MapComponent implements OnInit {
             });
             this.layersControl.push(this.franceLayer);
             this.updateDateMinMaxSelected();
+            this.updateLegendValues();
         });
 
         this.http.get(G_MAP_GEOJSON_DEPARTEMENT_PATH).subscribe((json: any) => {
-            console.log(json)
-            console.log('DEP OK')
             this.departementLayer = L.geoJSON(json, {
                 style: {
                     color:'#4974ff'
@@ -216,7 +215,7 @@ export class MapComponent implements OnInit {
 
 
         this.updateLengendColor();
-
+        this.updateLegendValues();
 
 
     }
@@ -280,7 +279,8 @@ export class MapComponent implements OnInit {
             }
         }
 
-
+        this.onHoverLegendInfos = ''
+        this.ref.detectChanges();
     }
 
     public up():  void {
@@ -317,33 +317,110 @@ export class MapComponent implements OnInit {
 
         // FAIRE ICI MAJ LEGENDS
        // this.updateLegendBubbleInfos(layer.feature.properties);
-       console.log(layer.feature.properties.nom)
         this.onHoverLegendInfos = layer.feature.properties.nom as string;
         this.ref.detectChanges();
     }
 
     public changeGranularity(): void {
-        this.updateMaximalValues();
         this.updateDateMinMaxSelected();
+        this.updateLegendValues();
+
     }
 
-    public updateMaximalValues(): void {
+    private updateLegendValues(): void {
         switch (this.selectedGranularityMap) {
             case EGranulariteCarte.PAYS: {
+                this.legendValuesMax(this.franceLayer);
                 break;
             }
-            case EGranulariteCarte.PAYS: {
+            case EGranulariteCarte.REGION: {
+                this.legendValuesMax(this.regionLayer);
+
                 break;
             }
-            case EGranulariteCarte.PAYS: {
+            case EGranulariteCarte.DEPARTEMENT: {
+                this.legendValuesMax(this.departementLayer);
+
                 break;
             }
         }
     }
 
-    private iteratorMaxMinValues(): void {
+    private legendValuesMax(layer): void {
+        let maxValue = 0;
+        layer.eachLayer((current) => {
+
+            current.feature.properties.value.forEach((prop: ITemplateProps) => {   
+
+                if (isDateEqual(new Date(prop.date),this.selectedDate)) {
+                    console.log(prop) 
+
+                    switch (this.selectedTypeGraph) {
+                        case EGraphType.CONFIRMED : {
+                            if (prop.confirmed > maxValue) {
+                                maxValue = prop.confirmed;
+                            }
+                            break;
+                        }
+                        case EGraphType.DEATH : {
+                            if (prop.death > maxValue) {
+                                maxValue = prop.death;
+                            }
+                            break;
+                        }
+                        case EGraphType.ACTIVE : {
+                            if (prop.active > maxValue) {
+                                maxValue = prop.active;
+                            }
+                            break;
+                        }
+                        case EGraphType.HOSPITALIZED : {
+                            if (prop.hospitalized > maxValue) {
+                                maxValue = prop.hospitalized;
+                            }
+                            break;
+                        }
+                        case EGraphType.REANIMATED : {
+                            if (prop.reanimated > maxValue) {
+                                maxValue = prop.reanimated;
+                            }
+                            break;
+                        }
+                        case EGraphType.RECOVERED : {
+                            if (prop.recovered > maxValue) {
+                                maxValue = prop.recovered;
+                            }
+                            break;
+                        }
+                        case EGraphType.RECOVERY_RATE : {
+                            if (prop.recoveredRate > maxValue) {
+                                maxValue = prop.recoveredRate;
+                            }
+                            break;
+                        }
+                        case EGraphType.MORTALITY_RATE : {
+                            if (prop.mortalityRate > maxValue) {
+                                maxValue = prop.mortalityRate;
+                            }
+                            break;
+                        }
+                    }
+                    
+
+                }
+            });
+
+        });
+        console.log(maxValue)
 
     }
+
+    public dateChanged(newDate: Date): void {
+        this.selectedDate = newDate;
+        this.updateLegendValues();
+
+    }
+
 
     public updateDateMinMaxSelected(): void {
         switch (this.selectedGranularityMap) {
@@ -392,8 +469,6 @@ export class MapComponent implements OnInit {
             });
         });
     }
-
-
 
     onMapReady(map: L.Map) {
         this.leafletMap = map;
