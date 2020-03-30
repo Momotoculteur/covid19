@@ -201,6 +201,7 @@ export class MapComponent implements OnInit {
     }
 
     public updateStyleMap(): void {
+        this.updateMinMaxMeanTopLegendInfosFIRST();
         this.updateLengendColor();
         this.updateLegendValues();
         let argsId: string;
@@ -367,13 +368,12 @@ export class MapComponent implements OnInit {
                 break;
             }
         }
+        this.onHoverLegendInfos = null;
+        this.onHoverLegendInfosValue = null;
         this.ref.detectChanges();
     }
 
-
-    public highlightFeature(e): void {
-        this.isHoveringItem = true;
-        console.log('true');
+    private getArgsId(): string {
         let argsId: string;
         switch (this.selectedTypeGraph) {
             case EGraphType.CONFIRMED: {
@@ -412,6 +412,12 @@ export class MapComponent implements OnInit {
                 break;
             }
         }
+        return argsId;
+    }
+
+    public highlightFeature(e): void {
+        this.isHoveringItem = true;
+        
         const layer = e.target;
 
         layer.setStyle({
@@ -419,21 +425,82 @@ export class MapComponent implements OnInit {
             color: 'white'
         });
 
-        let value;
+        let value: number;
+        const arg =  this.getArgsId();
         layer.feature.properties.value.forEach((prop: ITemplateProps) => {
             if (isDateEqual(new Date(prop.date), this.selectedDate)) {
-                value = prop[argsId];
+                value = prop[arg];
             }
         });
+
+        
+
         this.onHoverLegendInfos = layer.feature.properties.nom as string;
         this.onHoverLegendInfosValue = Number(value);
+        
         this.ref.detectChanges();
+    }
+
+    private updateMinMaxMeanTopLegendInfosFIRST(): void {
+        switch (this.selectedGranularityMap) {
+            case EGranulariteCarte.PAYS: {
+                this.updateMinMaxMeanTopLegendInfos(this.franceLayer);
+                break;
+            }
+            case EGranulariteCarte.REGION: {
+                this.updateMinMaxMeanTopLegendInfos(this.regionLayer);
+
+                break;
+            }
+            case EGranulariteCarte.DEPARTEMENT: {
+                this.updateMinMaxMeanTopLegendInfos(this.departementLayer);
+
+                break;
+            }
+        }
+    }
+
+    private updateMinMaxMeanTopLegendInfos(layer): void {
+        const propsId = this.getArgsId();
+        let minValue: number;
+        let maxValue: number;
+        let meanValue = 0;
+        let meanValueItemTotal = 0;
+
+        layer.eachLayer((current) => {            
+            current.feature.properties.value.forEach((prop) => {
+                if (isDateEqual(new Date(prop.date), this.selectedDate)) {
+                    meanValue += prop[propsId];
+                    meanValueItemTotal++;
+                    if (minValue === undefined) {
+                        minValue = prop[propsId];
+                    } else {
+                        if (prop[propsId] < minValue) {
+                            minValue = prop[propsId];
+                        }
+                    }
+    
+                    if (maxValue === undefined) {
+                        maxValue = prop[propsId];
+                    } else {
+                        if (prop[propsId] > maxValue) {
+                            maxValue = prop[propsId];
+                        }
+                    }
+                }
+                });
+
+            });
+
+        this.onHoverLegendInfosValueMean = Math.round(meanValue / meanValueItemTotal);
+        this.onHoverLegendInfosValueMin = minValue;
+        this.onHoverLegendInfosValuemax = maxValue;
+
     }
 
     public changeGranularity(): void {
         this.updateDateMinMaxSelected();
         this.updateStyleMap();
-
     }
 
     private updateLegendValues(): void {

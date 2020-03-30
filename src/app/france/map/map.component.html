@@ -110,15 +110,15 @@
 <!-- LEGEND HAUT 
 *ngIf="isHoveringItem"
 -->
-<div class="legendTop" *ngIf="isHoveringItem">
+<div class="legendTop">
     <div fxFlex fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column" fxLayoutAlign="center">
 
-                <h1 fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
+                <h1 *ngIf="isHoveringItem" fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
                     {{onHoverLegendInfos}}
                 </h1>
                 
-                <h2 fxLayoutAlign="center" *ngIf="!miseEnFormeLegendBottomTitle()"  style="margin: 0px;">
+                <h2 fxLayoutAlign="center" *ngIf="!miseEnFormeLegendBottomTitle() && isHoveringItem"  style="margin: 0px;">
                     {{onHoverLegendInfosValue}} Cas
                 </h2>
                 <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
@@ -130,21 +130,27 @@
                     </h5> 
                    
                 </div>
-                <div fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
+
+                <div *ngIf="isHoveringItem" fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
                     <div fxFlex="60%">
                         <mat-divider fxFill></mat-divider>
                     </div>
                 </div>
 
-                <h2 fxLayoutAlign="center" style="margin: 0px;margin-bottom: 10px;">
-                    Moyenne {{selectedGranularityMap}}
-                </h2>
+                <div fxLayout="column" fxLayoutAlign="center center" fxLa style="margin: 0px;margin-bottom: 10px;">
+                    <h2 style="margin: 0px;">
+                        {{selectedGranularityMap}}
+                    </h2>
+                    <h3 style="margin: 0px;">
+                        Tout confondu
+                    </h3>
+                </div>
                 <div fxLayout="row" fxLayoutAlign="space-around center">
                     <div fxFlex fxLayout="row" fxLayoutAlign="center">
                         Min
                     </div>
                     <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
-                        {{onHoverLegendInfosValueMin}}0
+                        {{onHoverLegendInfosValueMin}}
                     </h3>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -152,7 +158,7 @@
                         Max
                     </div>
                     <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
-                        {{onHoverLegendInfosValuemax}}0
+                        {{onHoverLegendInfosValuemax}}
                     </h3>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -160,7 +166,7 @@
                         Moyenne
                     </div>
                     <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
-                        {{onHoverLegendInfosValueMean}}0
+                        {{onHoverLegendInfosValueMean}}
                     </h3>
                 </div>
 
