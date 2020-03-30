@@ -566,6 +566,14 @@ export class MapComponent implements OnInit {
 
 
 
+    public miseEnFormeLegendBottomTitle(): boolean {
+        if (this.selectedTypeGraph === EGraphType.MORTALITY_RATE
+            || this.selectedTypeGraph === EGraphType.RECOVERY_RATE) {
+                return true;
+            } else {
+                return false;
+            }
+    }
 
 
 
