@@ -25,7 +25,7 @@
                         </h3> 
                     </div>
                     <div class="contentTemplate">
-                        <mat-radio-group [(ngModel)]="selectedGranularityMap">
+                        <mat-radio-group [(ngModel)]="selectedGranularityMap" (change)="up()">
                             <div fxLayout="column" fxLayoutGap="5px">
                                 <mat-radio-button *ngFor="let granu of listAllGranularityMap" [value]="granu">
                                     {{granu}}
@@ -36,6 +36,24 @@
                 </div>
 
                 <mat-divider></mat-divider>
+
+                <!-- CHOIX COURBE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Type de données
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <mat-form-field>
+                            <mat-select (selectionChange)="updateStyleMap()" [(value)]="selectedTypeGraph">
+                              <mat-option *ngFor="let typeGraph of listTypeGraph" [value]="typeGraph">
+                                {{typeGraph}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                </div>
 
                 <!--DATE CARTE -->
                 <!-- 
@@ -77,9 +95,9 @@
     <!-- CONTENER MAP -->
     <div fxFlex>
         <!--<div style="height: 100vh;" id="map"></div>-->
-        <div style="height: 100%;"
+        <div class="lastPlan" style="height: 100%;"
             leaflet 
-            [leafletOptions]="layersOptions"
+            [leafletOptions]="leafletOptions"
             (leafletMapReady)="onMapReady($event)"
             >
             <div *ngIf="selectedGranularityMap === aliasGranularityMap.PAYS" [leafletLayer]="franceLayer"></div>
@@ -89,6 +107,19 @@
             
         </div>
     </div>
+
+
+<div class="firstPlan legend">
+    <div fxFlex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly">
+        <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center">
+            <div  *ngFor="let color of selectedLegendColorGradient" style="background: {{color}}" class="squareLegend"></div>
+        </div>
+        <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center">
+            <div  *ngFor="let info of selectedLegendInfos">{{info}}</div>
+        </div>
+
+    </div>
+</div>
 
 <!-- FLOATING BUTTON ACTIONS  -->
 <!--

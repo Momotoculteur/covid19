@@ -52,3 +52,25 @@ mwlResizable {
     background-color: red;
     opacity: 0.5;
 }
+
+.legend {
+    width: 100px;
+    height: 160px;
+    position: fixed;
+    bottom:60px;
+    right:40px;
+    background-color: white;
+}
+
+.lastPlan {
+    z-index: 1;
+}
+
+.firstPlan {
+    z-index: 2;
+}
+
+.squareLegend {
+    width: 20px;
+    height: 20px;
+}
