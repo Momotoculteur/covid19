@@ -109,13 +109,18 @@
 
 <!-- LEGEND HAUT -->
 <div class="legendTop">
-    <div fxFlex>
-        <h1>
-            {{selectedGranularityMap}}
-        </h1>
-        <h2>
-            {{onHoverLegendInfos}}
-        </h2>
+    <div fxFlex fxLayout="column" fxLayoutAlign="start">
+        <div fxLayoutAlign="center">
+            <h1>
+                {{selectedGranularityMap}}
+            </h1>
+        </div>
+         <div fxLayoutAlign="center">
+            <h2>
+                {{onHoverLegendInfos}}
+            </h2>
+        </div>
+            
     </div>
        
 </div>

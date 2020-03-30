@@ -40,9 +40,9 @@ export class MapComponent implements OnInit {
     public listTypeGraph: EGraphType[];
 
     // LAYER GEOJSON
-    public franceLayer: L.GeoJSON;
-    public regionLayer: L.GeoJSON;
-    public departementLayer: L.GeoJSON;
+    public franceLayer;
+    public regionLayer;
+    public departementLayer;
 
     // MIN/MAX de chaque courbe
     public maximalDeath: number;
@@ -64,8 +64,8 @@ export class MapComponent implements OnInit {
     public leafletMap: L.Map;
     public leafletOptions: any = {
         layers: [
-            tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
-                maxZoom: 18, 
+            tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
                 attribution: 'Bastien MAURICE'
             })
         ],
@@ -73,10 +73,14 @@ export class MapComponent implements OnInit {
         center: latLng(46.303558, 6.0164252)
     };
 
-    // DEGRADE  
+    // LEGENDS BOTTOM  
     public selectedLegendColorGradient: string[];
-    public selectedLegendInfos: string[];
+    public selectedLegendInfos: number[];
+
+    // LEGENDS TOP
     public onHoverLegendInfos: string;
+
+
     constructor(
         private http: HttpClient,
         private ref: ChangeDetectorRef
@@ -98,14 +102,7 @@ export class MapComponent implements OnInit {
             EGraphType.MORTALITY_RATE
         ];
 
-        this.selectedLegendInfos = [
-            'a',
-            'b',
-            'c',
-            'd',
-            'e',
-            'f'
-        ];
+        this.selectedLegendInfos = [];
         this.onHoverLegendInfos = '';
 
     }
@@ -142,7 +139,9 @@ export class MapComponent implements OnInit {
         this.http.get(G_MAP_GEOJSON_FRANCE_PATH).subscribe((json: any) => {
             this.franceLayer = L.geoJSON(json, {
                 style: {
-                    color:'#4974ff'
+                    color: '#4974ff',
+                    fillOpacity: 0.7,
+                    weight: 2
                 },
                 onEachFeature: (feature, layer) => {
                     layer.on('mouseover', (e) => this.highlightFeature(e));
@@ -152,13 +151,15 @@ export class MapComponent implements OnInit {
             });
             this.layersControl.push(this.franceLayer);
             this.updateDateMinMaxSelected();
-            this.updateLegendValues();
+            this.updateStyleMap();
         });
 
         this.http.get(G_MAP_GEOJSON_DEPARTEMENT_PATH).subscribe((json: any) => {
             this.departementLayer = L.geoJSON(json, {
                 style: {
-                    color:'#4974ff'
+                    color: '#4974ff',
+                    fillOpacity: 0.7,
+                    weight: 2
                 },
                 onEachFeature: (feature, layer) => {
                     layer.on('mouseover', (e) => this.highlightFeature(e));
@@ -172,7 +173,9 @@ export class MapComponent implements OnInit {
         this.http.get(G_MAP_GEOJSON_REGION_PATH).subscribe((json: any) => {
             this.regionLayer = L.geoJSON(json, {
                 style: {
-                    color:'#4974ff'
+                    color: '#4974ff',
+                    fillOpacity: 0.7,
+                    weight: 2
                 },
                 onEachFeature: (feature, layer) => {
                     layer.on('mouseover', (e) => this.highlightFeature(e));
@@ -193,88 +196,169 @@ export class MapComponent implements OnInit {
     }
 
     public updateStyleMap(): void {
-        
-        let col;
-        if(this.selectedTypeGraph === EGraphType.DEATH) { col = 'red'};
-        if(this.selectedTypeGraph === EGraphType.RECOVERED) { col = 'green'};
-
-        this.franceLayer.eachLayer((current: L.GeoJSON) => {
-            current.setStyle({fillColor: col});
-        })
-        this.regionLayer.eachLayer((current: L.GeoJSON) => {
-            current.setStyle({fillColor: col});
-        })
-
-        let tmp = this.departementLayer;
-        tmp.eachLayer((current: L.GeoJSON) => {
-            current.setStyle({fillColor: col});
-        })
-
-        this.departementLayer = tmp
-
-
-
         this.updateLengendColor();
         this.updateLegendValues();
+        let argsId: string;
+        switch (this.selectedTypeGraph) {
+            case EGraphType.CONFIRMED: {
+                argsId = 'confirmed';
+                break;
+            }
+            case EGraphType.DEATH: {
+                argsId = 'death';
+                break;
+            }
+            case EGraphType.ACTIVE: {
+                argsId = 'active';
+
+                break;
+            }
+            case EGraphType.HOSPITALIZED: {
+                argsId = 'hospitalized';
+                break;
+            }
+            case EGraphType.REANIMATED: {
+                argsId = 'reanimated';
+
+                break;
+            }
+            case EGraphType.RECOVERED: {
+                argsId = 'recovered';
+
+                break;
+            }
+            case EGraphType.RECOVERY_RATE: {
+                argsId = 'recoveredRate';
+                break;
+            }
+            case EGraphType.MORTALITY_RATE: {
+                argsId = 'mortalityRate';
+                break;
+            }
+        }
+
+
+
+
+        switch (this.selectedGranularityMap) {
+            case EGranulariteCarte.PAYS: {
+                this.franceLayer.eachLayer((current) => {
+                    current.feature.properties.value.forEach((prop: ITemplateProps) => {
+                        if (isDateEqual(new Date(prop.date), this.selectedDate)) {
+                            current.setStyle({
+                                fillColor: this.getColor(prop[argsId]),
+                                fillOpacity: 0.7,
+                                weight: 2
+                            });
+                        }
+                    });
+                });
+                break;
+            }
+            case EGranulariteCarte.REGION: {
+                this.regionLayer.eachLayer((current) => {
+                    current.feature.properties.value.forEach((prop: ITemplateProps) => {
+                        if (isDateEqual(new Date(prop.date), this.selectedDate)) {
+                            current.setStyle({
+                                fillColor: this.getColor(prop[argsId]),
+                                fillOpacity: 0.7,
+                                weight: 2
+                            });
+                        }
+                    });
+                });
+                break;
+            }
+            case EGranulariteCarte.DEPARTEMENT: {
+                this.departementLayer.eachLayer((current) => {
+                    current.feature.properties.value.forEach((prop: ITemplateProps) => {
+                        if (isDateEqual(new Date(prop.date), this.selectedDate)) {
+                            current.setStyle({
+                                fillColor: this.getColor(prop[argsId]),
+                                fillOpacity: 0.7,
+                                weight: 2
+                            });
+                        }
+                    });
+                });
+                break;
+            }
+        }
 
 
     }
 
     public updateLengendColor(): void {
-            switch (this.selectedTypeGraph) {
-                case EGraphType.CONFIRMED : {
-                    this.selectedLegendColorGradient = G_redGradient;
-                    break;
-                }
-                case EGraphType.DEATH : {
-                    this.selectedLegendColorGradient = G_redGradient;
-                    break;
-                }
-                case EGraphType.ACTIVE : {
-                    this.selectedLegendColorGradient = G_orangeGradient;
-
-                    break;
-                }
-                case EGraphType.HOSPITALIZED : {
-                    this.selectedLegendColorGradient = G_orangeGradient;
-                    break;
-                }
-                case EGraphType.REANIMATED : {
-                    this.selectedLegendColorGradient = G_orangeGradient;
-
-                    break;
-                }
-                case EGraphType.RECOVERED : {
-                    this.selectedLegendColorGradient =  G_greenGradient;
-
-                    break;
-                }
-                case EGraphType.RECOVERY_RATE : {
-                    this.selectedLegendColorGradient = G_greenGradient;
-                    break;
-                }
-                case EGraphType.MORTALITY_RATE : {
-                    this.selectedLegendColorGradient = G_redGradient;
-                    break;
-                }
+        switch (this.selectedTypeGraph) {
+            case EGraphType.CONFIRMED: {
+                this.selectedLegendColorGradient = G_redGradient;
+                break;
             }
+            case EGraphType.DEATH: {
+                this.selectedLegendColorGradient = G_redGradient;
+                break;
+            }
+            case EGraphType.ACTIVE: {
+                this.selectedLegendColorGradient = G_orangeGradient;
+
+                break;
+            }
+            case EGraphType.HOSPITALIZED: {
+                this.selectedLegendColorGradient = G_orangeGradient;
+                break;
+            }
+            case EGraphType.REANIMATED: {
+                this.selectedLegendColorGradient = G_orangeGradient;
+
+                break;
+            }
+            case EGraphType.RECOVERED: {
+                this.selectedLegendColorGradient = G_greenGradient;
+
+                break;
+            }
+            case EGraphType.RECOVERY_RATE: {
+                this.selectedLegendColorGradient = G_greenGradient;
+                break;
+            }
+            case EGraphType.MORTALITY_RATE: {
+                this.selectedLegendColorGradient = G_redGradient;
+                break;
+            }
+        }
     }
 
 
 
     public resetHighlight(e): void {
+
+        console.log('RESET')
+        console.log(e)
         switch (this.selectedGranularityMap) {
             case EGranulariteCarte.PAYS: {
-                this.franceLayer.resetStyle(e.target);
+                //this.franceLayer.resetStyle(e.target);
+                this.franceLayer.eachLayer((current) => {
+                    current.setStyle({
+                        weight: 2,
+                        color: '#4974ff'
+                    });
+                });
                 break;
             }
             case EGranulariteCarte.REGION: {
-                this.regionLayer.resetStyle(e.target);
+                this.regionLayer.eachLayer((current) => {
+                    current.setStyle({ weight: 2 ,
+                        color: '#4974ff'});
+                });
                 break;
             }
             case EGranulariteCarte.DEPARTEMENT: {
-                this.regionLayer.resetStyle(e.target);
-                break;
+                this.departementLayer.eachLayer((current) => {
+                    current.setStyle({
+                        weight: 2,
+                        color: '#4974ff'
+                    });
+                }); break;
 
             }
         }
@@ -283,32 +367,23 @@ export class MapComponent implements OnInit {
         this.ref.detectChanges();
     }
 
-    public up():  void {
-        /*console.log("UPDATE")
-        
-        this.departementLayer.eachLayer((current: L.GeoJSON) => {
-            console.log(current.setStyle({color: 'black'}));
-        })
-        */
-
-
-    }
 
     public highlightFeature(e): void {
 
+
         const layer = e.target;
+
         layer.setStyle({
             weight: 5,
-            color: 'white',
-            dashArray: "",
-            fillOpacity: 0.2
+            color: 'white'
         });
 
+        /*
         if (!L.Browser.ie && !L.Browser.edge) {
             layer.bringToFront();
-        }
+        }*/
         //console.log(layer.feature.properties)
-                // FAIRE ICI MAJ LEGENDS
+        // FAIRE ICI MAJ LEGENDS
         // FAIRE ICI MAJ LEGENDS
         // FAIRE ICI MAJ LEGENDS
         // FAIRE ICI MAJ LEGENDS
@@ -316,14 +391,14 @@ export class MapComponent implements OnInit {
         // FAIRE ICI MAJ LEGENDS
 
         // FAIRE ICI MAJ LEGENDS
-       // this.updateLegendBubbleInfos(layer.feature.properties);
+        // this.updateLegendBubbleInfos(layer.feature.properties);
         this.onHoverLegendInfos = layer.feature.properties.nom as string;
         this.ref.detectChanges();
     }
 
     public changeGranularity(): void {
         this.updateDateMinMaxSelected();
-        this.updateLegendValues();
+        this.updateStyleMap();
 
     }
 
@@ -350,88 +425,79 @@ export class MapComponent implements OnInit {
         let maxValue = 0;
         layer.eachLayer((current) => {
 
-            current.feature.properties.value.forEach((prop: ITemplateProps) => {   
-
-                if (isDateEqual(new Date(prop.date),this.selectedDate)) {
-                    console.log(prop) 
-
+            current.feature.properties.value.forEach((prop: ITemplateProps) => {
+                if (isDateEqual(new Date(prop.date), this.selectedDate)) {
                     switch (this.selectedTypeGraph) {
-                        case EGraphType.CONFIRMED : {
+                        case EGraphType.CONFIRMED: {
                             if (prop.confirmed > maxValue) {
                                 maxValue = prop.confirmed;
                             }
                             break;
                         }
-                        case EGraphType.DEATH : {
+                        case EGraphType.DEATH: {
                             if (prop.death > maxValue) {
                                 maxValue = prop.death;
                             }
                             break;
                         }
-                        case EGraphType.ACTIVE : {
+                        case EGraphType.ACTIVE: {
                             if (prop.active > maxValue) {
                                 maxValue = prop.active;
                             }
                             break;
                         }
-                        case EGraphType.HOSPITALIZED : {
+                        case EGraphType.HOSPITALIZED: {
                             if (prop.hospitalized > maxValue) {
                                 maxValue = prop.hospitalized;
                             }
                             break;
                         }
-                        case EGraphType.REANIMATED : {
+                        case EGraphType.REANIMATED: {
                             if (prop.reanimated > maxValue) {
                                 maxValue = prop.reanimated;
                             }
                             break;
                         }
-                        case EGraphType.RECOVERED : {
+                        case EGraphType.RECOVERED: {
                             if (prop.recovered > maxValue) {
                                 maxValue = prop.recovered;
                             }
                             break;
                         }
-                        case EGraphType.RECOVERY_RATE : {
+                        case EGraphType.RECOVERY_RATE: {
                             if (prop.recoveredRate > maxValue) {
                                 maxValue = prop.recoveredRate;
                             }
                             break;
                         }
-                        case EGraphType.MORTALITY_RATE : {
+                        case EGraphType.MORTALITY_RATE: {
                             if (prop.mortalityRate > maxValue) {
                                 maxValue = prop.mortalityRate;
                             }
                             break;
                         }
                     }
-                    
+
 
                 }
             });
         });
 
-
-
-
-
-
-        console.log(maxValue)
         let tick = Math.round(maxValue / 7)
-        console.log(tick)
+
         this.selectedLegendInfos = [
-            String(tick * 6),
-            String(tick * 5),
-            String(tick * 4),
-            String(tick * 3),
-            String(tick * 2),
-            String(tick)
+            tick * 6,
+            tick * 5,
+            tick * 4,
+            tick * 3,
+            tick * 2,
+            tick
         ];
     }
 
     public dateChanged(newDate: Date): void {
         this.selectedDate = newDate;
-        this.updateLegendValues();
+        this.updateStyleMap();
 
     }
 
@@ -461,23 +527,23 @@ export class MapComponent implements OnInit {
             //let listProps: ITemplateProps[];
             //listProps = current.feature.properties.value;
             //current.feature.properties.value
-            
-            current.feature.properties.value.forEach((prop: ITemplateProps) => {    
-                if(this.minDate === undefined) {
+
+            current.feature.properties.value.forEach((prop: ITemplateProps) => {
+                if (this.minDate === undefined) {
                     this.minDate = new Date(prop.date);
-                }    
-                if(this.maxDate === undefined) {
+                }
+                if (this.maxDate === undefined) {
                     this.maxDate = new Date(prop.date);
-                } 
-                if(this.selectedDate === undefined) {
+                }
+                if (this.selectedDate === undefined) {
                     this.selectedDate = new Date(prop.date);
-                } 
-                if (new Date(prop.date) > this.maxDate ) {
+                }
+                if (new Date(prop.date) > this.maxDate) {
                     this.maxDate = new Date(prop.date);
                     this.selectedDate = new Date(prop.date);
                 }
 
-                if (new Date(prop.date) < this.minDate ) {
+                if (new Date(prop.date) < this.minDate) {
                     this.minDate = new Date(prop.date);
                 }
             });
@@ -486,7 +552,7 @@ export class MapComponent implements OnInit {
 
     onMapReady(map: L.Map) {
         this.leafletMap = map;
-       // this.infosLegend.addTo(this.leafletMap);
+        // this.infosLegend.addTo(this.leafletMap);
 
         //this.leafletMap.options = this.leafletOptions;
         //this.leafletMap.addLayer(this.leafletOptions.layers[0]);
@@ -569,10 +635,20 @@ export class MapComponent implements OnInit {
     public miseEnFormeLegendBottomTitle(): boolean {
         if (this.selectedTypeGraph === EGraphType.MORTALITY_RATE
             || this.selectedTypeGraph === EGraphType.RECOVERY_RATE) {
-                return true;
-            } else {
-                return false;
-            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private getColor(value: number) {
+        return value > this.selectedLegendInfos[0] ? this.selectedLegendColorGradient[0] :
+            value > this.selectedLegendInfos[1] ? this.selectedLegendColorGradient[1] :
+                value > this.selectedLegendInfos[2] ? this.selectedLegendColorGradient[2] :
+                    value > this.selectedLegendInfos[3] ? this.selectedLegendColorGradient[3] :
+                        value > this.selectedLegendInfos[4] ? this.selectedLegendColorGradient[4] :
+                            this.selectedLegendColorGradient[5];
     }
 
 
