@@ -107,19 +107,71 @@
     </div>
 </div>
 
-<!-- LEGEND HAUT -->
-<div class="legendTop">
-    <div fxFlex fxLayout="column" fxLayoutAlign="start">
-        <div fxLayoutAlign="center">
-            <h1>
-                {{selectedGranularityMap}}
-            </h1>
+<!-- LEGEND HAUT 
+*ngIf="isHoveringItem"
+-->
+<div class="legendTop" >
+    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex fxLayout="column" fxLayoutAlign="center">
+
+                <h1 fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
+                    {{onHoverLegendInfos}}
+                </h1>
+                
+                <h2 fxLayoutAlign="center" *ngIf="!miseEnFormeLegendBottomTitle()"  style="margin: 0px;">
+                    {{onHoverLegendInfosValue}} Cas
+                </h2>
+                <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
+                    <h2  fxLayoutAlign="center" style="margin: 0px;">
+                        Taux {{onHoverLegendInfosValue}}
+                    </h2>
+                    <h5 fxLayoutAlign="center" style="margin: 0px;">
+                        (pour 100 personnes)
+                    </h5> 
+                   
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
+                    <div fxFlex="60%">
+                        <mat-divider fxFill></mat-divider>
+                    </div>
+                </div>
+
+                <h2 fxLayoutAlign="center" style="margin: 0px;margin-bottom: 10px;">
+                    Moyenne {{selectedGranularityMap}}
+                </h2>
+                <div fxLayout="row" fxLayoutAlign="space-around">
+                    <div>
+                        Min
+                    </div>
+                    <h3 fxLayoutAlign="center" style="margin: 0px;">
+                        {{onHoverLegendInfosValueMin}}0
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around">
+                    <div>
+                        Max
+                    </div>
+                    <h3 fxLayoutAlign="center" style="margin: 0px;">
+                        {{onHoverLegendInfosValuemax}}0
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around">
+                    <div>
+                        Moyenne
+                    </div>
+                    <h3 fxLayoutAlign="center" style="margin: 0px;">
+                        {{onHoverLegendInfosValueMean}}0
+                    </h3>
+                </div>
+
         </div>
-         <div fxLayoutAlign="center">
-            <h2>
-                {{onHoverLegendInfos}}
-            </h2>
-        </div>
+
+           <!--
+
+           
+           -->
+
+
             
     </div>
        

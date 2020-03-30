@@ -79,6 +79,11 @@ export class MapComponent implements OnInit {
 
     // LEGENDS TOP
     public onHoverLegendInfos: string;
+    public onHoverLegendInfosValue: number;
+    public onHoverLegendInfosValueMean: number;
+    public onHoverLegendInfosValueMin: number;
+    public onHoverLegendInfosValuemax: number;
+    public isHoveringItem: boolean;
 
 
     constructor(
@@ -104,7 +109,7 @@ export class MapComponent implements OnInit {
 
         this.selectedLegendInfos = [];
         this.onHoverLegendInfos = '';
-
+        this.isHoveringItem = false;
     }
 
 
@@ -331,9 +336,9 @@ export class MapComponent implements OnInit {
 
 
     public resetHighlight(e): void {
+        this.isHoveringItem = false;
+        console.log('false');
 
-        console.log('RESET')
-        console.log(e)
         switch (this.selectedGranularityMap) {
             case EGranulariteCarte.PAYS: {
                 //this.franceLayer.resetStyle(e.target);
@@ -347,8 +352,10 @@ export class MapComponent implements OnInit {
             }
             case EGranulariteCarte.REGION: {
                 this.regionLayer.eachLayer((current) => {
-                    current.setStyle({ weight: 2 ,
-                        color: '#4974ff'});
+                    current.setStyle({
+                        weight: 2,
+                        color: '#4974ff'
+                    });
                 });
                 break;
             }
@@ -358,19 +365,58 @@ export class MapComponent implements OnInit {
                         weight: 2,
                         color: '#4974ff'
                     });
-                }); break;
-
+                });
+                break;
             }
         }
 
         this.onHoverLegendInfos = ''
+        this.onHoverLegendInfosValue = null;
         this.ref.detectChanges();
     }
 
 
     public highlightFeature(e): void {
+        this.isHoveringItem = true;
+        console.log('true');
+        let argsId: string;
+        switch (this.selectedTypeGraph) {
+            case EGraphType.CONFIRMED: {
+                argsId = 'confirmed';
+                break;
+            }
+            case EGraphType.DEATH: {
+                argsId = 'death';
+                break;
+            }
+            case EGraphType.ACTIVE: {
+                argsId = 'active';
 
+                break;
+            }
+            case EGraphType.HOSPITALIZED: {
+                argsId = 'hospitalized';
+                break;
+            }
+            case EGraphType.REANIMATED: {
+                argsId = 'reanimated';
 
+                break;
+            }
+            case EGraphType.RECOVERED: {
+                argsId = 'recovered';
+
+                break;
+            }
+            case EGraphType.RECOVERY_RATE: {
+                argsId = 'recoveredRate';
+                break;
+            }
+            case EGraphType.MORTALITY_RATE: {
+                argsId = 'mortalityRate';
+                break;
+            }
+        }
         const layer = e.target;
 
         layer.setStyle({
@@ -378,21 +424,14 @@ export class MapComponent implements OnInit {
             color: 'white'
         });
 
-        /*
-        if (!L.Browser.ie && !L.Browser.edge) {
-            layer.bringToFront();
-        }*/
-        //console.log(layer.feature.properties)
-        // FAIRE ICI MAJ LEGENDS
-        // FAIRE ICI MAJ LEGENDS
-        // FAIRE ICI MAJ LEGENDS
-        // FAIRE ICI MAJ LEGENDS
-        // FAIRE ICI MAJ LEGENDS
-        // FAIRE ICI MAJ LEGENDS
-
-        // FAIRE ICI MAJ LEGENDS
-        // this.updateLegendBubbleInfos(layer.feature.properties);
+        let value;
+        layer.feature.properties.value.forEach((prop: ITemplateProps) => {
+            if (isDateEqual(new Date(prop.date), this.selectedDate)) {
+                value = prop[argsId];
+            }
+        });
         this.onHoverLegendInfos = layer.feature.properties.nom as string;
+        this.onHoverLegendInfosValue = Number(value);
         this.ref.detectChanges();
     }
 
