@@ -1,4 +1,3 @@
-
 <div fxFlexFill fxLayout="row" fxLayoutAlign="center" class="mainContener">
     <div 
         [style.width]="widthSidebar + 'px'"
@@ -39,6 +38,7 @@
                 <mat-divider></mat-divider>
 
                 <!--DATE CARTE -->
+                <!-- 
                 <div fxLayout="column">
                     <div fxLayout="row" fxLayoutAlign="center">
                         <h3>
@@ -53,6 +53,7 @@
                           </mat-form-field>
                     </div>
                 </div>
+                -->
 
             </div>
             <div fxLayout="row" fxFlex="30px">
@@ -71,13 +72,15 @@
                
             </div>
         </div>
+    </div>
 
-        </div>
-            <div fxFlex style="height: 100vh;" id="map"></div>
-
-</div>
+    <!-- CONTENER MAP -->
+    <div fxFlex>
+        <div style="height: 100vh;" id="map"></div>
+    </div>
 
 <!-- FLOATING BUTTON ACTIONS  -->
+<!--
 <div class="floatingButtonContener">
     <floating-button direction="up" animationMode="fling">
         <floating-button-trigger spin="true">
@@ -93,3 +96,4 @@
         </floating-button-action>
     </floating-button>
 </div>
+-->

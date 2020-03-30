@@ -30,7 +30,6 @@ export class MapComponent implements OnInit {
     public franceData;
     public regionData;
     public departementData;
-    public currentDataDisplayed;
 
     public isFranceDataLoaded: boolean;
     public isRegionDataLoaded: boolean;
@@ -76,32 +75,81 @@ export class MapComponent implements OnInit {
 
     ngOnInit(): void {
 
-        function highlightFeature(e) {
-            console.log(e)
-            const layer = e.target;
-
-            layer.setStyle({
-                weight: 5,
-                color: "white",
-                dashArray: "",
-                fillOpacity: 0.2
-            });
-
-            if (!L.Browser.ie && !L.Browser.edge) {
-                layer.bringToFront();
-            }
-
-        }
-
-        function resetHighlight(e) {
-			geojson.resetStyle(e.target);
-		}
 
         this.map = L.map('map').setView([46.303558, 6.0164252], 6);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             id: 'mapbox',
             attribution: 'Bastien MAURICE'
         }).addTo(this.map);
+
+        let info;
+        info = new L.Control();
+
+		info.onAdd = function() {
+			this._div = L.DomUtil.create("div", "info");
+			this.update();
+			return this._div;
+		};
+
+		info.update = function(props) {
+            console.log(props)
+            
+			this._div.innerHTML =
+				(props ? "<b>" + props.nom + "</b><br />" : "");
+		};
+
+        info.addTo(this.map);
+        
+        function highlightFeature(e) {
+			const layer = e.target;
+
+			layer.setStyle({
+				weight: 5,
+				color: "white",
+				dashArray: "",
+				fillOpacity: 0.2
+			});
+
+			if (!L.Browser.ie && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+        }
+        
+        function resetHighlight(e) {
+            info.update();
+        }
+        function getColor(d) {
+            return d > 1000 ? '#800026' :
+                   d > 500  ? '#BD0026' :
+                   d > 200  ? '#E31A1C' :
+                   d > 100  ? '#FC4E2A' :
+                   d > 50   ? '#FD8D3C' :
+                   d > 20   ? '#FEB24C' :
+                   d > 10   ? '#FED976' :
+                              '#FFEDA0';
+        }
+
+        let legend = new L.Control().setPosition('bottomright');
+        legend.onAdd = function (map) {
+
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+                labels = [];
+        
+            // loop through our density intervals and generate a label with a colored square for each interval
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }
+        
+            return div;
+        };
+        
+        legend.addTo(this.map);
+
 
         this.http.get(G_MAP_GEOJSON_FRANCE_PATH).subscribe((json: any) => {
             this.franceData = L.geoJSON(json, {
@@ -118,9 +166,9 @@ export class MapComponent implements OnInit {
             this.departementData = L.geoJSON(json, {
                 onEachFeature: function onEachFeature(feature, layer) {
                     layer.on({
-                        mouseover: highlightFeature,
-                        mouseout: resetHighlight
-                    });
+                    mouseover: highlightFeature,
+                    mouseout: resetHighlight
+                });
                 }
             });
             console.log('DEP OK')
@@ -130,12 +178,15 @@ export class MapComponent implements OnInit {
         this.http.get(G_MAP_GEOJSON_REGION_PATH).subscribe((json: any) => {
             this.regionData = L.geoJSON(json, {
                 onEachFeature: function onEachFeature(feature, layer) {
-                    layer.on({
-                    });
+
                 }
             });
             console.log('REGION OK')
-            this.regionData = true;
+            this.isRegionDataLoaded = true;
+        });
+
+        this.map.on('mouseover', (e) => {
+            console.log(e.target)
         });
     }
 
@@ -145,26 +196,25 @@ export class MapComponent implements OnInit {
     public updateGranularity(): void {
         switch (this.selectedGranularityMap) {
             case EGranulariteCarte.PAYS: {
-                this.map.removeLayer(this.currentDataDisplayed);
-                this.currentDataDisplayed = this.franceData;
-                this.map.addLayer(this.currentDataDisplayed);
+                this.map.removeLayer(this.regionData);
+                this.map.removeLayer(this.departementData);
 
-                console.log(this.currentDataDisplayed)
+                this.map.addLayer(this.franceData);
                 break;
             }
             case EGranulariteCarte.REGION: {
-                this.map.removeLayer(this.currentDataDisplayed);
-                this.currentDataDisplayed = this.regionData;
-                this.map.addLayer(this.currentDataDisplayed);
-                console.log(this.currentDataDisplayed)
+                this.map.removeLayer(this.franceData);
+                this.map.removeLayer(this.departementData);
+
+                this.map.addLayer(this.regionData);
 
                 break;
             }
             case EGranulariteCarte.DEPARTEMENT: {
                 this.map.removeLayer(this.regionData);
-                this.currentDataDisplayed = this.departementData;
-                this.map.addLayer(this.currentDataDisplayed);
-                console.log(this.currentDataDisplayed)
+                this.map.removeLayer(this.franceData);
+
+                this.map.addLayer(this.departementData);
                 break;
             }
 
