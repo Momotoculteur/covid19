@@ -26,8 +26,15 @@ import { GraphiqueComponent } from './graphique/graphique.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
+
 @NgModule({
-  declarations: [FranceComponent, MapComponent, GraphiqueComponent],
+  declarations: [
+    FranceComponent,
+    MapComponent, 
+    GraphiqueComponent],
   imports: [
     CommonModule,
     FranceRoutingModule,
@@ -51,7 +58,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatSlideToggleModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatProgressSpinnerModule,
+    LeafletModule
   ],
   providers: [
     MatDatepickerModule

@@ -119,7 +119,7 @@
                             Date Unique
                         </mat-slide-toggle>
                     </div>
-                    <div class="contentTemplate" *ngIf="uniqueDate">
+                    <div  *ngIf="uniqueDate">
                         <mat-form-field class="dateInput">
                             <input (dateChange)="updateDate($event.value)" [value]="currentDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { EGranulariteCarte } from 'src/app/shared/enum/EGranulariteCarte';
 import { FranceRow } from 'src/app/shared/class/FranceRow';
 import { HttpClient } from '@angular/common/http';
-import { LAST_DATE, UPDATE_PLOTLY_VIEW, G_FRANCE_DATA_PATH } from 'src/app/shared/constant/CGlobal';
+import { LAST_DATE, UPDATE_PLOTLY_VIEW, G_FRANCE_DATA_PATH, isDateEqual } from 'src/app/shared/constant/CGlobal';
 import * as clonedeep from 'lodash.clonedeep';
 import { ResizeEvent } from 'angular-resizable-element';
 import { EGraphType } from '../../shared/enum/EGraphType';
@@ -81,6 +81,8 @@ export class GraphiqueComponent implements OnInit {
     public allDepartemental = ALL_DEPARTEMENTAL;
     public selectedUniqueDepartemental: IDepartemental;
     public selectedMultipleDepartemental: IDepartemental[];
+
+
 
     constructor(
         private http: HttpClient,
@@ -301,7 +303,7 @@ export class GraphiqueComponent implements OnInit {
                 if (this.uniqueDate) {
                     this.filtredData.forEach((row: FranceRow) => {
                         if (row.getCodeTypeCarte() === this.selectedUniqueCountry.codeTypeCarte
-                            && this.isDateEqual(row.getDate(), this.currentDate)) {
+                            && isDateEqual(row.getDate(), this.currentDate)) {
                             this.addRow(row);
                         }
                     });
@@ -320,7 +322,7 @@ export class GraphiqueComponent implements OnInit {
                     if (this.uniqueGraphique) {
                         this.filtredData.forEach((row: FranceRow) => {
                             if (this.selectedUniqueRegion.codeTypeCarte === row.getCodeTypeCarte()
-                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                && isDateEqual(row.getDate(), this.currentDate)) {
                                 if (this.uniqueGraphique) {
                                     this.addRow(row);
                                 } else {
@@ -332,7 +334,7 @@ export class GraphiqueComponent implements OnInit {
                         this.filtredData.forEach((row: FranceRow) => {
                             this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
                                 if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
-                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                && isDateEqual(row.getDate(), this.currentDate)) {
                                     if (this.uniqueGraphique) {
                                         this.addRow(row);
                                     } else {
@@ -377,7 +379,7 @@ export class GraphiqueComponent implements OnInit {
                     if (this.uniqueGraphique) {
                         this.filtredData.forEach((row: FranceRow) => {
                             if (this.selectedUniqueDepartemental.codeTypeCarte === row.getCodeTypeCarte()
-                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                && isDateEqual(row.getDate(), this.currentDate)) {
                                 if (this.uniqueGraphique) {
                                     this.addRow(row);
                                 } else {
@@ -389,7 +391,7 @@ export class GraphiqueComponent implements OnInit {
                         this.filtredData.forEach((row: FranceRow) => {
                             this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
                                 if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
-                                && this.isDateEqual(row.getDate(), this.currentDate)) {
+                                && isDateEqual(row.getDate(), this.currentDate)) {
                                     if (this.uniqueGraphique) {
                                         this.addRow(row);
                                     } else {
@@ -1116,15 +1118,6 @@ export class GraphiqueComponent implements OnInit {
     }
 
 
-    private isDateEqual(date1: Date, date2: Date): boolean {
-        if (date1.getMonth() === date2.getMonth()
-            && date1.getFullYear() === date2.getFullYear()
-            && date1.getDate() === date2.getDate()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 
     private cleanAllDataGraph(): void {

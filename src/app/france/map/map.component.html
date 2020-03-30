@@ -1,4 +1,3 @@
-
 <div fxFlexFill fxLayout="row" fxLayoutAlign="center" class="mainContener">
     <div 
         [style.width]="widthSidebar + 'px'"
@@ -26,7 +25,7 @@
                         </h3> 
                     </div>
                     <div class="contentTemplate">
-                        <mat-radio-group (change)="updateGranularity()" [(ngModel)]="selectedGranularityMap">
+                        <mat-radio-group [(ngModel)]="selectedGranularityMap" (change)="changeGranularity()">
                             <div fxLayout="column" fxLayoutGap="5px">
                                 <mat-radio-button *ngFor="let granu of listAllGranularityMap" [value]="granu">
                                     {{granu}}
@@ -34,7 +33,45 @@
                             </div>
                         </mat-radio-group>
                     </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!-- CHOIX COURBE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Type de données
+                        </h3> 
                     </div>
+                    <div class="contentTemplate">
+                        <mat-form-field>
+                            <mat-select (selectionChange)="updateStyleMap()" [(value)]="selectedTypeGraph">
+                              <mat-option *ngFor="let typeGraph of listTypeGraph" [value]="typeGraph">
+                                {{typeGraph}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <!--DATE CARTE  -->
+                
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Choix Date
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <mat-form-field class="dateInput">
+                            <input (dateChange)="dateChanged($event.value)"  [value]="selectedDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                </div>
+                
 
             </div>
             <div fxLayout="row" fxFlex="30px">
@@ -53,13 +90,121 @@
                
             </div>
         </div>
+    </div>
+
+    <!-- CONTENER MAP -->
+    <div fxFlex>
+        <!--<div style="height: 100vh;" id="map"></div>-->
+        <div class="lastPlan" style="height: 100%;"
+            leaflet 
+            [leafletOptions]="leafletOptions"
+            (leafletMapReady)="onMapReady($event)"
+            >
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.PAYS" [leafletLayer]="franceLayer"></div>
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.REGION" [leafletLayer]="regionLayer"></div>
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.DEPARTEMENT" [leafletLayer]="departementLayer"></div>
+        </div>
+    </div>
+</div>
+
+<!-- LEGEND HAUT 
+*ngIf="isHoveringItem"
+-->
+<div class="legendTop" *ngIf="isHoveringItem">
+    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex fxLayout="column" fxLayoutAlign="center">
+
+                <h1 fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
+                    {{onHoverLegendInfos}}
+                </h1>
+                
+                <h2 fxLayoutAlign="center" *ngIf="!miseEnFormeLegendBottomTitle()"  style="margin: 0px;">
+                    {{onHoverLegendInfosValue}} Cas
+                </h2>
+                <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
+                    <h2  fxLayoutAlign="center" style="margin: 0px;">
+                        Taux {{onHoverLegendInfosValue}}
+                    </h2>
+                    <h5 fxLayoutAlign="center" style="margin: 0px;">
+                        (pour 100 personnes)
+                    </h5> 
+                   
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
+                    <div fxFlex="60%">
+                        <mat-divider fxFill></mat-divider>
+                    </div>
+                </div>
+
+                <h2 fxLayoutAlign="center" style="margin: 0px;margin-bottom: 10px;">
+                    Moyenne {{selectedGranularityMap}}
+                </h2>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+                        Min
+                    </div>
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
+                        {{onHoverLegendInfosValueMin}}0
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+                        Max
+                    </div>
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
+                        {{onHoverLegendInfosValuemax}}0
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+                        Moyenne
+                    </div>
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
+                        {{onHoverLegendInfosValueMean}}0
+                    </h3>
+                </div>
+
 
         </div>
-            <div fxFlex style="height: 100vh;" id="map"></div>
+
+           <!--
+
+           
+           -->
+
+
+            
+    </div>
+       
+</div>
+
+    <!-- LEGEND BAS -->
+<div class="firstPlan legend">
+    <div fxLayout="column">
+        <div fxLayoutAlign="center">
+            <div>
+                <h3 style="margin: 0px;">
+                    <span *ngIf="!miseEnFormeLegendBottomTitle()">Cas {{selectedTypeGraph}}</span>
+                    <span *ngIf="miseEnFormeLegendBottomTitle()">{{selectedTypeGraph}}</span>
+                </h3>
+                 <span *ngIf="miseEnFormeLegendBottomTitle()">pour 100 personnes</span>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly">
+            <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center">
+                <div  *ngFor="let color of selectedLegendColorGradient" style="background: {{color}}" class="squareLegend"></div>
+            </div>
+            <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center">
+                <div  *ngFor="let info of selectedLegendInfos">{{info}}</div>
+            </div>
+    
+        </div>
+    </div>
 
 </div>
 
 <!-- FLOATING BUTTON ACTIONS  -->
+<!--
 <div class="floatingButtonContener">
     <floating-button direction="up" animationMode="fling">
         <floating-button-trigger spin="true">
@@ -75,3 +220,4 @@
         </floating-button-action>
     </floating-button>
 </div>
+-->

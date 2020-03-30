@@ -18,7 +18,7 @@ import { WelcomeComponent } from './core/welcome/welcome.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     FontAwesomeModule,
     MatDividerModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    LeafletModule.forRoot()
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
