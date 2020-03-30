@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { ResizeEvent } from 'angular-resizable-element';
@@ -6,8 +6,11 @@ import { EGranulariteCarte } from 'src/app/shared/enum/EGranulariteCarte';
 import { G_MAP_GEOJSON_FRANCE_PATH, G_MAP_GEOJSON_DEPARTEMENT_PATH, G_MAP_GEOJSON_REGION_PATH } from 'src/app/shared/constant/CGlobal';
 import { latLng, tileLayer, circle, geoJSON } from 'leaflet';
 import { EGraphType } from '../../shared/enum/EGraphType';
-import { G_confirmedGradient, G_recoveredGradient, G_reanimatedGradient, G_activeGradient, G_hospitalizedGradient, G_redGradient, G_orangeGradient, G_greenGradient } from 'src/app/shared/constant/CGradientLedendColor';
+import { G_redGradient, G_orangeGradient, G_greenGradient } from 'src/app/shared/constant/CGradientLedendColor';
 
+interface ITemplateItemTopLegend {
+    name: string;
+}
 
 const MIN_WIDTH_SIDEBAR = 300;
 let OLD_WIDTH_SIDEBAR = 300;
@@ -53,8 +56,10 @@ export class MapComponent implements OnInit {
     // DEGRADE  
     public selectedLegendColorGradient: string[];
     public selectedLegendInfos: string[];
+    public onHoverLegendInfos: string;
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private ref: ChangeDetectorRef
     ) {
         this.widthSidebar = OLD_WIDTH_SIDEBAR;
         this.isOpenSidebar = true;
@@ -80,7 +85,8 @@ export class MapComponent implements OnInit {
             'd',
             'e',
             'f'
-        ]
+        ];
+        this.onHoverLegendInfos = '';
 
 
     }
@@ -116,6 +122,9 @@ export class MapComponent implements OnInit {
 
         this.http.get(G_MAP_GEOJSON_FRANCE_PATH).subscribe((json: any) => {
             this.franceLayer = L.geoJSON(json, {
+                style: {
+                    color:'#4974ff'
+                },
                 onEachFeature: (feature, layer) => {
                     layer.on('mouseover', (e) => this.highlightFeature(e));
                     layer.on('mouseout', (e) => this.resetHighlight(e));
@@ -129,6 +138,9 @@ export class MapComponent implements OnInit {
             console.log(json)
             console.log('DEP OK')
             this.departementLayer = L.geoJSON(json, {
+                style: {
+                    color:'#4974ff'
+                },
                 onEachFeature: (feature, layer) => {
                     layer.on('mouseover', (e) => this.highlightFeature(e));
                     layer.on('mouseout', (e) => this.resetHighlight(e));
@@ -140,6 +152,9 @@ export class MapComponent implements OnInit {
 
         this.http.get(G_MAP_GEOJSON_REGION_PATH).subscribe((json: any) => {
             this.regionLayer = L.geoJSON(json, {
+                style: {
+                    color:'#4974ff'
+                },
                 onEachFeature: (feature, layer) => {
                     layer.on('mouseover', (e) => this.highlightFeature(e));
                     layer.on('mouseout', (e) => this.resetHighlight(e));
@@ -239,15 +254,12 @@ export class MapComponent implements OnInit {
                 break;
             }
             case EGranulariteCarte.DEPARTEMENT: {
-                //this.departementLayer.resetStyle(e.target);
-
-                e.target.setStyle({
-                    color: 'blue'
-                });
+                this.regionLayer.resetStyle(e.target);
                 break;
 
             }
         }
+
 
     }
 
@@ -285,7 +297,9 @@ export class MapComponent implements OnInit {
 
         // FAIRE ICI MAJ LEGENDS
        // this.updateLegendBubbleInfos(layer.feature.properties);
-
+       console.log(layer.feature.properties.nom)
+        this.onHoverLegendInfos = layer.feature.properties.nom as string;
+        this.ref.detectChanges();
     }
 
     onMapReady(map: L.Map) {

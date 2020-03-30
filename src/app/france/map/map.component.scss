@@ -62,6 +62,16 @@ mwlResizable {
     background-color: white;
 }
 
+.legendTop {
+    width: 100px;
+    height: 160px;
+    position: fixed;
+    top: 120px;
+    right: 40px;
+    background-color: white;
+    z-index: 3;
+}
+
 .lastPlan {
     z-index: 1;
 }
