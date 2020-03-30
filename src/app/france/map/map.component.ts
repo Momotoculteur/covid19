@@ -75,27 +75,47 @@ export class MapComponent implements OnInit {
 
     ngOnInit(): void {
 
-
+    
+        
+       
 
 
         this.http.get(G_MAP_GEOJSON_FRANCE_PATH).subscribe((json: any) => {
-            this.franceLayer = L.geoJSON(json);
+            this.franceLayer = L.geoJSON(json, {
+                onEachFeature: (feature, layer) => {
+                    layer.on('mouseover', (e) => this.highlightFeature(e));
+                    layer.on('mouseout', (e) => this.resetHighlight(e));
+                    //layer.on('click', () => this.selectedFeature(feature));
+                }
+            });
             // this.map.addLayer(this.franceLayer);
             this.layersControl.push(this.franceLayer)
-    
+
         });
 
         this.http.get(G_MAP_GEOJSON_DEPARTEMENT_PATH).subscribe((json: any) => {
             console.log(json)
             console.log('DEP OK')
-            this.departementLayer = L.geoJSON(json);
+            this.departementLayer = L.geoJSON(json, {
+                onEachFeature: (feature, layer) => {
+                    layer.on('mouseover', (e) => this.highlightFeature(e));
+                    layer.on('mouseout', (e) => this.resetHighlight(e));
+                    //layer.on('click', () => this.selectedFeature(feature));
+                }
+            });
             this.layersControl.push(this.departementLayer)
 
 
         });
 
         this.http.get(G_MAP_GEOJSON_REGION_PATH).subscribe((json: any) => {
-            this.regionLayer = L.geoJSON(json);
+            this.regionLayer = L.geoJSON(json, {
+                onEachFeature: (feature, layer) => {
+                    layer.on('mouseover', (e) => this.highlightFeature(e));
+                    layer.on('mouseout', (e) => this.resetHighlight(e));
+                    //layer.on('click', () => this.selectedFeature(feature));
+                }
+            });
 
             console.log('REGION OK')
             this.layersControl.push(this.regionLayer)
@@ -114,9 +134,113 @@ export class MapComponent implements OnInit {
 
 
 
-  
 
 
+
+    }
+
+    public resetHighlight(e) {
+        switch (this.selectedGranularityMap) {
+            case EGranulariteCarte.PAYS: {
+                this.franceLayer.resetStyle(e.target);
+                break;
+            }
+            case EGranulariteCarte.REGION: {
+                this.regionLayer.resetStyle(e.target);
+                break;
+            }
+            case EGranulariteCarte.DEPARTEMENT: {
+                this.departementLayer.resetStyle(e.target);
+                break;
+            }
+        }
+        //info.update();
+    }
+
+    public highlightFeature(e) {
+
+        const layer = e.target;
+        layer.setStyle({
+            weight: 5,
+            color: 'white',
+            dashArray: "",
+            fillOpacity: 0.2
+        });
+
+        if (!L.Browser.ie && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+
+       
+
+        //info.update(layer.feature.properties);
+    }
+
+    onMapReady(map: L.Map) {
+        /*function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+        }
+
+        function highlightFeature(e) {
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 5,
+                color: "#666",
+                dashArray: "",
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+        }
+
+        const onEachFeature = (feature, layer) => {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight
+            });
+        };
+        
+                function getColor(d) {
+                    return d > 100000000
+                      ? "#800026"
+                      : d > 80000000
+                      ? "#BD0026"
+                      : d > 50000000
+                      ? "#E31A1C"
+                      : d > 10000000
+                      ? "#FC4E2A"
+                      : d > 1000000
+                      ? "#FD8D3C"
+                      : d > 1000000
+                      ? "#FEB24C"
+                      : d > 100000
+                      ? "#FED976"
+                      : "blue";
+                  }
+                  
+                  function style(feature) {
+                    return {
+                      weight: 2,
+                      opacity: 1,
+                      color: "white",
+                      dashArray: "3",
+                      fillOpacity: 0.7,
+                      fillColor: getColor(feature.properties.pop_est)
+                    };
+                  }
+              
+                
+              
+                  let geojson = L.geoJSON(euCountries, {
+                    style: style,
+                    onEachFeature: onEachFeature
+                  }).addTo(map);
+              
+                  map.fitBounds(geojson.getBounds());
+                }*/
     }
 
 

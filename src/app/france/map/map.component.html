@@ -80,6 +80,7 @@
         <div style="height: 100%;"
             leaflet 
             [leafletOptions]="layersOptions"
+            (leafletMapReady)="onMapReady($event)"
             >
             <div *ngIf="selectedGranularityMap === aliasGranularityMap.PAYS" [leafletLayer]="franceLayer"></div>
             <div *ngIf="selectedGranularityMap === aliasGranularityMap.REGION" [leafletLayer]="regionLayer"></div>
