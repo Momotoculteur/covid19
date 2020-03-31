@@ -4,6 +4,8 @@ export const G_MAP_GEOJSON_FRANCE_PATH = 'assets/geo/france/geojsonCountry.json'
 export const G_MAP_GEOJSON_REGION_PATH = 'assets/geo/france/geojsonRegion.json';
 export const G_MAP_GEOJSON_DEPARTEMENT_PATH = 'assets/geo/france/geojsonDepartement.json';
 
+export const G_LAST_COMMIT_DATE_PATH = 'assets/commitDate/lastCommitDate.txt';
+
 export function UPDATE_PLOTLY_VIEW(): void {
     window.dispatchEvent(new Event('resize'));
 }

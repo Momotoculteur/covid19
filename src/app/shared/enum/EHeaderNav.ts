@@ -1,5 +1,7 @@
 export enum EHeaderNav {
-    FRANCE = 'FRANCE',
-    MONDE = 'MONDE',
+    WELCOME = 'Accueil',
+    FRANCE = 'Données FRANCE',
+    GLOBAL = 'Données GLOBALE',
+    INFOS = 'A propos',
     BLANK = ''
 }

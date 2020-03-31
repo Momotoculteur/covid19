@@ -35,15 +35,14 @@ def mergeRawData():
     data['active'] = data['active'].astype(int)
 
     data['active'] = np.where(data['active'] < 0, 0, data['active'])
-    data['taux_mortalite'] = round((data['deces'] / data['cas_confirmes']), 3) * 100
-    data['taux_guerison'] = round((data['gueris'] / data['cas_confirmes']), 3) * 100
+    data['taux_guerison'] = round((data['gueris'] / data['cas_confirmes'])*100, 2)
+    data['taux_mortalite'] = round((data['deces'] / data['cas_confirmes'])*100, 2)
 
     # Données manquantes, donnant des absurdités ( taux negatifs )
     data = data.fillna(0)
     data = data.replace([np.inf, -np.inf], 0)
-
+    #print(data['taux_mortalite'].tail(40))
     #print(data[data.maille_nom == 'Dordogne'])
-    print(data)
     data.to_csv('../assets/data/france/data.csv', encoding='utf-8', index=False)
 
 if __name__== "__main__":

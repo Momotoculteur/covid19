@@ -430,6 +430,7 @@ export class MapComponent implements OnInit {
         layer.feature.properties.value.forEach((prop: ITemplateProps) => {
             if (isDateEqual(new Date(prop.date), this.selectedDate)) {
                 value = prop[arg];
+                console.log(prop)
             }
         });
 
