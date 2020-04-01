@@ -117,19 +117,38 @@
                 <h1 *ngIf="isHoveringItem" fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
                     {{onHoverLegendInfos}}
                 </h1>
-                
-                <h2 fxLayoutAlign="center" *ngIf="!miseEnFormeLegendBottomTitle() && isHoveringItem"  style="margin: 0px;">
-                    {{onHoverLegendInfosValue}} Cas
-                </h2>
-                <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
-                    <h2  fxLayoutAlign="center" style="margin: 0px;">
-                        Taux {{onHoverLegendInfosValue}}
+                <div *ngIf="isHoveringItem" fxLayoutAlign="center">
+                    <h2  *ngIf="!miseEnFormeLegendBottomTitle()"  style="margin: 0px;">
+                        {{onHoverLegendInfosValue}} Cas
                     </h2>
-                    <h5 fxLayoutAlign="center" style="margin: 0px;">
-                        (pour 100 personnes)
-                    </h5> 
-                   
+                    <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
+                        <h2  fxLayoutAlign="center" style="margin: 0px;">
+                            Taux {{onHoverLegendInfosValue}}
+                        </h2>
+                        <h5 fxLayoutAlign="center" style="margin: 0px;">
+                            (pour 100 personnes)
+                        </h5> 
+                    </div>
+                    &nbsp;
+                    <h2 fxLayoutAlign="center">
+                        <span *ngIf="isColorInversed" [ngClass]="{
+                        'red' : onHoverLegendInfosValueDayBefore > 0,
+                        'green' : onHoverLegendInfosValueDayBefore < 0
+                        }"> (
+                            <span *ngIf="onHoverLegendInfosValueDayBefore > 0">+</span>
+                            {{onHoverLegendInfosValueDayBefore}})
+                        </span>
+                        <span *ngIf="!isColorInversed" [ngClass]="{
+                            'red' : onHoverLegendInfosValueDayBefore < 0,
+                            'green' : onHoverLegendInfosValueDayBefore > 0
+                            }"> (
+                                <span *ngIf="onHoverLegendInfosValueDayBefore > 0">+</span>
+                                {{onHoverLegendInfosValueDayBefore}})
+                        </span>
+                    </h2>
+                    
                 </div>
+
 
                 <div *ngIf="isHoveringItem" fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
                     <div fxFlex="60%">
@@ -146,27 +165,75 @@
                     </h3>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-around center">
-                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+                    <div style="margin-left: 20px;">
                         Min
                     </div>
-                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
-                        {{onHoverLegendInfosValueMin}}
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 20px;">
+                        <div>
+                            {{onHoverLegendInfosValueMin}} 
+                            &nbsp;
+                            <span *ngIf="isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMinDayBefore > 0,
+                                'green' : onHoverLegendInfosValueMinDayBefore < 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMinDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMinDayBefore}})
+                            </span>
+                            <span *ngIf="!isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMinDayBefore < 0,
+                                'green' : onHoverLegendInfosValueMinDayBefore > 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMinDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMinDayBefore}})
+                            </span>
+                        </div>
+                       
                     </h3>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-around center">
-                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+                    <div style="margin-left: 20px;">
                         Max
                     </div>
-                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 20px;">
                         {{onHoverLegendInfosValuemax}}
+                        &nbsp;
+                            <span *ngIf="isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValuemaxDayBefore > 0,
+                                'green' : onHoverLegendInfosValuemaxDayBefore < 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValuemaxDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValuemaxDayBefore}})
+                            </span>
+                            <span *ngIf="!isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValuemaxDayBefore < 0,
+                                'green' : onHoverLegendInfosValuemaxDayBefore > 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValuemaxDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValuemaxDayBefore}})
+                            </span>
                     </h3>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-around center">
-                    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+                    <div style="margin-left: 20px;">
                         Moyenne
                     </div>
-                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 40px;">
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 20px;">
                         {{onHoverLegendInfosValueMean}}
+                        &nbsp;
+                            <span *ngIf="isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMeanDayBefore > 0,
+                                'green' : onHoverLegendInfosValueMeanDayBefore < 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMeanDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMeanDayBefore}})
+                            </span>
+                            <span *ngIf="!isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMeanDayBefore < 0,
+                                'green' : onHoverLegendInfosValueMeanDayBefore > 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMeanDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMeanDayBefore}})
+                            </span>
                     </h3>
                 </div>
 

@@ -44,15 +44,6 @@ export class MapComponent implements OnInit {
     public regionLayer;
     public departementLayer;
 
-    // MIN/MAX de chaque courbe
-    public maximalDeath: number;
-    public maximalConfirmed: number;
-    public maximalActive: number;
-    public maximalHospitalized: number;
-    public maximalReanimated: number;
-    public maximalRecovered: number;
-    public maximalMortalityRate: number;
-    public maximalRecoveryRate: number;
 
     // DATE
     public selectedDate: Date;
@@ -77,7 +68,9 @@ export class MapComponent implements OnInit {
     public selectedLegendColorGradient: string[];
     public selectedLegendInfos: number[];
 
+
     // LEGENDS TOP
+    public isColorInversed: boolean;
     public onHoverLegendInfos: string;
     public onHoverLegendInfosValue: number;
     public onHoverLegendInfosValueMean: number;
@@ -85,6 +78,11 @@ export class MapComponent implements OnInit {
     public onHoverLegendInfosValuemax: number;
     public isHoveringItem: boolean;
 
+    // LEGENDS TOP J-1
+    public onHoverLegendInfosValueDayBefore: number;
+    public onHoverLegendInfosValueMeanDayBefore: number;
+    public onHoverLegendInfosValueMinDayBefore: number;
+    public onHoverLegendInfosValuemaxDayBefore: number;
 
     constructor(
         private http: HttpClient,
@@ -110,6 +108,7 @@ export class MapComponent implements OnInit {
         this.selectedLegendInfos = [];
         this.onHoverLegendInfos = '';
         this.isHoveringItem = false;
+        this.isColorInversed = true;
     }
 
 
@@ -208,37 +207,51 @@ export class MapComponent implements OnInit {
         switch (this.selectedTypeGraph) {
             case EGraphType.CONFIRMED: {
                 argsId = 'confirmed';
+                this.isColorInversed = true;
                 break;
             }
             case EGraphType.DEATH: {
                 argsId = 'death';
+                this.isColorInversed = true;
+
                 break;
             }
             case EGraphType.ACTIVE: {
                 argsId = 'active';
+                this.isColorInversed = true;
+
 
                 break;
             }
             case EGraphType.HOSPITALIZED: {
                 argsId = 'hospitalized';
+                this.isColorInversed = true;
+
                 break;
             }
             case EGraphType.REANIMATED: {
                 argsId = 'reanimated';
+                this.isColorInversed = false;
+
 
                 break;
             }
             case EGraphType.RECOVERED: {
                 argsId = 'recovered';
+                this.isColorInversed = false;
 
                 break;
             }
             case EGraphType.RECOVERY_RATE: {
                 argsId = 'recoveredRate';
+                this.isColorInversed = false;
+
                 break;
             }
             case EGraphType.MORTALITY_RATE: {
                 argsId = 'mortalityRate';
+                this.isColorInversed = true;
+
                 break;
             }
         }
@@ -426,20 +439,40 @@ export class MapComponent implements OnInit {
         });
 
         let value: number;
+        let valueDayBefore: number;
         const arg =  this.getArgsId();
+
+        // Calcul des données de legendes pour J-1
+        const dayBefore = new Date(this.selectedDate);
+        dayBefore.setDate(dayBefore.getDate() - 1);
+
         layer.feature.properties.value.forEach((prop: ITemplateProps) => {
             if (isDateEqual(new Date(prop.date), this.selectedDate)) {
                 value = prop[arg];
-                console.log(prop)
+            }
+
+            if (isDateEqual(new Date(prop.date), dayBefore)) {
+                valueDayBefore = prop[arg];
             }
         });
 
         
 
         this.onHoverLegendInfos = layer.feature.properties.nom as string;
-        this.onHoverLegendInfosValue = Number(value);
+        this.onHoverLegendInfosValue = Number(value.toFixed(2));
+        this.onHoverLegendInfosValueDayBefore = Number((value - valueDayBefore).toFixed(2));
         
         this.ref.detectChanges();
+
+
+        console.log('Valeur ' + this.onHoverLegendInfosValueDayBefore)
+        console.log('Valeur min ' + this.onHoverLegendInfosValueMinDayBefore)
+        console.log('Valeur max' + this.onHoverLegendInfosValuemaxDayBefore)
+        console.log('Valeur moyene' + this.onHoverLegendInfosValueMeanDayBefore)
+
+
+
+
     }
 
     private updateMinMaxMeanTopLegendInfosFIRST(): void {
@@ -468,6 +501,11 @@ export class MapComponent implements OnInit {
         let meanValue = 0;
         let meanValueItemTotal = 0;
 
+        let minValueDayBefore: number;
+        let maxValueDayBefore: number;
+        let meanValueDayBefore = 0;
+        let meanValueItemTotalDayBefore = 0;
+
         layer.eachLayer((current) => {            
             current.feature.properties.value.forEach((prop) => {
                 if (isDateEqual(new Date(prop.date), this.selectedDate)) {
@@ -489,13 +527,43 @@ export class MapComponent implements OnInit {
                         }
                     }
                 }
-                });
 
+                // Calcul des données de legendes pour J-1
+                const dayBefore = new Date(this.selectedDate);
+                dayBefore.setDate(dayBefore.getDate()-1);
+                if (isDateEqual(dayBefore, new Date(prop.date))) {
+                    meanValueDayBefore += prop[propsId];
+                    meanValueItemTotalDayBefore++;
+                    if (minValueDayBefore === undefined) {
+                        minValueDayBefore = prop[propsId];
+                    } else {
+                        if (prop[propsId] < minValueDayBefore) {
+                            minValueDayBefore = prop[propsId];
+                        }
+                    }
+    
+                    if (maxValueDayBefore === undefined) {
+                        maxValueDayBefore = prop[propsId];
+                    } else {
+                        if (prop[propsId] > maxValueDayBefore) {
+                            maxValueDayBefore = prop[propsId];
+                        }
+                    }
+                }
             });
 
-        this.onHoverLegendInfosValueMean = Math.round(meanValue / meanValueItemTotal);
-        this.onHoverLegendInfosValueMin = minValue;
-        this.onHoverLegendInfosValuemax = maxValue;
+        });
+
+
+
+        this.onHoverLegendInfosValueMean = Number(Math.round(meanValue / meanValueItemTotal).toFixed(2));
+        this.onHoverLegendInfosValueMin = Number(minValue.toFixed(2));
+        this.onHoverLegendInfosValuemax = Number(maxValue.toFixed(2));
+
+        this.onHoverLegendInfosValueMeanDayBefore = Number((Math.round(meanValueDayBefore / meanValueItemTotalDayBefore) -
+            this.onHoverLegendInfosValueMean).toFixed(2));
+        this.onHoverLegendInfosValueMinDayBefore = Number((minValue - minValueDayBefore).toFixed(2));
+        this.onHoverLegendInfosValuemaxDayBefore = Number((maxValueDayBefore - maxValue).toFixed(2));
 
     }
 
