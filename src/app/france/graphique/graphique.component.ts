@@ -81,7 +81,7 @@ export class GraphiqueComponent implements OnInit {
 
 
     constructor(
-        private http: HttpClient,
+        private http: HttpClient
     ) {
         this.currentGranulariteCarte = EGranulariteCarte.PAYS;
         this.allMapviewType = [EGranulariteCarte.PAYS, EGranulariteCarte.REGION, EGranulariteCarte.DEPARTEMENT];
@@ -429,7 +429,6 @@ export class GraphiqueComponent implements OnInit {
             }
         }
 
-        console.log(this.allGraphics)
     }
 
     private addRowMultipleDate(row: FranceRow): void {

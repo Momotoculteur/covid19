@@ -17,23 +17,6 @@
                     </h1>
                 </div>
                                 
-                <!--GRANULARITE CARTE -->
-                <div fxLayout="column">
-                    <div fxLayout="row" fxLayoutAlign="center">
-                        <h3>
-                            Granularité Carte
-                        </h3> 
-                    </div>
-                    <div class="contentTemplate">
-                        <mat-radio-group [(ngModel)]="selectedGranularityMap" (change)="changeGranularity()">
-                            <div fxLayout="column" fxLayoutGap="5px">
-                                <mat-radio-button *ngFor="let granu of listAllGranularityMap" [value]="granu">
-                                    {{granu}}
-                                </mat-radio-button>
-                            </div>
-                        </mat-radio-group>
-                    </div>
-                </div>
 
                 <mat-divider></mat-divider>
 
@@ -98,11 +81,7 @@
         <div class="lastPlan" style="height: 100%;"
             leaflet 
             [leafletOptions]="leafletOptions"
-            (leafletMapReady)="onMapReady($event)"
             >
-            <div *ngIf="selectedGranularityMap === aliasGranularityMap.PAYS" [leafletLayer]="franceLayer"></div>
-            <div *ngIf="selectedGranularityMap === aliasGranularityMap.REGION" [leafletLayer]="regionLayer"></div>
-            <div *ngIf="selectedGranularityMap === aliasGranularityMap.DEPARTEMENT" [leafletLayer]="departementLayer"></div>
         </div>
     </div>
 </div>
@@ -158,7 +137,7 @@
 
                 <div fxLayout="column" fxLayoutAlign="center center" fxLa style="margin: 0px;margin-bottom: 10px;">
                     <h2 style="margin: 0px;">
-                        {{selectedGranularityMap}}
+                        PAYS
                     </h2>
                     <h3 style="margin: 0px;">
                         Tout confondu

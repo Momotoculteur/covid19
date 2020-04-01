@@ -12,11 +12,16 @@ export class GlobalComponent implements OnInit {
     constructor() {
         this.navLinks = [
             {
-              label: 'Carte',
-              link: 'carte',
-              index: 0
+                label: 'Graphique',
+                link: 'graphique',
+                index: 0
+            },
+            {
+                label: 'Carte',
+                link: 'carte',
+                index: 1
             }
-          ];
+        ];
     }
 
     ngOnInit(): void {

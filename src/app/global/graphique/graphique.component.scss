@@ -1,0 +1,44 @@
+.contenerParams {
+    //border-radius: 10px;
+    //border: solid;
+}
+
+
+.dividerSidebar {
+    background-color: #323233;
+}
+
+.icon:hover{
+    color: #EC407A;
+}
+
+.icon {
+    color: #F48FB1;
+}
+
+mwlResizable {
+    box-sizing: border-box; // required for the enableGhostResize option to work
+}
+.floatingButtonContener {
+    position:fixed;
+	bottom:40px;
+	right:20px;
+}
+
+.buttonSidebarClose {
+    padding: 0;
+    width: 20px;
+    min-width: 0px;
+}
+
+.contentTemplate {
+    padding-left: 10px;
+}
+
+.titleTemplate {
+    padding-left: 5px;
+}
+
+.dateInput{
+    width: 150px;
+}

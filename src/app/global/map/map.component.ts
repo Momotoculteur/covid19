@@ -41,6 +41,7 @@ export class MapComponent implements OnInit {
         center: latLng(46.303558, 6.0164252)
     };
 
+
     // LEGENDS BOTTOM  
     public selectedLegendColorGradient: string[];
     public selectedLegendInfos: number[];
@@ -94,6 +95,70 @@ export class MapComponent implements OnInit {
         this.widthSidebar = event.rectangle.width;
     }
 
+    public dateChanged(newDate: Date): void {
+        this.selectedDate = newDate;
+        this.updateStyleMap();
+
+    }
+
+    public updateStyleMap(): void {
+        //this.updateLengendColor();
+        //this.updateLegendValues();
+        let argsId: string;
+        switch (this.selectedTypeGraph) {
+            case EGraphType.CONFIRMED: {
+                argsId = 'confirmed';
+                this.isColorInversed = true;
+                break;
+            }
+            case EGraphType.DEATH: {
+                argsId = 'death';
+                this.isColorInversed = true;
+
+                break;
+            }
+            case EGraphType.ACTIVE: {
+                argsId = 'active';
+                this.isColorInversed = true;
+
+
+                break;
+            }
+            case EGraphType.HOSPITALIZED: {
+                argsId = 'hospitalized';
+                this.isColorInversed = true;
+
+                break;
+            }
+            case EGraphType.REANIMATED: {
+                argsId = 'reanimated';
+                this.isColorInversed = false;
+
+
+                break;
+            }
+            case EGraphType.RECOVERED: {
+                argsId = 'recovered';
+                this.isColorInversed = false;
+
+                break;
+            }
+            case EGraphType.RECOVERY_RATE: {
+                argsId = 'recoveredRate';
+                this.isColorInversed = false;
+
+                break;
+            }
+            case EGraphType.MORTALITY_RATE: {
+                argsId = 'mortalityRate';
+                this.isColorInversed = true;
+
+                break;
+            }
+        }
+
+    }
+
     public validate(event: ResizeEvent): boolean {
         if (
             event.rectangle.width &&
@@ -102,6 +167,24 @@ export class MapComponent implements OnInit {
             return false;
         }
         return true;
+    }
+
+    public miseEnFormeLegendBottomTitle(): boolean {
+        if (this.selectedTypeGraph === EGraphType.MORTALITY_RATE
+            || this.selectedTypeGraph === EGraphType.RECOVERY_RATE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private getColor(value: number) {
+        return value > this.selectedLegendInfos[0] ? this.selectedLegendColorGradient[0] :
+            value > this.selectedLegendInfos[1] ? this.selectedLegendColorGradient[1] :
+                value > this.selectedLegendInfos[2] ? this.selectedLegendColorGradient[2] :
+                    value > this.selectedLegendInfos[3] ? this.selectedLegendColorGradient[3] :
+                        value > this.selectedLegendInfos[4] ? this.selectedLegendColorGradient[4] :
+                            this.selectedLegendColorGradient[5];
     }
 
     ngOnInit(): void {
