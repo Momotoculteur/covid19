@@ -1,3 +1,17 @@
 .mat-tab-links, .mat-tab-label, .mat-tab-link {
-    height: 30px;
+    height: 50px;
 }
+
+.mat-tab-label-active {
+    font-weight: bold;
+}
+
+.scrollable {
+    overflow: auto;
+}
+
+.noScroll{
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+

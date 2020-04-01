@@ -138,6 +138,23 @@ def augmentDepartementalFile():
         json.dump(rawFranceDepartementalJson, outDepFile, indent=4, sort_keys=True, ensure_ascii=False)
 
 
+
+def augmentWorldFile():
+    '''
+    Ajoute l'ensemble des données du fichier généré France sous date trié dans le fichier de geojson World
+    :return:
+    '''
+    print('\n\n')
+    print('##########################')
+    print('\t MONDE')
+    print('##########################')
+
+    print('\tOuverture fichier de base...')
+    with open('./originalWorldGeojson/countries.json') as j4:
+        rawFranceDepartementalJson = json.load(j4)
+
+
+
 if __name__== "__main__":
     print('\n\n')
     print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
@@ -147,9 +164,11 @@ if __name__== "__main__":
 
     ALL_FRANCE_DATA = pd.read_csv('../assets/data/france/data.csv')
 
-    augmentCountryFile()
-    augmentRegionFile()
-    augmentDepartementalFile()
+    #augmentCountryFile()
+    #augmentRegionFile()
+    #augmentDepartementalFile()
+
+    augmentWorldFile()
 
     print('\n\n')
     print('~~~~~~~~')

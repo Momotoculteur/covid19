@@ -1,1 +1,296 @@
-<p>global map works!</p>
+<div fxFlexFill fxLayout="row" fxLayoutAlign="center" class="mainContener">
+    <div 
+        [style.width]="widthSidebar + 'px'"
+        mwlResizable
+        [enableGhostResize]="true"
+        [resizeEdges]="{ bottom: false, right: isOpenSidebar, top: false, left: false }"
+        (resizeEnd)="onResizeEnd($event)"
+        [validateResize]="validate"
+        resizeCursorPrecision="5"
+        >
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between">
+            <div fxFlex *ngIf="isOpenSidebar" fxLayout="column" fxLayoutGap="20px" class="scrollable">
+                <!-- TITRE --> 
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <h1>
+                        Paramètres 
+                    </h1>
+                </div>
+                                
+                <!--GRANULARITE CARTE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Granularité Carte
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <mat-radio-group [(ngModel)]="selectedGranularityMap" (change)="changeGranularity()">
+                            <div fxLayout="column" fxLayoutGap="5px">
+                                <mat-radio-button *ngFor="let granu of listAllGranularityMap" [value]="granu">
+                                    {{granu}}
+                                </mat-radio-button>
+                            </div>
+                        </mat-radio-group>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!-- CHOIX COURBE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Type de données
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <mat-form-field>
+                            <mat-select (selectionChange)="updateStyleMap()" [(value)]="selectedTypeGraph">
+                              <mat-option *ngFor="let typeGraph of listTypeGraph" [value]="typeGraph">
+                                {{typeGraph}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <!--DATE CARTE  -->
+                
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Choix Date
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <mat-form-field class="dateInput">
+                            <input (dateChange)="dateChanged($event.value)"  [value]="selectedDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div fxLayout="row" fxFlex="30px">
+                <div fxFlex fxLayoutAlign="center">
+                    <button fxFlex class="buttonSidebarClose icon" mat-button (click)="toggleSidebar()">
+                        <mat-icon *ngIf="isOpenSidebar">
+                            keyboard_arrow_left
+                        </mat-icon>
+                        <mat-icon *ngIf="!isOpenSidebar">
+                            keyboard_arrow_right
+                        </mat-icon>
+
+                    </button>
+                </div>
+                <div class="dividerSidebar" fxFlex="2px"></div>
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENER MAP -->
+    <div fxFlex>
+        <!--<div style="height: 100vh;" id="map"></div>-->
+        <div class="lastPlan" style="height: 100%;"
+            leaflet 
+            [leafletOptions]="leafletOptions"
+            (leafletMapReady)="onMapReady($event)"
+            >
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.PAYS" [leafletLayer]="franceLayer"></div>
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.REGION" [leafletLayer]="regionLayer"></div>
+            <div *ngIf="selectedGranularityMap === aliasGranularityMap.DEPARTEMENT" [leafletLayer]="departementLayer"></div>
+        </div>
+    </div>
+</div>
+
+<!-- LEGEND HAUT 
+*ngIf="isHoveringItem"
+-->
+<div class="legendTop">
+    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex fxLayout="column" fxLayoutAlign="center">
+
+                <h1 *ngIf="isHoveringItem" fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
+                    {{onHoverLegendInfos}}
+                </h1>
+                <div *ngIf="isHoveringItem" fxLayoutAlign="center">
+                    <h2  *ngIf="!miseEnFormeLegendBottomTitle()"  style="margin: 0px;">
+                        {{onHoverLegendInfosValue}} Cas
+                    </h2>
+                    <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
+                        <h2  fxLayoutAlign="center" style="margin: 0px;">
+                            Taux {{onHoverLegendInfosValue}}
+                        </h2>
+                        <h5 fxLayoutAlign="center" style="margin: 0px;">
+                            (pour 100 personnes)
+                        </h5> 
+                    </div>
+                    &nbsp;
+                    <h2 fxLayoutAlign="center">
+                        <span *ngIf="isColorInversed" [ngClass]="{
+                        'red' : onHoverLegendInfosValueDayBefore > 0,
+                        'green' : onHoverLegendInfosValueDayBefore < 0
+                        }"> (
+                            <span *ngIf="onHoverLegendInfosValueDayBefore > 0">+</span>
+                            {{onHoverLegendInfosValueDayBefore}})
+                        </span>
+                        <span *ngIf="!isColorInversed" [ngClass]="{
+                            'red' : onHoverLegendInfosValueDayBefore < 0,
+                            'green' : onHoverLegendInfosValueDayBefore > 0
+                            }"> (
+                                <span *ngIf="onHoverLegendInfosValueDayBefore > 0">+</span>
+                                {{onHoverLegendInfosValueDayBefore}})
+                        </span>
+                    </h2>
+                    
+                </div>
+
+
+                <div *ngIf="isHoveringItem" fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
+                    <div fxFlex="60%">
+                        <mat-divider fxFill></mat-divider>
+                    </div>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="center center" fxLa style="margin: 0px;margin-bottom: 10px;">
+                    <h2 style="margin: 0px;">
+                        {{selectedGranularityMap}}
+                    </h2>
+                    <h3 style="margin: 0px;">
+                        Tout confondu
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div style="margin-left: 20px;">
+                        Min
+                    </div>
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 20px;">
+                        <div>
+                            {{onHoverLegendInfosValueMin}} 
+                            &nbsp;
+                            <span *ngIf="isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMinDayBefore > 0,
+                                'green' : onHoverLegendInfosValueMinDayBefore < 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMinDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMinDayBefore}})
+                            </span>
+                            <span *ngIf="!isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMinDayBefore < 0,
+                                'green' : onHoverLegendInfosValueMinDayBefore > 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMinDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMinDayBefore}})
+                            </span>
+                        </div>
+                       
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div style="margin-left: 20px;">
+                        Max
+                    </div>
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 20px;">
+                        {{onHoverLegendInfosValuemax}}
+                        &nbsp;
+                            <span *ngIf="isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValuemaxDayBefore > 0,
+                                'green' : onHoverLegendInfosValuemaxDayBefore < 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValuemaxDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValuemaxDayBefore}})
+                            </span>
+                            <span *ngIf="!isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValuemaxDayBefore < 0,
+                                'green' : onHoverLegendInfosValuemaxDayBefore > 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValuemaxDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValuemaxDayBefore}})
+                            </span>
+                    </h3>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div style="margin-left: 20px;">
+                        Moyenne
+                    </div>
+                    <h3 fxFlex fxLayout="row" fxLayoutAlign="end" style="margin: 0px; margin-right: 20px;">
+                        {{onHoverLegendInfosValueMean}}
+                        &nbsp;
+                            <span *ngIf="isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMeanDayBefore > 0,
+                                'green' : onHoverLegendInfosValueMeanDayBefore < 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMeanDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMeanDayBefore}})
+                            </span>
+                            <span *ngIf="!isColorInversed" [ngClass]="{
+                                'red' : onHoverLegendInfosValueMeanDayBefore < 0,
+                                'green' : onHoverLegendInfosValueMeanDayBefore > 0
+                                }"> (
+                                    <span *ngIf="onHoverLegendInfosValueMeanDayBefore > 0">+</span>
+                                    {{onHoverLegendInfosValueMeanDayBefore}})
+                            </span>
+                    </h3>
+                </div>
+
+
+        </div>
+
+           <!--
+
+           
+           -->
+
+
+            
+    </div>
+       
+</div>
+
+    <!-- LEGEND BAS -->
+<div class="firstPlan legend">
+    <div fxLayout="column">
+        <div fxLayoutAlign="center">
+            <div>
+                <h3 style="margin: 0px;">
+                    <span *ngIf="!miseEnFormeLegendBottomTitle()">Cas {{selectedTypeGraph}}</span>
+                    <span *ngIf="miseEnFormeLegendBottomTitle()">{{selectedTypeGraph}}</span>
+                </h3>
+                 <span *ngIf="miseEnFormeLegendBottomTitle()">pour 100 personnes</span>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly">
+            <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center">
+                <div  *ngFor="let color of selectedLegendColorGradient" style="background: {{color}}" class="squareLegend"></div>
+            </div>
+            <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center">
+                <div  *ngFor="let info of selectedLegendInfos">{{info}}</div>
+            </div>
+    
+        </div>
+    </div>
+
+</div>
+
+<!-- FLOATING BUTTON ACTIONS  -->
+<!--
+<div class="floatingButtonContener">
+    <floating-button direction="up" animationMode="fling">
+        <floating-button-trigger spin="true">
+            <button matTooltipPosition="left" mat-fab matTooltip="Paramètres">
+                <mat-icon class="spin360">menu</mat-icon>
+            </button>
+        </floating-button-trigger>
+
+        <floating-button-action>
+            <button matTooltipPosition="left" matTooltip="Ouvrir menu paramètres" mat-mini-fab (click)="toggleSidebar()">
+                <mat-icon>build</mat-icon>
+            </button>
+        </floating-button-action>
+    </floating-button>
+</div>
+-->
