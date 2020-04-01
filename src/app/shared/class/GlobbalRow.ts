@@ -14,13 +14,13 @@ export class GlobalRow {
     constructor(
         _date: Date,
         _region: string,
-        _country: string;
-        _death: number,
+        _country: string,
         _confirmed: number,
+        _death: number,
         _recovered: number,
         _active: number,
         _mortalityRate: number,
-        _recoveryRate:number
+        _recoveryRate: number
     ) {
         this.date = _date;
         this.region = _region;
@@ -48,7 +48,7 @@ export class GlobalRow {
     }
 
     public getCountry(): string {
-        return this.region;
+        return this.country;
     }
     public setCountry(_country: string): void {
         this.country = _country;

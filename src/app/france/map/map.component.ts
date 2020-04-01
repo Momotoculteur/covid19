@@ -463,16 +463,6 @@ export class MapComponent implements OnInit {
         this.onHoverLegendInfosValueDayBefore = Number((value - valueDayBefore).toFixed(2));
         
         this.ref.detectChanges();
-
-
-        console.log('Valeur ' + this.onHoverLegendInfosValueDayBefore)
-        console.log('Valeur min ' + this.onHoverLegendInfosValueMinDayBefore)
-        console.log('Valeur max' + this.onHoverLegendInfosValuemaxDayBefore)
-        console.log('Valeur moyene' + this.onHoverLegendInfosValueMeanDayBefore)
-
-
-
-
     }
 
     private updateMinMaxMeanTopLegendInfosFIRST(): void {

@@ -26,8 +26,24 @@
                         </h3> 
                     </div>
                     <div class="contentTemplate">
-
-
+                        <div *ngIf="!uniqueGraphique">
+                            <mat-form-field>
+                                <mat-select (selectionChange)="updateFiltredData()" multiple [(value)]="selectedMultipleCountry">
+                                    <mat-option *ngFor="let country of allCountry" [value]="country">
+                                        {{country.country}} <span *ngIf="country.region">- {{country.region}}</span>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="uniqueGraphique">
+                            <mat-form-field>
+                                <mat-select (selectionChange)="updateFiltredData()" [(value)]="selectedUniqueCountry">
+                                    <mat-option *ngFor="let country of allCountry" [value]="country">
+                                        {{country.country}} <span *ngIf="country.region">- {{country.region}}</span>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
                     </div>
                 </div>
 

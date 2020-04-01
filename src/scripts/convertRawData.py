@@ -139,7 +139,7 @@ def mergeRawDataWorld():
     finalAll['Recovered'] = finalAll['Recovered'].fillna(0)
     finalAll['Death'] = finalAll['Death'].fillna(0)
     finalAll['Confirmed'] = finalAll['Confirmed'].fillna(0)
-
+    finalAll['Province/State'] = finalAll['Province/State'].replace(np.nan, '', regex=True)
     print('\tAjout colonne Active ...')
     finalAll['Active'] = finalAll['Confirmed'] - finalAll['Death'] - \
                            finalAll['Recovered']
