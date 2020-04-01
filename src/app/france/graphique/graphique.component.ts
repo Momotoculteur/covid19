@@ -19,10 +19,6 @@ import { ALL_DEPARTEMENTAL, IDepartemental } from '../../shared/constant/IDepart
 const MIN_WIDTH_SIDEBAR = 300;
 let OLD_WIDTH_SIDEBAR = 300;
 
-const DEFAULT_COUNTRY = 'FRA';
-const DEFAULT_REGION = 'REG-75';
-const DEFAULT_DEPARTEMENTAL = 'DEP-33';
-
 @Component({
     selector: 'app-graphique',
     templateUrl: './graphique.component.html',

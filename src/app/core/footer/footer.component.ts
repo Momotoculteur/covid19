@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faTwitter, faYoutube, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { EFooterNav } from 'src/app/shared/enum/EFooterNav';
-import { FooterComService } from 'src/app/shared/service/footer-com.service';
+import { G_LAST_COMMIT_DATE_PATH } from 'src/app/shared/constant/CGlobal';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-footer',
@@ -16,20 +16,25 @@ export class FooterComponent implements OnInit {
     public iconYoutube: any;
     public iconGithub: any;
 
-    public navFooterInfo: EFooterNav;
+
+    public lastCommitDate: string;
+
 
     constructor(
-        private footerComService: FooterComService
+        private http: HttpClient
     ) {
         this.iconTwitter = faTwitter;
         this.iconLinkedin = faLinkedinIn;
         this.iconYoutube = faYoutube;
         this.iconGithub = faGithub;
 
-        this.navFooterInfo = EFooterNav.WELCOME;
+        this.loadLastCommitDate();
+    }
 
-        this.footerComService.getObsNavInfos().subscribe( (newVal: EFooterNav) => {
-            this.navFooterInfo = newVal;
+    private loadLastCommitDate(): void {
+        this.http.get(G_LAST_COMMIT_DATE_PATH, { responseType: 'text' })
+        .subscribe(data => {
+            this.lastCommitDate = data;
         });
     }
 

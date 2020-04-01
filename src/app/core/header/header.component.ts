@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { faWineGlassAlt, faGlobe, faHome, faQuestion } from '@fortawesome/free-solid-svg-icons';
-import { EFooterNav } from 'src/app/shared/enum/EFooterNav';
-import { FooterComService } from '../../shared/service/footer-com.service';
 import { EHeaderNav } from '../../shared/enum/EHeaderNav';
 
 @Component({
@@ -16,24 +14,22 @@ export class HeaderComponent implements OnInit {
     public iconHome: any;
     public iconQuestion: any;
 
-    public eFooterNav = EFooterNav;
     public EHeaderNav = EHeaderNav;
     public detailledMenu: EHeaderNav;
 
     constructor(
-        private footerComService: FooterComService
     ) {
         this.iconFrance = faWineGlassAlt;
         this.iconWorld = faGlobe;
         this.iconHome = faHome;
         this.iconQuestion = faQuestion;
+        this.detailledMenu = EHeaderNav.WELCOME;
     }
 
     ngOnInit(): void {
     }
 
-    public updateNavInfos(newValFooter: EFooterNav, newValHeader: EHeaderNav): void {
-        this.footerComService.updateNavInfosValue(newValFooter);
+    public updateNavInfos(newValHeader: EHeaderNav): void {
         this.detailledMenu = newValHeader;
     }
 

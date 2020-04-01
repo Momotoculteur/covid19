@@ -5,21 +5,21 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button (click)="updateNavInfos(eFooterNav.WELCOME, EHeaderNav.BLANK)" routerLink="/welcome" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="17px">
+        <button (click)="updateNavInfos(EHeaderNav.WELCOME)" routerLink="/welcome" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="17px">
           <fa-icon class="icon" [icon]="iconHome"></fa-icon>
           <span>Accueil</span>
         </button>
         <mat-divider></mat-divider>
-        <button (click)="updateNavInfos(eFooterNav.FRANCE, EHeaderNav.FRANCE)" routerLink="/france" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="28px">
+        <button (click)="updateNavInfos(EHeaderNav.FRANCE)" routerLink="/france" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="28px">
           <fa-icon class="icon" [icon]="iconFrance"></fa-icon>
           <span>Données France</span>
         </button>
-        <button (click)="updateNavInfos(eFooterNav.GLOBAL, EHeaderNav.MONDE)" routerLink="/global" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
+        <button (click)="updateNavInfos(EHeaderNav.GLOBAL)" routerLink="/global" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
           <fa-icon class="icon" [icon]="iconWorld"></fa-icon>
           <span>Données Monde</span>
         </button>
         <mat-divider></mat-divider>
-        <button (click)="updateNavInfos(eFooterNav.INFOS, EHeaderNav.BLANK)" routerLink="/infos" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="25px">
+        <button (click)="updateNavInfos(EHeaderNav.INFOS)" routerLink="/infos" mat-menu-item fxLayout="row" fxLayoutAlign="start" fxLayoutGap="25px">
           <fa-icon class="icon" [icon]="iconQuestion"></fa-icon>
           <span>A propos</span>
         </button>
