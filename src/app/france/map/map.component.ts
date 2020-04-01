@@ -50,8 +50,6 @@ export class MapComponent implements OnInit {
     public minDate: Date;
     public maxDate: Date;
 
-    // LAYER CONTROL
-    public layersControl = [];
     public leafletMap: L.Map;
     public leafletOptions: any = {
         layers: [
@@ -153,7 +151,6 @@ export class MapComponent implements OnInit {
                     //layer.on('click', (e) => this.zoomToFeature(e));
                 }
             });
-            this.layersControl.push(this.franceLayer);
             this.updateDateMinMaxSelected();
             this.updateStyleMap();
         });
@@ -171,7 +168,6 @@ export class MapComponent implements OnInit {
                     //layer.on('click', (layer) => this.zoomToFeature(layer));
                 }
             });
-            this.layersControl.push(this.departementLayer)
         });
 
         this.http.get(G_MAP_GEOJSON_REGION_PATH).subscribe((json: any) => {
@@ -187,7 +183,6 @@ export class MapComponent implements OnInit {
                     //layer.on('click', (feature) => this.zoomToFeature(feature));
                 }
             });
-            this.layersControl.push(this.regionLayer)
         });
 
     }
@@ -457,10 +452,15 @@ export class MapComponent implements OnInit {
         });
 
         
-
-        this.onHoverLegendInfos = layer.feature.properties.nom as string;
-        this.onHoverLegendInfosValue = Number(value.toFixed(2));
-        this.onHoverLegendInfosValueDayBefore = Number((value - valueDayBefore).toFixed(2));
+        if (value) {
+            this.onHoverLegendInfos = layer.feature.properties.nom as string;
+            this.onHoverLegendInfosValue = Number(value.toFixed(2));
+            this.onHoverLegendInfosValueDayBefore = Number((value - valueDayBefore).toFixed(2));
+        } else {
+            this.onHoverLegendInfos =  layer.feature.properties.nom as string;
+            this.onHoverLegendInfosValue = null;
+            this.onHoverLegendInfosValueDayBefore = null;
+        }
         
         this.ref.detectChanges();
     }

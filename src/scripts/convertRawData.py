@@ -172,7 +172,7 @@ if __name__== "__main__":
     print('\t DEBUT ALGO')
     print('~~~~~~~~')
 
-    #mergeRawDataFrance()
+    mergeRawDataFrance()
 
     mergeRawDataWorld()
 

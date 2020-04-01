@@ -81,7 +81,10 @@
         <div class="lastPlan" style="height: 100%;"
             leaflet 
             [leafletOptions]="leafletOptions"
+            (leafletMapReady)="onMapReady($event)"
             >
+            <div [leafletLayer]="globalLayer"></div>
+
         </div>
     </div>
 </div>
@@ -96,7 +99,7 @@
                 <h1 *ngIf="isHoveringItem" fxLayoutAlign="center" style="margin: 0px;font-weight: bold;">
                     {{onHoverLegendInfos}}
                 </h1>
-                <div *ngIf="isHoveringItem" fxLayoutAlign="center">
+                <div *ngIf="isHoveringItem && onHoverLegendInfosValue" fxLayoutAlign="center">
                     <h2  *ngIf="!miseEnFormeLegendBottomTitle()"  style="margin: 0px;">
                         {{onHoverLegendInfosValue}} Cas
                     </h2>
@@ -127,9 +130,21 @@
                     </h2>
                     
                 </div>
+                <div fxLayoutAlign="center" *ngIf="isHoveringItem && onHoverLegendInfosValue===null">
+                    <h2>
+                        Données non disponible
+                    </h2>
+                </div>
+
+                <div fxLayoutAlign="center" *ngIf="!isHoveringItem ">
+                    <h2>
+                        Selectionnez un pays...
+                    </h2>
+                </div>
+                
 
 
-                <div *ngIf="isHoveringItem" fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
+                <div fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
                     <div fxFlex="60%">
                         <mat-divider fxFill></mat-divider>
                     </div>

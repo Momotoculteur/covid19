@@ -8,6 +8,7 @@ echo .
 echo MAJ Data Monde...
 echo .
 cd D:\DeeplyLearning\Github\COVID-19
+git checkout .
 git checkout master
 git pull
 

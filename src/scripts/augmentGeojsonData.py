@@ -151,9 +151,31 @@ def augmentWorldFile():
 
     print('\tOuverture fichier de base...')
     with open('./originalWorldGeojson/countries.json') as j4:
-        rawFranceDepartementalJson = json.load(j4)
+        rawAllCountriesJson = json.load(j4)
+
+    print('\tAjout nouvelles données...')
+    for country in tqdm(rawAllCountriesJson['features']):
+        countryAugmented = [];
+
+        for index, row in ALL_GLOBAL_DATA.iterrows():
+            if(row['Country/Region'] == country['properties']['CountryName']):
+                countryAugmented.append({
+                    'Date': row['Date'],
+                    'Confirmed': row['Confirmed'],
+                    'Death': row['Death'],
+                    'Recovered': row['Recovered'],
+                    'Active': row['Active'],
+                    'Mortality_Rate': row['Mortality_Rate'],
+                    'Recovery_Rate': row['Recovery_Rate']
+                })
 
 
+        countryAugmentedSorted = sorted(countryAugmented, key=lambda k: k['Date'])
+        country['properties']['value'] = countryAugmentedSorted
+
+    print('\tSauvegarde nouveau fichier...')
+    with open("../assets/geo/global/geojsonGlobal.json", "w", encoding='utf8') as outDepFile:
+        json.dump(rawAllCountriesJson, outDepFile, indent=4, sort_keys=True, ensure_ascii=False)
 
 if __name__== "__main__":
     print('\n\n')
@@ -163,10 +185,10 @@ if __name__== "__main__":
     print('\tLecture fichier de base FRANCE...')
 
     ALL_FRANCE_DATA = pd.read_csv('../assets/data/france/data.csv')
-
-    #augmentCountryFile()
-    #augmentRegionFile()
-    #augmentDepartementalFile()
+    ALL_GLOBAL_DATA = pd.read_csv('../assets/data/global/data.csv')
+    augmentCountryFile()
+    augmentRegionFile()
+    augmentDepartementalFile()
 
     augmentWorldFile()
 

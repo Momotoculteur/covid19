@@ -149,8 +149,20 @@
                     
                 </div>
 
+                <div fxLayoutAlign="center" *ngIf="isHoveringItem && onHoverLegendInfosValue===null">
+                    <h2>
+                        Données non disponible
+                    </h2>
+                </div>
 
-                <div *ngIf="isHoveringItem" fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
+                <div fxLayoutAlign="center" *ngIf="!isHoveringItem ">
+                    <h2>
+                        Selectionnez un pays...
+                    </h2>
+                </div>
+
+
+                <div fxLayout="row" fxLayoutAlign="center" style="margin: 10px;">
                     <div fxFlex="60%">
                         <mat-divider fxFill></mat-divider>
                     </div>

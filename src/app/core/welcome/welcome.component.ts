@@ -15,7 +15,7 @@ export class WelcomeComponent implements OnInit {
         this.loadLastCommitDate();
     }
 
-    public loadLastCommitDate(): void {
+    private loadLastCommitDate(): void {
         this.http.get(G_LAST_COMMIT_DATE_PATH, { responseType: 'text' })
         .subscribe(data => {
             this.lastCommitDate = data;
