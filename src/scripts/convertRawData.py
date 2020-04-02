@@ -169,7 +169,7 @@ def mergeRawDataWorld():
 if __name__== "__main__":
     print('\n\n')
     print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-    print('\t DEBUT ALGO')
+    print('\t DEBUT ALGO RAWDATA')
     print('~~~~~~~~')
 
     mergeRawDataFrance()
