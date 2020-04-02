@@ -181,15 +181,15 @@ def augmentWorldFile():
 if __name__== "__main__":
     print('\n\n')
     print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-    print('\t DEBUT ALGO')
+    print('\t DEBUT ALGO GEOJSON')
     print('~~~~~~~~')
     print('\tLecture fichier de base FRANCE...')
 
     ALL_FRANCE_DATA = pd.read_csv('../assets/data/france/data.csv')
     ALL_GLOBAL_DATA = pd.read_csv('../assets/data/global/data.csv')
-    #augmentCountryFile()
-    #augmentRegionFile()
-    #augmentDepartementalFile()
+    augmentCountryFile()
+    augmentRegionFile()
+    augmentDepartementalFile()
 
     augmentWorldFile()
 

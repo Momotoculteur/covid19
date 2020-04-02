@@ -10,7 +10,7 @@ echo .
 cd D:\DeeplyLearning\Github\COVID-19
 git checkout .
 git checkout master
-git pull
+git pull origin master
 
 
 echo .
@@ -19,7 +19,7 @@ echo .
 cd D:\DeeplyLearning\Github\data
 git checkout .
 git checkout master
-git pull
+git pull origin master
 call npm run build
 D:
 
@@ -27,8 +27,9 @@ echo .
 echo Conversion des nouvelles data...
 echo .
 cd D:\DeeplyLearning\Github\SITE_PERSO_GITPAGE\covid19
+git checkout .
 git checkout master
-git pull
+git pull origin master
 cd src\scripts
 call python convertRawData.py
 D:
