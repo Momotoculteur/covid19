@@ -1,0 +1,249 @@
+<div fxFlexFill fxLayout="row" fxLayoutAlign="center" class="mainContener">
+    <div 
+        [style.width]="widthSidebar + 'px'"
+        mwlResizable
+        [enableGhostResize]="true"
+        [resizeEdges]="{ bottom: false, right: isOpenSidebar, top: false, left: false }"
+        (resizeEnd)="onResizeEnd($event)"
+        [validateResize]="validate"
+        resizeCursorPrecision="5"
+        >
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between">
+            <div fxFlex *ngIf="isOpenSidebar" fxLayout="column" fxLayoutGap="20px" class="scrollable">
+                
+                 <!-- TITRE --> 
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <h1>
+                        Paramètres 
+                    </h1>
+                </div>
+
+                <!--GRANULARITE CARTE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Choix Pays
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <div *ngIf="!uniqueGraphique">
+                            <mat-form-field>
+                                <mat-select (selectionChange)="updateFiltredData()" multiple [(value)]="selectedMultipleCountry">
+                                    <mat-option *ngFor="let country of allCountry" [value]="country">
+                                        {{country.country}} <span *ngIf="country.region">- {{country.region}}</span>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="uniqueGraphique">
+                            <mat-form-field>
+                                <mat-select (selectionChange)="updateFiltredData()" [(value)]="selectedUniqueCountry">
+                                    <mat-option *ngFor="let country of allCountry" [value]="country">
+                                        {{country.country}} <span *ngIf="country.region">- {{country.region}}</span>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!--DATE CARTE -->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Choix Date
+                        </h3> 
+                    </div>
+
+                    <div class="contentTemplate">
+                        <mat-slide-toggle
+                            [checked]="uniqueDate"
+                            (change)="updateDateContener($event.checked)">
+                            Date Unique
+                        </mat-slide-toggle>
+                    </div>
+                    <div class="contentTemplate" *ngIf="uniqueDate">
+                        <mat-form-field class="dateInput">
+                            <input (dateChange)="updateDate($event.value)" [value]="currentDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                    <div class="contentTemplate" *ngIf="!uniqueDate">
+                        <div>Date Minimal</div>
+                        <mat-form-field class="dateInput">
+                            <input (dateChange)="updateDateCurrentMin($event.value)" [value]="selectedDateMin" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerCurrentMin">
+                            <mat-datepicker-toggle matSuffix [for]="pickerCurrentMin"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerCurrentMin></mat-datepicker>
+                          </mat-form-field>
+                          <div>Date Maximal</div>
+
+                          <mat-form-field class="dateInput">
+                            <input (dateChange)="updateDateCurrentMax($event.value)" [value]="selectedDateMax" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerCurrentMax">
+                            <mat-datepicker-toggle matSuffix [for]="pickerCurrentMax"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerCurrentMax></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!-- CHOIX GRAPHIQUE-->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Granularité Graphique
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate" fxLayout="column" fxLayoutGap="5px">
+                        <mat-slide-toggle
+                            [checked]="uniqueGraphique"
+                            (change)="updateGraphiqueContener($event.checked)">
+                            Graphique global
+                        </mat-slide-toggle>
+
+                        <mat-form-field class="dateInput">
+                            <mat-label>Liste graphique</mat-label>
+                            <mat-select multiple (selectionChange)="updateNumberOfGraphique($event.value)" [disabled]="uniqueGraphique">
+                              <mat-option *ngFor="let graph of listTypeGraph" [value]="graph">{{graph}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <!-- CHOIX TYPE GRAPHIQUE-->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Graphique Type
+                        </h3> 
+                    </div>
+                    <div class="contentTemplate">
+                        <mat-radio-group (change)="updateGraphicType($event.value)" [(ngModel)]="selectedPlotType">
+                            <div fxLayout="column" fxLayoutGap="5px">
+                                <mat-radio-button *ngFor="let type of listPlotType" [value]="type">
+                                    {{type}}
+                                </mat-radio-button>
+                            </div>
+                        </mat-radio-group>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+
+                <!-- CHOIX TYPE GRAPHIQUE-->
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h3>
+                            Customization
+                        </h3> 
+                    </div>
+                        <div class="contentTemplate" *ngIf="selectedPlotType === aliasPlotType.SCATTER">
+                            <mat-form-field>
+                                <mat-label>Liste submode</mat-label>
+                                <mat-select multiple (selectionChange)="updateScatterSubmod($event.value)" [ngModel]="allScatterSubmod" >
+                                  <mat-option *ngFor="let submod of allScatterSubmod" [value]="submod">{{submod}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="contentTemplate" *ngIf="selectedPlotType === aliasPlotType.BAR" fxLayout="column" fxLayoutGap="10px">
+                            
+                            <div>
+                                <mat-radio-group (change)="updateBarSubmod($event.value)" [(ngModel)]="selectedBarSubmod">
+                                    <div fxLayout="column" fxLayoutGap="5px">
+                                        <mat-radio-button *ngFor="let submod of allBarSubmob" [value]="submod">
+                                            {{submod}}
+                                        </mat-radio-button>
+                                    </div>
+                                </mat-radio-group>
+                            </div>
+                         
+                            <div fxLayout="column">
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <span>Gap bar</span>
+                                    <mat-slider
+                                        (change)="updateBarGap($event.value, 'gap')"
+                                        max="1"
+                                        min="0"
+                                        step="0.1"
+                                        thumbLabel="true"
+                                        [(ngModel)]="selectedGap">
+                                    </mat-slider>
+
+                                </div>
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <span>Gap bar groupe</span>
+                                    <mat-slider
+                                        (change)="updateBarGap($event.value, 'gapGroup')"
+                                        max="1"
+                                        min="0"
+                                        step="0.1"
+                                        thumbLabel="true"
+                                        [(ngModel)]="selectedGapGroup">
+                                    </mat-slider>
+                                </div>
+                            </div>
+                            
+                        
+                        </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div fxLayout="row" fxFlex="30px">
+                <div fxFlex fxLayoutAlign="center">
+                    <button fxFlex class="buttonSidebarClose icon" mat-button (click)="toggleSidebar()">
+                        <mat-icon *ngIf="isOpenSidebar">
+                            keyboard_arrow_left
+                        </mat-icon>
+                        <mat-icon *ngIf="!isOpenSidebar">
+                            keyboard_arrow_right
+                        </mat-icon>
+
+                    </button>
+                </div>
+                <div class="dividerSidebar" fxFlex="2px"></div>
+               
+            </div>
+        </div>
+
+        
+    </div>
+    <div fxFlex>
+        <div *ngFor="let graphic of allGraphics" fxLayout="column" fxFlex>
+            <plotly-plot fxFlex
+            [style]="{width: '100%', height: '100%'}" 
+            [useResizeHandler]="true"
+            [data]="graphic.data" 
+            [config]="graphic.config" 
+            [layout]="graphic.layout">
+            </plotly-plot>
+        </div>
+    </div>
+</div>
+
+
+<!-- FLOATING BUTTON ACTIONS  -->
+<div class="floatingButtonContener">
+    <floating-button direction="up" animationMode="fling">
+        <floating-button-trigger spin="true">
+            <button matTooltipPosition="left" mat-fab matTooltip="Paramètres">
+                <mat-icon class="spin360">menu</mat-icon>
+            </button>
+        </floating-button-trigger>
+
+        <floating-button-action>
+            <button matTooltipPosition="left" matTooltip="Ouvrir menu paramètres" mat-mini-fab (click)="toggleSidebar()">
+                <mat-icon>build</mat-icon>
+            </button>
+        </floating-button-action>
+    </floating-button>
+</div>

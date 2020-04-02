@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { EGranulariteCarte } from 'src/app/shared/enum/EGranulariteCarte';
 import { FranceRow } from 'src/app/shared/class/FranceRow';
 import { HttpClient } from '@angular/common/http';
-import { LAST_DATE, UPDATE_PLOTLY_VIEW, G_FRANCE_DATA_PATH, isDateEqual } from 'src/app/shared/constant/CGlobal';
+import { LAST_DATE, UPDATE_PLOTLY_VIEW, G_FRANCE_DATA_PATH, isDateEqual, isDateBetween } from 'src/app/shared/constant/CGlobal';
 import * as clonedeep from 'lodash.clonedeep';
 import { ResizeEvent } from 'angular-resizable-element';
 import { EGraphType } from '../../shared/enum/EGraphType';
@@ -81,7 +81,7 @@ export class GraphiqueComponent implements OnInit {
 
 
     constructor(
-        private http: HttpClient,
+        private http: HttpClient
     ) {
         this.currentGranulariteCarte = EGranulariteCarte.PAYS;
         this.allMapviewType = [EGranulariteCarte.PAYS, EGranulariteCarte.REGION, EGranulariteCarte.DEPARTEMENT];
@@ -293,7 +293,6 @@ export class GraphiqueComponent implements OnInit {
 
     public updateFiltredData(): void {
         this.cleanAllDataGraph();
-        console.log('_______________________')
         switch (this.currentGranulariteCarte) {
             case EGranulariteCarte.PAYS: {
                 if (this.uniqueDate) {
@@ -306,7 +305,7 @@ export class GraphiqueComponent implements OnInit {
                 } else {
                     this.filtredData.forEach((row: FranceRow) => {
                         if (row.getCodeTypeCarte() === this.selectedUniqueCountry.codeTypeCarte
-                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                            && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                             this.addRow(row);
                         }
                     });
@@ -345,7 +344,7 @@ export class GraphiqueComponent implements OnInit {
                     if (this.uniqueGraphique) {
                         this.filtredData.forEach((row: FranceRow) => {
                             if (this.selectedUniqueRegion.codeTypeCarte === row.getCodeTypeCarte()
-                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                            && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                                 if (this.uniqueGraphique) {
                                     this.addRow(row);
                                 } else {
@@ -357,7 +356,7 @@ export class GraphiqueComponent implements OnInit {
                         this.filtredData.forEach((row: FranceRow) => {
                             this.selectedMultipleRegion.forEach((currentSelectedReg: IRegion) => {
                                 if (currentSelectedReg.codeTypeCarte === row.getCodeTypeCarte()
-                                    && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                    && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                                         if (this.uniqueGraphique) {
                                             this.addRow(row);
                                         } else {
@@ -402,7 +401,7 @@ export class GraphiqueComponent implements OnInit {
                     if (this.uniqueGraphique) {
                         this.filtredData.forEach((row: FranceRow) => {
                             if (this.selectedUniqueDepartemental.codeTypeCarte === row.getCodeTypeCarte()
-                            && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                            && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                                 if (this.uniqueGraphique) {
                                     this.addRow(row);
                                 } else {
@@ -414,7 +413,7 @@ export class GraphiqueComponent implements OnInit {
                         this.filtredData.forEach((row: FranceRow) => {
                             this.selectedMultipleDepartemental.forEach((currentSelectedDep: IDepartemental) => {
                                 if (currentSelectedDep.codeTypeCarte === row.getCodeTypeCarte()
-                                    && this.isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
+                                    && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                                         if (this.uniqueGraphique) {
                                             this.addRow(row);
                                         } else {
@@ -429,7 +428,6 @@ export class GraphiqueComponent implements OnInit {
             }
         }
 
-        console.log(this.allGraphics)
     }
 
     private addRowMultipleDate(row: FranceRow): void {
@@ -722,22 +720,7 @@ export class GraphiqueComponent implements OnInit {
 
 
 
-    private isDateBetween(dateToCompare: Date, dateMin: Date, dateMax: Date): boolean {
-        if (dateToCompare.getMonth() >= dateMin.getMonth()
-            && dateToCompare.getFullYear() >= dateMin.getFullYear()
-            && dateToCompare.getDate() >= dateMin.getDate()
-            && dateToCompare.getMonth() <= dateMax.getMonth()
-            && dateToCompare.getFullYear() <= dateMax.getFullYear()
-            && dateToCompare.getDate() <= dateMax.getDate()
-        ) {
-            console.log('TRUUUE')
-            return true;
-        } else {
-            console.log('FAUSX')
 
-            return false;
-        }
-    }
 
 
 
@@ -1048,54 +1031,6 @@ export class GraphiqueComponent implements OnInit {
                     });
                     break;
                 }
-
-
-                /*
-                case EGraphType.RATE: {
-                    if (currentGraphics.data.length === 0) {
-                        currentGraphics.data.push({
-                            x: [completeDate],
-                            y: [row.getMortalityRate()],
-                            name: ELegend.MORTALITY_RATE,
-                            type: this.selectedPlotType.toLowerCase(),
-                            marker: {
-                                color: 'red'
-                            },
-                            legendgroup: 'taux_mortalite',
-                            showlegend: hideLegendfAlreadyExist,
-                            mode: this.selectedScatterSubmod
-                        });
-                        currentGraphics.data.push({
-                            x: [completeDate],
-                            y: [row.getRecoveryRate()],
-                            name: ELegend.RECOVERY_RATE,
-                            type: this.selectedPlotType.toLowerCase(),
-                            marker: {
-                                color: 'green'
-                            },
-                            legendgroup: 'taux_soin',
-                            showlegend: hideLegendfAlreadyExist,
-                            mode: this.selectedScatterSubmod
-                        });
-                        break;
-                    } else {
-                        currentGraphics.data.forEach((currentData: IGaphicDataDefinition) => {
-                            switch (currentData.name) {
-                                case ELegend.RECOVERY_RATE: {
-                                    currentData.x.push(completeDate);
-                                    currentData.y.push(row.getRecoveryRate());
-                                    break;
-                                }
-                                case ELegend.MORTALITY_RATE: {
-                                    currentData.x.push(completeDate);
-                                    currentData.y.push(row.getMortalityRate());
-                                    break;
-                                }
-                            }
-                        });
-                    }
-                }*/
-
 
             }
         });
