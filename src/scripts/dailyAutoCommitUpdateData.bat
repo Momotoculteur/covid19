@@ -28,6 +28,7 @@ echo Conversion des nouvelles data...
 echo .
 cd D:\DeeplyLearning\Github\SITE_PERSO_GITPAGE\covid19
 git checkout master
+git pull
 cd src\scripts
 call python convertRawData.py
 D:
