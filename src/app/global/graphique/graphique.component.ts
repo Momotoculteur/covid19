@@ -122,14 +122,14 @@ export class GraphiqueComponent implements OnInit {
                 } else {
                     this.allData.push(new GlobalRow(
                         new Date(currentLine[0]),
+                        '',
                         currentLine[1],
-                        currentLine[2],
+                        Number(currentLine[2]),
                         Number(currentLine[3]),
                         Number(currentLine[4]),
                         Number(currentLine[5]),
                         Number(currentLine[6]),
-                        Number(currentLine[7]),
-                        Number(currentLine[8])
+                        Number(currentLine[7])
                     ));
 
                     if (this.maxDate === undefined) {
@@ -146,11 +146,10 @@ export class GraphiqueComponent implements OnInit {
                         this.minDate = new Date(currentLine[0]);
                     }
 
-                    const alreadyExist = this.allCountry.find((cur) => cur.country === String(currentLine[2]) && cur.region === String(currentLine[1]));
+                    const alreadyExist = this.allCountry.find((cur) => cur.country === String(currentLine[1]));
                     if (!(alreadyExist)) {
                         this.allCountry.push({
-                            region: String(currentLine[1]),
-                            country: String(currentLine[2])
+                            country: String(currentLine[1])
                         });
                     }
                 }
@@ -273,7 +272,6 @@ export class GraphiqueComponent implements OnInit {
             if (this.uniqueGraphique) {
                 this.filtredData.forEach((row: GlobalRow) => {
                     if (this.selectedUniqueCountry.country === row.getCountry()
-                        && this.selectedUniqueCountry.region === row.getRegion()
                         && isDateEqual(row.getDate(), this.currentDate)) {
                         this.addRow(row);
                     }
@@ -281,8 +279,7 @@ export class GraphiqueComponent implements OnInit {
             } else {
                 this.filtredData.forEach((row: GlobalRow) => {
                     this.selectedMultipleCountry.forEach((currentSelectedCountry: ITemplateCountryDisplay) => {
-                        if (currentSelectedCountry.region === row.getRegion()
-                            && currentSelectedCountry.country === row.getCountry()
+                        if (currentSelectedCountry.country === row.getCountry()
                             && isDateEqual(row.getDate(), this.currentDate)) {
                             this.addRowMultipleDate(row);
                         }
@@ -293,8 +290,7 @@ export class GraphiqueComponent implements OnInit {
         } else {
             if (this.uniqueGraphique) {
                 this.filtredData.forEach((row: GlobalRow) => {
-                    if (this.selectedUniqueCountry.region === row.getRegion()
-                        && this.selectedUniqueCountry.country === row.getCountry()
+                    if (this.selectedUniqueCountry.country === row.getCountry()
                         && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                         this.addRow(row);
 
@@ -303,8 +299,7 @@ export class GraphiqueComponent implements OnInit {
             } else {
                 this.filtredData.forEach((row: GlobalRow) => {
                     this.selectedMultipleCountry.forEach((currentSelectedCountry: ITemplateCountryDisplay) => {
-                        if (currentSelectedCountry.region === row.getRegion()
-                            && currentSelectedCountry.country === row.getCountry()
+                        if (currentSelectedCountry.country === row.getCountry()
                             && isDateBetween(row.getDate(), this.selectedDateMin, this.selectedDateMax)) {
                             this.addRowMultipleDate(row);
                         }
@@ -731,6 +726,7 @@ export class GraphiqueComponent implements OnInit {
 
     public updateDateCurrentMin(newVal: Date): void {
     this.selectedDateMin = newVal;
+    console.log(this.selectedDateMin)
     this.updateFiltredData();
 }
     public updateDateCurrentMax(newVal: Date): void {
