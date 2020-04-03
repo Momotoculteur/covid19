@@ -74,13 +74,22 @@ def mergeRawDataWorld():
     confirmedDateHeader = dataGlobalConfirmed.columns.values
     confirmedDateHeader = confirmedDateHeader[2:]
 
+    # TMP A DELETE
+    #confirmedDateHeader = confirmedDateHeader[60:]
+
     dataGlobalDeath = dataGlobalDeath.drop(columns=['Lat', 'Long'])
     deathDateHeader = dataGlobalDeath.columns.values
     deathDateHeader = deathDateHeader[2:]
 
+    # TMP A DELETE
+    #deathDateHeader = deathDateHeader[60:]
+
     dataGlobalRecovered = dataGlobalRecovered.drop(columns=['Lat', 'Long'])
     recoveredDateHeader = dataGlobalRecovered.columns.values
     recoveredDateHeader = recoveredDateHeader[2:]
+
+    # TMP A DELETE
+    # recoveredDateHeader = recoveredDateHeader[60:]
 
     finalDeath = pd.DataFrame({
         'Date': pd.Series([], dtype='str'),
@@ -155,6 +164,23 @@ def mergeRawDataWorld():
     finalAll = finalAll.fillna(0)
     finalAll = finalAll.replace([np.inf, -np.inf], 0)
 
+    print()
+
+    uniqueDate = finalAll['Date'].unique()
+
+    print('\tAjout colonne WORLD ...')
+    for date in uniqueDate:
+        #worldRow = finalAll[finalAll['Date'] == date].groupby(['Date']).sum().reset_index()
+        worldRow = finalAll[finalAll['Date'] == date].groupby(['Date']).agg({
+            'Recovered_Rate': 'mean',
+            'Mortality_Rate': 'mean',
+            'Active': 'sum',
+            'Death': 'sum',
+            'Confirmed': 'sum',
+            'Recovered': 'sum'
+        }).reset_index()
+        worldRow['Country/Region'] = 'WORLD'
+        finalAll = finalAll.append(worldRow, ignore_index=True)
 
     print('\tSauvegarde nouveau fichier...')
     finalAll.to_csv('../assets/data/global/data.csv', encoding='utf-8', index=False)
@@ -168,7 +194,7 @@ if __name__== "__main__":
     print('\t DEBUT ALGO RAWDATA')
     print('~~~~~~~~')
 
-    mergeRawDataFrance()
+    #mergeRawDataFrance()
 
     mergeRawDataWorld()
 
