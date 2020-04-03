@@ -104,12 +104,9 @@
                         {{onHoverLegendInfosValue}} Cas
                     </h2>
                     <div *ngIf="miseEnFormeLegendBottomTitle()" style="margin: 0px;" fxLayout="column">
-                        <h2  fxLayoutAlign="center" style="margin: 0px;">
+                        <h2 style="margin: 0px;" fxLayoutAlign="center">
                             Taux {{onHoverLegendInfosValue}}
                         </h2>
-                        <h5 fxLayoutAlign="center" style="margin: 0px;">
-                            (pour 100 personnes)
-                        </h5> 
                     </div>
                     &nbsp;
                     <h2 fxLayoutAlign="center">
@@ -117,14 +114,14 @@
                         'red' : onHoverLegendInfosValueDayBefore > 0,
                         'green' : onHoverLegendInfosValueDayBefore < 0
                         }"> (
-                            <span *ngIf="onHoverLegendInfosValueDayBefore > 0">+</span>
+                            <span *ngIf="onHoverLegendInfosValueDayBefore >= 0">+</span>
                             {{onHoverLegendInfosValueDayBefore}})
                         </span>
                         <span *ngIf="!isColorInversed" [ngClass]="{
                             'red' : onHoverLegendInfosValueDayBefore < 0,
                             'green' : onHoverLegendInfosValueDayBefore > 0
                             }"> (
-                                <span *ngIf="onHoverLegendInfosValueDayBefore > 0">+</span>
+                                <span *ngIf="onHoverLegendInfosValueDayBefore >= 0">+</span>
                                 {{onHoverLegendInfosValueDayBefore}})
                         </span>
                     </h2>

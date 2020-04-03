@@ -270,55 +270,55 @@ export class MapComponent implements OnInit {
         let argsId: string;
         switch (this.selectedTypeGraph) {
             case EGraphType.CONFIRMED: {
-                argsId = 'confirmed';
+                argsId = 'Confirmed';
                 this.isColorInversed = true;
                 break;
             }
             case EGraphType.DEATH: {
-                argsId = 'death';
+                argsId = 'Death';
                 this.isColorInversed = true;
 
                 break;
             }
             case EGraphType.ACTIVE: {
-                argsId = 'active';
+                argsId = 'Active';
                 this.isColorInversed = true;
-
-
-                break;
-            }
-            case EGraphType.HOSPITALIZED: {
-                argsId = 'hospitalized';
-                this.isColorInversed = true;
-
-                break;
-            }
-            case EGraphType.REANIMATED: {
-                argsId = 'reanimated';
-                this.isColorInversed = false;
 
 
                 break;
             }
             case EGraphType.RECOVERED: {
-                argsId = 'recovered';
+                argsId = 'Recovered';
                 this.isColorInversed = false;
 
                 break;
             }
             case EGraphType.RECOVERY_RATE: {
-                argsId = 'recoveredRate';
+                argsId = 'Recovered_Rate';
                 this.isColorInversed = false;
 
                 break;
             }
             case EGraphType.MORTALITY_RATE: {
-                argsId = 'mortalityRate';
+                argsId = 'Mortality_Rate';
                 this.isColorInversed = true;
 
                 break;
             }
         }
+
+        this.globalLayer.eachLayer((current) => {
+            current.feature.properties.value.forEach((prop: ITemplateProps) => {
+                if (isDateEqual(new Date(prop.Date), this.selectedDate)) {
+                    console.log(prop)
+                    current.setStyle({
+                        fillColor: this.getColor(prop[argsId]),
+                        fillOpacity: 0.7,
+                        weight: 2
+                    });
+                }
+            });
+        });
 
     }
 
@@ -467,7 +467,7 @@ export class MapComponent implements OnInit {
                 break;
             }
             case EGraphType.RECOVERY_RATE: {
-                argsId = 'Recovery_Rate';
+                argsId = 'Recovered_Rate';
                 break;
             }
             case EGraphType.MORTALITY_RATE: {

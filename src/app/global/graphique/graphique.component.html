@@ -30,7 +30,7 @@
                             <mat-form-field>
                                 <mat-select (selectionChange)="updateFiltredData()" multiple [(value)]="selectedMultipleCountry">
                                     <mat-option *ngFor="let country of allCountry" [value]="country">
-                                        {{country.country}} <span *ngIf="country.region">- {{country.region}}</span>
+                                        {{country.country}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -39,7 +39,7 @@
                             <mat-form-field>
                                 <mat-select (selectionChange)="updateFiltredData()" [(value)]="selectedUniqueCountry">
                                     <mat-option *ngFor="let country of allCountry" [value]="country">
-                                        {{country.country}} <span *ngIf="country.region">- {{country.region}}</span>
+                                        {{country.country}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>

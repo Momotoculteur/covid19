@@ -65,39 +65,47 @@ def mergeRawDataWorld():
     dataGlobalDeath = pd.read_csv('D:\\DeeplyLearning\\Github\\COVID-19\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_deaths_global.csv')
     dataGlobalRecovered = pd.read_csv('D:\\DeeplyLearning\\Github\\COVID-19\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_recovered_global.csv')
 
+    dataGlobalConfirmed = dataGlobalConfirmed.groupby(['Country/Region']).sum().reset_index()
+    dataGlobalDeath = dataGlobalDeath.groupby(['Country/Region']).sum().reset_index()
+    dataGlobalRecovered = dataGlobalRecovered.groupby(['Country/Region']).sum().reset_index()
 
     print('\tPreparation data de base...')
     dataGlobalConfirmed = dataGlobalConfirmed.drop(columns=['Lat', 'Long'])
     confirmedDateHeader = dataGlobalConfirmed.columns.values
     confirmedDateHeader = confirmedDateHeader[2:]
 
+    # TMP A DELETE
+    #confirmedDateHeader = confirmedDateHeader[60:]
+
     dataGlobalDeath = dataGlobalDeath.drop(columns=['Lat', 'Long'])
     deathDateHeader = dataGlobalDeath.columns.values
     deathDateHeader = deathDateHeader[2:]
+
+    # TMP A DELETE
+    #deathDateHeader = deathDateHeader[60:]
 
     dataGlobalRecovered = dataGlobalRecovered.drop(columns=['Lat', 'Long'])
     recoveredDateHeader = dataGlobalRecovered.columns.values
     recoveredDateHeader = recoveredDateHeader[2:]
 
+    # TMP A DELETE
+    # recoveredDateHeader = recoveredDateHeader[60:]
+
     finalDeath = pd.DataFrame({
         'Date': pd.Series([], dtype='str'),
-        'Province/State': pd.Series([], dtype='str'),
         'Country/Region': pd.Series([], dtype='str'),
         'Death': pd.Series([], dtype='int')
     })
     finalRecovered = pd.DataFrame({
         'Date': pd.Series([], dtype='str'),
-        'Province/State': pd.Series([], dtype='str'),
         'Country/Region': pd.Series([], dtype='str'),
         'Recovered': pd.Series([], dtype='int')
     })
     finalConfirmed = pd.DataFrame({
         'Date': pd.Series([], dtype='str'),
-        'Province/State': pd.Series([], dtype='str'),
         'Country/Region': pd.Series([], dtype='str'),
         'Confirmed': pd.Series([], dtype='int')
     })
-
 
 
     print('\tAjout data CONFIRMED...')
@@ -105,7 +113,6 @@ def mergeRawDataWorld():
         for currentDate in confirmedDateHeader:
             finalConfirmed = finalConfirmed.append({
                 'Date': currentDate,
-                'Province/State': row['Province/State'],
                 'Country/Region': row['Country/Region'],
                 'Confirmed': row[currentDate]
             }, ignore_index=True)
@@ -115,7 +122,6 @@ def mergeRawDataWorld():
         for currentDate in deathDateHeader:
             finalDeath = finalDeath.append({
                 'Date': currentDate,
-                'Province/State': row['Province/State'],
                 'Country/Region': row['Country/Region'],
                 'Death': row[currentDate]
             }, ignore_index=True)
@@ -125,7 +131,6 @@ def mergeRawDataWorld():
         for currentDate in recoveredDateHeader:
             finalRecovered = finalRecovered.append({
                 'Date': currentDate,
-                'Province/State': row['Province/State'],
                 'Country/Region': row['Country/Region'],
                 'Recovered': row[currentDate]
             }, ignore_index=True)
@@ -133,13 +138,12 @@ def mergeRawDataWorld():
 
 
     print('\tMerge des datas ...')
-    finalAll = pd.merge(finalConfirmed, finalDeath, on=['Date', 'Province/State', 'Country/Region'], validate="one_to_one", how='inner')
-    finalAll = pd.merge(finalAll, finalRecovered, on=['Date', 'Province/State', 'Country/Region'], validate="one_to_one", how='inner')
+    finalAll = pd.merge(finalConfirmed, finalDeath, on=['Date', 'Country/Region'], validate="one_to_one", how='inner')
+    finalAll = pd.merge(finalAll, finalRecovered, on=['Date', 'Country/Region'], validate="one_to_one", how='inner')
 
     finalAll['Recovered'] = finalAll['Recovered'].fillna(0)
     finalAll['Death'] = finalAll['Death'].fillna(0)
     finalAll['Confirmed'] = finalAll['Confirmed'].fillna(0)
-    finalAll['Province/State'] = finalAll['Province/State'].replace(np.nan, '', regex=True)
     print('\tAjout colonne Active ...')
     finalAll['Active'] = finalAll['Confirmed'] - finalAll['Death'] - \
                            finalAll['Recovered']
@@ -152,13 +156,30 @@ def mergeRawDataWorld():
 
 
     print('\tAjout colonne Recovery rate ...')
-    finalAll['Recovery_Rate'] = round((finalAll['Recovered'] / finalAll['Confirmed']) * 100, 2)
-    finalAll['Recovery_Rate'] = finalAll['Recovery_Rate'].astype(float)
+    finalAll['Recovered_Rate'] = round((finalAll['Recovered'] / finalAll['Confirmed']) * 100, 2)
+    finalAll['Recovered_Rate'] = finalAll['Recovered_Rate'].astype(float)
 
 
     # Inf données par des diviisons par 0 pour les taux
     finalAll = finalAll.fillna(0)
     finalAll = finalAll.replace([np.inf, -np.inf], 0)
+
+    print()
+
+    uniqueDate = finalAll['Date'].unique()
+
+    print('\tAjout colonne WORLD ...')
+    for date in uniqueDate:
+        worldRow = finalAll[finalAll['Date'] == date].groupby(['Date']).agg({
+            'Recovered_Rate': 'mean',
+            'Mortality_Rate': 'mean',
+            'Active': 'sum',
+            'Death': 'sum',
+            'Confirmed': 'sum',
+            'Recovered': 'sum'
+        }).reset_index()
+        worldRow['Country/Region'] = 'WORLD'
+        finalAll = finalAll.append(worldRow, ignore_index=True)
 
     print('\tSauvegarde nouveau fichier...')
     finalAll.to_csv('../assets/data/global/data.csv', encoding='utf-8', index=False)

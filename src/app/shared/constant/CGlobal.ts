@@ -27,18 +27,10 @@ export function isDateEqual(date1: Date, date2: Date): boolean {
 
 
 export function isDateBetween(dateToCompare: Date, dateMin: Date, dateMax: Date): boolean {
-    if (dateToCompare.getMonth() >= dateMin.getMonth()
-        && dateToCompare.getFullYear() >= dateMin.getFullYear()
-        && dateToCompare.getDate() >= dateMin.getDate()
-        && dateToCompare.getMonth() <= dateMax.getMonth()
-        && dateToCompare.getFullYear() <= dateMax.getFullYear()
-        && dateToCompare.getDate() <= dateMax.getDate()
-    ) {
-        console.log('TRUUUE')
+    if (dateToCompare >= dateMin && dateToCompare <= dateMax) {
         return true;
     } else {
-        console.log('FAUSX')
-
         return false;
     }
 }
+

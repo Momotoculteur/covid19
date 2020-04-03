@@ -167,7 +167,7 @@ def augmentWorldFile():
                     'Recovered': row['Recovered'],
                     'Active': row['Active'],
                     'Mortality_Rate': row['Mortality_Rate'],
-                    'Recovery_Rate': row['Recovery_Rate']
+                    'Recovered_Rate': row['Recovered_Rate']
                 })
 
 
