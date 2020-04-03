@@ -170,7 +170,6 @@ def mergeRawDataWorld():
 
     print('\tAjout colonne WORLD ...')
     for date in uniqueDate:
-        #worldRow = finalAll[finalAll['Date'] == date].groupby(['Date']).sum().reset_index()
         worldRow = finalAll[finalAll['Date'] == date].groupby(['Date']).agg({
             'Recovered_Rate': 'mean',
             'Mortality_Rate': 'mean',
@@ -194,7 +193,7 @@ if __name__== "__main__":
     print('\t DEBUT ALGO RAWDATA')
     print('~~~~~~~~')
 
-    #mergeRawDataFrance()
+    mergeRawDataFrance()
 
     mergeRawDataWorld()
 
