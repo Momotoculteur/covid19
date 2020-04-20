@@ -726,7 +726,6 @@ export class GraphiqueComponent implements OnInit {
 
     public updateDateCurrentMin(newVal: Date): void {
     this.selectedDateMin = newVal;
-    console.log(this.selectedDateMin)
     this.updateFiltredData();
 }
     public updateDateCurrentMax(newVal: Date): void {

@@ -310,7 +310,6 @@ export class MapComponent implements OnInit {
         this.globalLayer.eachLayer((current) => {
             current.feature.properties.value.forEach((prop: ITemplateProps) => {
                 if (isDateEqual(new Date(prop.Date), this.selectedDate)) {
-                    console.log(prop)
                     current.setStyle({
                         fillColor: this.getColor(prop[argsId]),
                         fillOpacity: 0.7,
