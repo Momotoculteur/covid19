@@ -5,7 +5,7 @@ Site permettant de suivre l'avancé de la pandemie du Covid-19.
 
 **https://momotoculteur.github.io/covid19**
 
-**SPECIAL FRANCE : du 24 Janvier au 27 Mars**
+**SPECIAL FRANCE : du 24 Janvier au 22 Avril**
 + Granularité : 
     + Pays global
     + Région
@@ -22,7 +22,17 @@ Site permettant de suivre l'avancé de la pandemie du Covid-19.
     + Taux soigné
 
 
-**SPECIAL MONDE : à venir...**
+**SPECIAL MONDE : du 24 Janvier au 22 Avril**
++ Granularité : 
+    + Pays global
+
++ Courbes : 
+    + Cas actifs
+    + Cas confirmés
+    + Cas décédés
+    + Cas Soignés
+    + Taux mortalité
+    + Taux soigné
 
 
 ## Informations
@@ -43,12 +53,23 @@ Site permettant de suivre l'avancé de la pandemie du Covid-19.
 | Données France  | github.com/opencovid19-fr/data  |
 | Données Monde  | github.com/CSSEGISandData/COVID-19  |
 
+### Scripts utiles
+| Type  | Nom |
+| ------------- | ------------- |
+| augmentGeojsonData.py  | Ajoute à nos donneés GeoJSON les valeurs de l'évolution de la pandémie  |
+| convertRawData.py  | Récupérere les données France et Monde des dépôts précédent, et procéde à des opérations de merge, de calcul de nouvelles variables et de netoyage, pour être exploitable par notre application web  |
+| dailyAutoCommitUpdateData.bat | Le plus important. Permet de Git pull les deux dépôts de données Monde et France, d'appeler les scripts augmentGeojsonData.py et convertRawData.py, de push sur la branch master de notre dépôt les nouvelles données à jour, et enfin de lancer un build Angular de notre application et de push notre build sur la branch gh-pages, pour mettre à jour notre site en production disponible via le lien cité plus haut. |
 
-### Mise à jour de l'app
+### Mise à jour de l'application
 
 #### MAJ data
-1. Git pull Data France
-2. `$ python src/scripts/convertRawData`
+- Assurez vous d'avoir Git Clone les deux dépôts précedant ( Données France & Monde )
+- Faite un git pull des deux dépôts précédent pour avoir les dernières valeurs à jour.
+- Lancez les scripts convertRawData.py, puis augmentGeojsonData.py.
 
 #### Deploiement
-1. `$ npm run deploy`
+- Pour réaliser un build de notre application et le rendre accessible depuis l'exterieur :
+`$ npm run deploy`
+
+#### Tout-en-un (MAJ data + deploiement)
+- Dans **src/scripts**, lancez **dailyAutoCommitUpdateData.bat**. 
