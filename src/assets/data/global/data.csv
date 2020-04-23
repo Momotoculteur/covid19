@@ -87,6 +87,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Afghanistan,906,30,99,777,3.31,10.93
 4/18/20,Afghanistan,933,30,112,791,3.22,12.0
 4/19/20,Afghanistan,996,33,131,832,3.31,13.15
+4/20/20,Afghanistan,1026,36,135,855,3.51,13.16
+4/21/20,Afghanistan,1092,36,150,906,3.3,13.74
+4/22/20,Afghanistan,1176,40,166,970,3.4,14.12
 1/23/20,Albania,0,0,0,0,0.0,0.0
 1/24/20,Albania,0,0,0,0,0.0,0.0
 1/25/20,Albania,0,0,0,0,0.0,0.0
@@ -175,6 +178,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Albania,539,26,283,230,4.82,52.5
 4/18/20,Albania,548,26,302,220,4.74,55.11
 4/19/20,Albania,562,26,314,222,4.63,55.87
+4/20/20,Albania,584,26,327,231,4.45,55.99
+4/21/20,Albania,609,26,345,238,4.27,56.65
+4/22/20,Albania,634,27,356,251,4.26,56.15
 1/23/20,Algeria,0,0,0,0,0.0,0.0
 1/24/20,Algeria,0,0,0,0,0.0,0.0
 1/25/20,Algeria,0,0,0,0,0.0,0.0
@@ -263,6 +269,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Algeria,2418,364,846,1208,15.05,34.99
 4/18/20,Algeria,2534,367,894,1273,14.48,35.28
 4/19/20,Algeria,2629,375,1047,1207,14.26,39.83
+4/20/20,Algeria,2718,384,1099,1235,14.13,40.43
+4/21/20,Algeria,2811,392,1152,1267,13.95,40.98
+4/22/20,Algeria,2910,402,1204,1304,13.81,41.37
 1/23/20,Andorra,0,0,0,0,0.0,0.0
 1/24/20,Andorra,0,0,0,0,0.0,0.0
 1/25/20,Andorra,0,0,0,0,0.0,0.0
@@ -351,6 +360,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Andorra,696,35,191,470,5.03,27.44
 4/18/20,Andorra,704,35,205,464,4.97,29.12
 4/19/20,Andorra,713,36,235,442,5.05,32.96
+4/20/20,Andorra,717,37,248,432,5.16,34.59
+4/21/20,Andorra,717,37,282,398,5.16,39.33
+4/22/20,Andorra,723,37,309,377,5.12,42.74
 1/23/20,Angola,0,0,0,0,0.0,0.0
 1/24/20,Angola,0,0,0,0,0.0,0.0
 1/25/20,Angola,0,0,0,0,0.0,0.0
@@ -439,6 +451,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Angola,19,2,5,12,10.53,26.32
 4/18/20,Angola,24,2,6,16,8.33,25.0
 4/19/20,Angola,24,2,6,16,8.33,25.0
+4/20/20,Angola,24,2,6,16,8.33,25.0
+4/21/20,Angola,24,2,6,16,8.33,25.0
+4/22/20,Angola,25,2,6,17,8.0,24.0
 1/23/20,Antigua and Barbuda,0,0,0,0,0.0,0.0
 1/24/20,Antigua and Barbuda,0,0,0,0,0.0,0.0
 1/25/20,Antigua and Barbuda,0,0,0,0,0.0,0.0
@@ -527,6 +542,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Antigua and Barbuda,23,3,3,17,13.04,13.04
 4/18/20,Antigua and Barbuda,23,3,3,17,13.04,13.04
 4/19/20,Antigua and Barbuda,23,3,3,17,13.04,13.04
+4/20/20,Antigua and Barbuda,23,3,3,17,13.04,13.04
+4/21/20,Antigua and Barbuda,23,3,7,13,13.04,30.43
+4/22/20,Antigua and Barbuda,24,3,10,11,12.5,41.67
 1/23/20,Argentina,0,0,0,0,0.0,0.0
 1/24/20,Argentina,0,0,0,0,0.0,0.0
 1/25/20,Argentina,0,0,0,0,0.0,0.0
@@ -615,6 +633,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Argentina,2669,123,666,1880,4.61,24.95
 4/18/20,Argentina,2758,129,685,1944,4.68,24.84
 4/19/20,Argentina,2839,132,709,1998,4.65,24.97
+4/20/20,Argentina,2941,136,737,2068,4.62,25.06
+4/21/20,Argentina,3031,147,840,2044,4.85,27.71
+4/22/20,Argentina,3144,152,872,2120,4.83,27.74
 1/23/20,Armenia,0,0,0,0,0.0,0.0
 1/24/20,Armenia,0,0,0,0,0.0,0.0
 1/25/20,Armenia,0,0,0,0,0.0,0.0
@@ -703,6 +724,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Armenia,1201,19,402,780,1.58,33.47
 4/18/20,Armenia,1248,20,523,705,1.6,41.91
 4/19/20,Armenia,1291,20,545,726,1.55,42.22
+4/20/20,Armenia,1339,22,580,737,1.64,43.32
+4/21/20,Armenia,1401,24,609,768,1.71,43.47
+4/22/20,Armenia,1473,24,633,816,1.63,42.97
 1/23/20,Australia,0,0,0,0,0.0,0.0
 1/24/20,Australia,0,0,0,0,0.0,0.0
 1/25/20,Australia,0,0,0,0,0.0,0.0
@@ -791,6 +815,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Australia,6522,66,3808,2648,1.01,58.39
 4/18/20,Australia,6547,67,4124,2356,1.02,62.99
 4/19/20,Australia,6547,67,4124,2356,1.02,62.99
+4/20/20,Australia,6547,67,4124,2356,1.02,62.99
+4/21/20,Australia,6547,67,4124,2356,1.02,62.99
+4/22/20,Australia,6547,67,4124,2356,1.02,62.99
 1/23/20,Austria,0,0,0,0,0.0,0.0
 1/24/20,Austria,0,0,0,0,0.0,0.0
 1/25/20,Austria,0,0,0,0,0.0,0.0
@@ -879,6 +906,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Austria,14595,431,9704,4460,2.95,66.49
 4/18/20,Austria,14671,443,10214,4014,3.02,69.62
 4/19/20,Austria,14749,452,10501,3796,3.06,71.2
+4/20/20,Austria,14795,470,10631,3694,3.18,71.86
+4/21/20,Austria,14873,491,10971,3411,3.3,73.76
+4/22/20,Austria,14925,510,11328,3087,3.42,75.9
 1/23/20,Azerbaijan,0,0,0,0,0.0,0.0
 1/24/20,Azerbaijan,0,0,0,0,0.0,0.0
 1/25/20,Azerbaijan,0,0,0,0,0.0,0.0
@@ -967,6 +997,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Azerbaijan,1340,15,528,797,1.12,39.4
 4/18/20,Azerbaijan,1373,18,590,765,1.31,42.97
 4/19/20,Azerbaijan,1398,19,712,667,1.36,50.93
+4/20/20,Azerbaijan,1436,19,791,626,1.32,55.08
+4/21/20,Azerbaijan,1480,20,865,595,1.35,58.45
+4/22/20,Azerbaijan,1518,20,907,591,1.32,59.75
 1/23/20,Bahamas,0,0,0,0,0.0,0.0
 1/24/20,Bahamas,0,0,0,0,0.0,0.0
 1/25/20,Bahamas,0,0,0,0,0.0,0.0
@@ -1055,6 +1088,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bahamas,54,9,6,39,16.67,11.11
 4/18/20,Bahamas,55,9,10,36,16.36,18.18
 4/19/20,Bahamas,55,9,10,36,16.36,18.18
+4/20/20,Bahamas,60,9,11,40,15.0,18.33
+4/21/20,Bahamas,65,9,12,44,13.85,18.46
+4/22/20,Bahamas,65,9,12,44,13.85,18.46
 1/23/20,Bahrain,0,0,0,0,0.0,0.0
 1/24/20,Bahrain,0,0,0,0,0.0,0.0
 1/25/20,Bahrain,0,0,0,0,0.0,0.0
@@ -1143,6 +1179,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bahrain,1740,7,725,1008,0.4,41.67
 4/18/20,Bahrain,1773,7,755,1011,0.39,42.58
 4/19/20,Bahrain,1881,7,759,1115,0.37,40.35
+4/20/20,Bahrain,1907,7,769,1131,0.37,40.33
+4/21/20,Bahrain,1973,7,784,1182,0.35,39.74
+4/22/20,Bahrain,2027,7,1026,994,0.35,50.62
 1/23/20,Bangladesh,0,0,0,0,0.0,0.0
 1/24/20,Bangladesh,0,0,0,0,0.0,0.0
 1/25/20,Bangladesh,0,0,0,0,0.0,0.0
@@ -1231,6 +1270,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bangladesh,1838,75,58,1705,4.08,3.16
 4/18/20,Bangladesh,2144,84,66,1994,3.92,3.08
 4/19/20,Bangladesh,2456,91,75,2290,3.71,3.05
+4/20/20,Bangladesh,2948,101,85,2762,3.43,2.88
+4/21/20,Bangladesh,3382,110,87,3185,3.25,2.57
+4/22/20,Bangladesh,3772,120,92,3560,3.18,2.44
 1/23/20,Barbados,0,0,0,0,0.0,0.0
 1/24/20,Barbados,0,0,0,0,0.0,0.0
 1/25/20,Barbados,0,0,0,0,0.0,0.0
@@ -1319,6 +1361,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Barbados,75,5,15,55,6.67,20.0
 4/18/20,Barbados,75,5,17,53,6.67,22.67
 4/19/20,Barbados,75,5,17,53,6.67,22.67
+4/20/20,Barbados,75,5,19,51,6.67,25.33
+4/21/20,Barbados,75,5,25,45,6.67,33.33
+4/22/20,Barbados,75,5,25,45,6.67,33.33
 1/23/20,Belarus,0,0,0,0,0.0,0.0
 1/24/20,Belarus,0,0,0,0,0.0,0.0
 1/25/20,Belarus,0,0,0,0,0.0,0.0
@@ -1407,6 +1452,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Belarus,4779,42,342,4395,0.88,7.16
 4/18/20,Belarus,4779,45,342,4392,0.94,7.16
 4/19/20,Belarus,4779,47,494,4238,0.98,10.34
+4/20/20,Belarus,6264,51,514,5699,0.81,8.21
+4/21/20,Belarus,6723,55,577,6091,0.82,8.58
+4/22/20,Belarus,7281,58,769,6454,0.8,10.56
 1/23/20,Belgium,0,0,0,0,0.0,0.0
 1/24/20,Belgium,0,0,0,0,0.0,0.0
 1/25/20,Belgium,0,0,0,0,0.0,0.0
@@ -1495,6 +1543,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Belgium,36138,5163,7961,23014,14.29,22.03
 4/18/20,Belgium,37183,5453,8348,23382,14.67,22.45
 4/19/20,Belgium,38496,5683,8757,24056,14.76,22.75
+4/20/20,Belgium,39983,5828,8895,25260,14.58,22.25
+4/21/20,Belgium,40956,5998,9002,25956,14.64,21.98
+4/22/20,Belgium,41889,6262,9433,26194,14.95,22.52
 1/23/20,Belize,0,0,0,0,0.0,0.0
 1/24/20,Belize,0,0,0,0,0.0,0.0
 1/25/20,Belize,0,0,0,0,0.0,0.0
@@ -1583,6 +1634,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Belize,18,2,0,16,11.11,0.0
 4/18/20,Belize,18,2,0,16,11.11,0.0
 4/19/20,Belize,18,2,2,14,11.11,11.11
+4/20/20,Belize,18,2,2,14,11.11,11.11
+4/21/20,Belize,18,2,2,14,11.11,11.11
+4/22/20,Belize,18,2,2,14,11.11,11.11
 1/23/20,Benin,0,0,0,0,0.0,0.0
 1/24/20,Benin,0,0,0,0,0.0,0.0
 1/25/20,Benin,0,0,0,0,0.0,0.0
@@ -1671,6 +1725,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Benin,35,1,18,16,2.86,51.43
 4/18/20,Benin,35,1,18,16,2.86,51.43
 4/19/20,Benin,35,1,18,16,2.86,51.43
+4/20/20,Benin,54,1,27,26,1.85,50.0
+4/21/20,Benin,54,1,27,26,1.85,50.0
+4/22/20,Benin,54,1,27,26,1.85,50.0
 1/23/20,Bhutan,0,0,0,0,0.0,0.0
 1/24/20,Bhutan,0,0,0,0,0.0,0.0
 1/25/20,Bhutan,0,0,0,0,0.0,0.0
@@ -1759,6 +1816,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bhutan,5,0,2,3,0.0,40.0
 4/18/20,Bhutan,5,0,2,3,0.0,40.0
 4/19/20,Bhutan,5,0,2,3,0.0,40.0
+4/20/20,Bhutan,5,0,2,3,0.0,40.0
+4/21/20,Bhutan,6,0,2,4,0.0,33.33
+4/22/20,Bhutan,6,0,2,4,0.0,33.33
 1/23/20,Bolivia,0,0,0,0,0.0,0.0
 1/24/20,Bolivia,0,0,0,0,0.0,0.0
 1/25/20,Bolivia,0,0,0,0,0.0,0.0
@@ -1847,6 +1907,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bolivia,465,31,26,408,6.67,5.59
 4/18/20,Bolivia,493,31,31,431,6.29,6.29
 4/19/20,Bolivia,520,32,31,457,6.15,5.96
+4/20/20,Bolivia,564,33,31,500,5.85,5.5
+4/21/20,Bolivia,598,34,37,527,5.69,6.19
+4/22/20,Bolivia,609,37,44,528,6.08,7.22
 1/23/20,Bosnia and Herzegovina,0,0,0,0,0.0,0.0
 1/24/20,Bosnia and Herzegovina,0,0,0,0,0.0,0.0
 1/25/20,Bosnia and Herzegovina,0,0,0,0,0.0,0.0
@@ -1935,6 +1998,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bosnia and Herzegovina,1214,46,320,848,3.79,26.36
 4/18/20,Bosnia and Herzegovina,1268,47,338,883,3.71,26.66
 4/19/20,Bosnia and Herzegovina,1285,48,347,890,3.74,27.0
+4/20/20,Bosnia and Herzegovina,1309,49,381,879,3.74,29.11
+4/21/20,Bosnia and Herzegovina,1342,51,437,854,3.8,32.56
+4/22/20,Bosnia and Herzegovina,1368,53,460,855,3.87,33.63
 1/23/20,Botswana,0,0,0,0,0.0,0.0
 1/24/20,Botswana,0,0,0,0,0.0,0.0
 1/25/20,Botswana,0,0,0,0,0.0,0.0
@@ -2023,6 +2089,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Botswana,15,1,0,14,6.67,0.0
 4/18/20,Botswana,15,1,0,14,6.67,0.0
 4/19/20,Botswana,20,1,0,19,5.0,0.0
+4/20/20,Botswana,20,1,0,19,5.0,0.0
+4/21/20,Botswana,20,1,0,19,5.0,0.0
+4/22/20,Botswana,22,1,0,21,4.55,0.0
 1/23/20,Brazil,0,0,0,0,0.0,0.0
 1/24/20,Brazil,0,0,0,0,0.0,0.0
 1/25/20,Brazil,0,0,0,0,0.0,0.0
@@ -2111,6 +2180,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Brazil,33682,2141,14026,17515,6.36,41.64
 4/18/20,Brazil,36658,2354,14026,20278,6.42,38.26
 4/19/20,Brazil,38654,2462,22130,14062,6.37,57.25
+4/20/20,Brazil,40743,2587,22130,16026,6.35,54.32
+4/21/20,Brazil,43079,2741,22991,17347,6.36,53.37
+4/22/20,Brazil,45757,2906,25318,17533,6.35,55.33
 1/23/20,Brunei,0,0,0,0,0.0,0.0
 1/24/20,Brunei,0,0,0,0,0.0,0.0
 1/25/20,Brunei,0,0,0,0,0.0,0.0
@@ -2199,6 +2271,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Brunei,136,1,112,23,0.74,82.35
 4/18/20,Brunei,137,1,113,23,0.73,82.48
 4/19/20,Brunei,138,1,115,22,0.72,83.33
+4/20/20,Brunei,138,1,116,21,0.72,84.06
+4/21/20,Brunei,138,1,116,21,0.72,84.06
+4/22/20,Brunei,138,1,117,20,0.72,84.78
 1/23/20,Bulgaria,0,0,0,0,0.0,0.0
 1/24/20,Bulgaria,0,0,0,0,0.0,0.0
 1/25/20,Bulgaria,0,0,0,0,0.0,0.0
@@ -2287,6 +2362,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Bulgaria,846,41,141,664,4.85,16.67
 4/18/20,Bulgaria,878,41,153,684,4.67,17.43
 4/19/20,Bulgaria,894,42,161,691,4.7,18.01
+4/20/20,Bulgaria,929,43,167,719,4.63,17.98
+4/21/20,Bulgaria,975,45,170,760,4.62,17.44
+4/22/20,Bulgaria,1024,49,174,801,4.79,16.99
 1/23/20,Burkina Faso,0,0,0,0,0.0,0.0
 1/24/20,Burkina Faso,0,0,0,0,0.0,0.0
 1/25/20,Burkina Faso,0,0,0,0,0.0,0.0
@@ -2375,6 +2453,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Burkina Faso,557,35,294,228,6.28,52.78
 4/18/20,Burkina Faso,565,36,321,208,6.37,56.81
 4/19/20,Burkina Faso,576,36,338,202,6.25,58.68
+4/20/20,Burkina Faso,581,38,357,186,6.54,61.45
+4/21/20,Burkina Faso,600,38,362,200,6.33,60.33
+4/22/20,Burkina Faso,609,39,389,181,6.4,63.88
 1/23/20,Burma,0,0,0,0,0.0,0.0
 1/24/20,Burma,0,0,0,0,0.0,0.0
 1/25/20,Burma,0,0,0,0,0.0,0.0
@@ -2463,6 +2544,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Burma,88,4,5,79,4.55,5.68
 4/18/20,Burma,98,5,5,88,5.1,5.1
 4/19/20,Burma,111,5,7,99,4.5,6.31
+4/20/20,Burma,119,5,7,107,4.2,5.88
+4/21/20,Burma,121,5,7,109,4.13,5.79
+4/22/20,Burma,123,5,7,111,4.07,5.69
 1/23/20,Burundi,0,0,0,0,0.0,0.0
 1/24/20,Burundi,0,0,0,0,0.0,0.0
 1/25/20,Burundi,0,0,0,0,0.0,0.0
@@ -2551,6 +2635,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Burundi,5,1,0,4,20.0,0.0
 4/18/20,Burundi,5,1,0,4,20.0,0.0
 4/19/20,Burundi,5,1,0,4,20.0,0.0
+4/20/20,Burundi,5,1,4,0,20.0,80.0
+4/21/20,Burundi,5,1,4,0,20.0,80.0
+4/22/20,Burundi,11,1,4,6,9.09,36.36
 1/23/20,Cabo Verde,0,0,0,0,0.0,0.0
 1/24/20,Cabo Verde,0,0,0,0,0.0,0.0
 1/25/20,Cabo Verde,0,0,0,0,0.0,0.0
@@ -2639,6 +2726,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Cabo Verde,56,1,1,54,1.79,1.79
 4/18/20,Cabo Verde,58,1,1,56,1.72,1.72
 4/19/20,Cabo Verde,61,1,1,59,1.64,1.64
+4/20/20,Cabo Verde,67,1,1,65,1.49,1.49
+4/21/20,Cabo Verde,68,1,1,66,1.47,1.47
+4/22/20,Cabo Verde,73,1,1,71,1.37,1.37
 1/23/20,Cambodia,0,0,0,0,0.0,0.0
 1/24/20,Cambodia,0,0,0,0,0.0,0.0
 1/25/20,Cambodia,0,0,0,0,0.0,0.0
@@ -2727,6 +2817,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Cambodia,122,0,98,24,0.0,80.33
 4/18/20,Cambodia,122,0,103,19,0.0,84.43
 4/19/20,Cambodia,122,0,105,17,0.0,86.07
+4/20/20,Cambodia,122,0,107,15,0.0,87.7
+4/21/20,Cambodia,122,0,110,12,0.0,90.16
+4/22/20,Cambodia,122,0,110,12,0.0,90.16
 1/23/20,Cameroon,0,0,0,0,0.0,0.0
 1/24/20,Cameroon,0,0,0,0,0.0,0.0
 1/25/20,Cameroon,0,0,0,0,0.0,0.0
@@ -2815,6 +2908,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Cameroon,996,22,164,810,2.21,16.47
 4/18/20,Cameroon,1017,22,177,818,2.16,17.4
 4/19/20,Cameroon,1017,42,305,670,4.13,29.99
+4/20/20,Cameroon,1163,42,305,816,3.61,26.23
+4/21/20,Cameroon,1163,43,329,791,3.7,28.29
+4/22/20,Cameroon,1163,43,397,723,3.7,34.14
 1/23/20,Canada,0,0,0,0,0.0,0.0
 1/24/20,Canada,0,0,0,0,0.0,0.0
 1/25/20,Canada,0,0,0,0,0.0,0.0
@@ -2903,6 +2999,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Canada,32813,1354,10545,20914,4.13,32.14
 4/18/20,Canada,34355,1399,10964,21992,4.07,31.91
 4/19/20,Canada,35632,1563,11847,22222,4.39,33.25
+4/20/20,Canada,37657,1725,12543,23389,4.58,33.31
+4/21/20,Canada,39401,1908,13188,24305,4.84,33.47
+4/22/20,Canada,41648,2075,14454,25119,4.98,34.71
 1/23/20,Central African Republic,0,0,0,0,0.0,0.0
 1/24/20,Central African Republic,0,0,0,0,0.0,0.0
 1/25/20,Central African Republic,0,0,0,0,0.0,0.0
@@ -2991,6 +3090,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Central African Republic,12,0,4,8,0.0,33.33
 4/18/20,Central African Republic,12,0,4,8,0.0,33.33
 4/19/20,Central African Republic,12,0,4,8,0.0,33.33
+4/20/20,Central African Republic,12,0,4,8,0.0,33.33
+4/21/20,Central African Republic,14,0,10,4,0.0,71.43
+4/22/20,Central African Republic,14,0,10,4,0.0,71.43
 1/23/20,Chad,0,0,0,0,0.0,0.0
 1/24/20,Chad,0,0,0,0,0.0,0.0
 1/25/20,Chad,0,0,0,0,0.0,0.0
@@ -3079,6 +3181,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Chad,27,0,5,22,0.0,18.52
 4/18/20,Chad,33,0,8,25,0.0,24.24
 4/19/20,Chad,33,0,8,25,0.0,24.24
+4/20/20,Chad,33,0,8,25,0.0,24.24
+4/21/20,Chad,33,0,8,25,0.0,24.24
+4/22/20,Chad,33,0,8,25,0.0,24.24
 1/23/20,Chile,0,0,0,0,0.0,0.0
 1/24/20,Chile,0,0,0,0,0.0,0.0
 1/25/20,Chile,0,0,0,0,0.0,0.0
@@ -3167,6 +3272,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Chile,9252,116,3621,5515,1.25,39.14
 4/18/20,Chile,9730,126,4035,5569,1.29,41.47
 4/19/20,Chile,10088,133,4338,5617,1.32,43.0
+4/20/20,Chile,10507,139,4676,5692,1.32,44.5
+4/21/20,Chile,10832,147,4969,5716,1.36,45.87
+4/22/20,Chile,11296,160,5386,5750,1.42,47.68
 1/23/20,China,643,18,30,595,2.8,4.67
 1/24/20,China,920,26,36,858,2.83,3.91
 1/25/20,China,1406,42,39,1325,2.99,2.77
@@ -3255,6 +3363,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,China,83760,4636,77552,1572,5.53,92.59
 4/18/20,China,83787,4636,77614,1537,5.53,92.63
 4/19/20,China,83805,4636,77690,1479,5.53,92.7
+4/20/20,China,83817,4636,77745,1436,5.53,92.76
+4/21/20,China,83853,4636,77799,1418,5.53,92.78
+4/22/20,China,83868,4636,77861,1371,5.53,92.84
 1/23/20,Colombia,0,0,0,0,0.0,0.0
 1/24/20,Colombia,0,0,0,0,0.0,0.0
 1/25/20,Colombia,0,0,0,0,0.0,0.0
@@ -3343,6 +3454,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Colombia,3439,153,634,2652,4.45,18.44
 4/18/20,Colombia,3439,153,634,2652,4.45,18.44
 4/19/20,Colombia,3792,179,711,2902,4.72,18.75
+4/20/20,Colombia,3977,189,804,2984,4.75,20.22
+4/21/20,Colombia,4149,196,804,3149,4.72,19.38
+4/22/20,Colombia,4356,206,870,3280,4.73,19.97
 1/23/20,Congo (Brazzaville),0,0,0,0,0.0,0.0
 1/24/20,Congo (Brazzaville),0,0,0,0,0.0,0.0
 1/25/20,Congo (Brazzaville),0,0,0,0,0.0,0.0
@@ -3431,6 +3545,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Congo (Brazzaville),143,6,11,126,4.2,7.69
 4/18/20,Congo (Brazzaville),143,6,11,126,4.2,7.69
 4/19/20,Congo (Brazzaville),143,6,11,126,4.2,7.69
+4/20/20,Congo (Brazzaville),160,6,16,138,3.75,10.0
+4/21/20,Congo (Brazzaville),165,6,16,143,3.64,9.7
+4/22/20,Congo (Brazzaville),186,6,16,164,3.23,8.6
 1/23/20,Congo (Kinshasa),0,0,0,0,0.0,0.0
 1/24/20,Congo (Kinshasa),0,0,0,0,0.0,0.0
 1/25/20,Congo (Kinshasa),0,0,0,0,0.0,0.0
@@ -3519,6 +3636,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Congo (Kinshasa),287,23,25,239,8.01,8.71
 4/18/20,Congo (Kinshasa),307,25,26,256,8.14,8.47
 4/19/20,Congo (Kinshasa),327,25,26,276,7.65,7.95
+4/20/20,Congo (Kinshasa),332,25,27,280,7.53,8.13
+4/21/20,Congo (Kinshasa),350,25,35,290,7.14,10.0
+4/22/20,Congo (Kinshasa),359,25,45,289,6.96,12.53
 1/23/20,Costa Rica,0,0,0,0,0.0,0.0
 1/24/20,Costa Rica,0,0,0,0,0.0,0.0
 1/25/20,Costa Rica,0,0,0,0,0.0,0.0
@@ -3607,6 +3727,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Costa Rica,649,4,88,557,0.62,13.56
 4/18/20,Costa Rica,655,4,97,554,0.61,14.81
 4/19/20,Costa Rica,660,5,112,543,0.76,16.97
+4/20/20,Costa Rica,662,6,124,532,0.91,18.73
+4/21/20,Costa Rica,669,6,150,513,0.9,22.42
+4/22/20,Costa Rica,681,6,180,495,0.88,26.43
 1/23/20,Cote d'Ivoire,0,0,0,0,0.0,0.0
 1/24/20,Cote d'Ivoire,0,0,0,0,0.0,0.0
 1/25/20,Cote d'Ivoire,0,0,0,0,0.0,0.0
@@ -3695,6 +3818,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Cote d'Ivoire,688,6,193,489,0.87,28.05
 4/18/20,Cote d'Ivoire,801,8,239,554,1.0,29.84
 4/19/20,Cote d'Ivoire,847,9,260,578,1.06,30.7
+4/20/20,Cote d'Ivoire,847,9,260,578,1.06,30.7
+4/21/20,Cote d'Ivoire,916,13,303,600,1.42,33.08
+4/22/20,Cote d'Ivoire,952,14,310,628,1.47,32.56
 1/23/20,Croatia,0,0,0,0,0.0,0.0
 1/24/20,Croatia,0,0,0,0,0.0,0.0
 1/25/20,Croatia,0,0,0,0,0.0,0.0
@@ -3783,6 +3909,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Croatia,1814,36,600,1178,1.98,33.08
 4/18/20,Croatia,1832,39,615,1178,2.13,33.57
 4/19/20,Croatia,1871,47,709,1115,2.51,37.89
+4/20/20,Croatia,1881,47,771,1063,2.5,40.99
+4/21/20,Croatia,1908,48,801,1059,2.52,41.98
+4/22/20,Croatia,1950,48,869,1033,2.46,44.56
 1/23/20,Cuba,0,0,0,0,0.0,0.0
 1/24/20,Cuba,0,0,0,0,0.0,0.0
 1/25/20,Cuba,0,0,0,0,0.0,0.0
@@ -3871,6 +4000,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Cuba,923,31,192,700,3.36,20.8
 4/18/20,Cuba,986,32,227,727,3.25,23.02
 4/19/20,Cuba,1035,34,255,746,3.29,24.64
+4/20/20,Cuba,1087,36,285,766,3.31,26.22
+4/21/20,Cuba,1137,38,309,790,3.34,27.18
+4/22/20,Cuba,1189,40,341,808,3.36,28.68
 1/23/20,Cyprus,0,0,0,0,0.0,0.0
 1/24/20,Cyprus,0,0,0,0,0.0,0.0
 1/25/20,Cyprus,0,0,0,0,0.0,0.0
@@ -3959,6 +4091,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Cyprus,750,12,77,661,1.6,10.27
 4/18/20,Cyprus,761,12,79,670,1.58,10.38
 4/19/20,Cyprus,767,12,81,674,1.56,10.56
+4/20/20,Cyprus,772,12,81,679,1.55,10.49
+4/21/20,Cyprus,784,12,98,674,1.53,12.5
+4/22/20,Cyprus,790,13,98,679,1.65,12.41
 1/23/20,Czechia,0,0,0,0,0.0,0.0
 1/24/20,Czechia,0,0,0,0,0.0,0.0
 1/25/20,Czechia,0,0,0,0,0.0,0.0
@@ -4047,6 +4182,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Czechia,6549,173,1174,5202,2.64,17.93
 4/18/20,Czechia,6606,181,1227,5198,2.74,18.57
 4/19/20,Czechia,6746,186,1298,5262,2.76,19.24
+4/20/20,Czechia,6900,194,1559,5147,2.81,22.59
+4/21/20,Czechia,7033,201,1753,5079,2.86,24.93
+4/22/20,Czechia,7132,208,1989,4935,2.92,27.89
 1/23/20,Denmark,0,0,0,0,0.0,0.0
 1/24/20,Denmark,0,0,0,0,0.0,0.0
 1/25/20,Denmark,0,0,0,0,0.0,0.0
@@ -4135,6 +4273,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Denmark,7268,336,3571,3361,4.62,49.13
 4/18/20,Denmark,7437,346,4031,3060,4.65,54.2
 4/19/20,Denmark,7580,355,4328,2897,4.68,57.1
+4/20/20,Denmark,7711,364,4499,2848,4.72,58.35
+4/21/20,Denmark,7891,370,4889,2632,4.69,61.96
+4/22/20,Denmark,8108,384,5276,2448,4.74,65.07
 1/23/20,Diamond Princess,0,0,0,0,0.0,0.0
 1/24/20,Diamond Princess,0,0,0,0,0.0,0.0
 1/25/20,Diamond Princess,0,0,0,0,0.0,0.0
@@ -4223,6 +4364,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Diamond Princess,712,13,644,55,1.83,90.45
 4/18/20,Diamond Princess,712,13,644,55,1.83,90.45
 4/19/20,Diamond Princess,712,13,644,55,1.83,90.45
+4/20/20,Diamond Princess,712,13,644,55,1.83,90.45
+4/21/20,Diamond Princess,712,13,644,55,1.83,90.45
+4/22/20,Diamond Princess,712,13,644,55,1.83,90.45
 1/23/20,Djibouti,0,0,0,0,0.0,0.0
 1/24/20,Djibouti,0,0,0,0,0.0,0.0
 1/25/20,Djibouti,0,0,0,0,0.0,0.0
@@ -4311,6 +4455,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Djibouti,732,2,76,654,0.27,10.38
 4/18/20,Djibouti,732,2,76,654,0.27,10.38
 4/19/20,Djibouti,846,2,102,742,0.24,12.06
+4/20/20,Djibouti,846,2,102,742,0.24,12.06
+4/21/20,Djibouti,945,2,112,831,0.21,11.85
+4/22/20,Djibouti,974,2,183,789,0.21,18.79
 1/23/20,Dominica,0,0,0,0,0.0,0.0
 1/24/20,Dominica,0,0,0,0,0.0,0.0
 1/25/20,Dominica,0,0,0,0,0.0,0.0
@@ -4399,6 +4546,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Dominica,16,0,8,8,0.0,50.0
 4/18/20,Dominica,16,0,8,8,0.0,50.0
 4/19/20,Dominica,16,0,8,8,0.0,50.0
+4/20/20,Dominica,16,0,8,8,0.0,50.0
+4/21/20,Dominica,16,0,8,8,0.0,50.0
+4/22/20,Dominica,16,0,9,7,0.0,56.25
 1/23/20,Dominican Republic,0,0,0,0,0.0,0.0
 1/24/20,Dominican Republic,0,0,0,0,0.0,0.0
 1/25/20,Dominican Republic,0,0,0,0,0.0,0.0
@@ -4487,6 +4637,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Dominican Republic,4126,200,268,3658,4.85,6.5
 4/18/20,Dominican Republic,4335,217,312,3806,5.01,7.2
 4/19/20,Dominican Republic,4680,226,363,4091,4.83,7.76
+4/20/20,Dominican Republic,4964,235,416,4313,4.73,8.38
+4/21/20,Dominican Republic,5044,245,463,4336,4.86,9.18
+4/22/20,Dominican Republic,5300,260,581,4459,4.91,10.96
 1/23/20,Ecuador,0,0,0,0,0.0,0.0
 1/24/20,Ecuador,0,0,0,0,0.0,0.0
 1/25/20,Ecuador,0,0,0,0,0.0,0.0
@@ -4575,6 +4728,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Ecuador,8450,421,838,7191,4.98,9.92
 4/18/20,Ecuador,9022,456,1008,7558,5.05,11.17
 4/19/20,Ecuador,9468,474,1061,7933,5.01,11.21
+4/20/20,Ecuador,10128,507,1150,8471,5.01,11.35
+4/21/20,Ecuador,10398,520,1207,8671,5.0,11.61
+4/22/20,Ecuador,10850,537,1262,9051,4.95,11.63
 1/23/20,Egypt,0,0,0,0,0.0,0.0
 1/24/20,Egypt,0,0,0,0,0.0,0.0
 1/25/20,Egypt,0,0,0,0,0.0,0.0
@@ -4663,6 +4819,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Egypt,2844,205,646,1993,7.21,22.71
 4/18/20,Egypt,3032,224,701,2107,7.39,23.12
 4/19/20,Egypt,3144,239,732,2173,7.6,23.28
+4/20/20,Egypt,3333,250,821,2262,7.5,24.63
+4/21/20,Egypt,3490,264,870,2356,7.56,24.93
+4/22/20,Egypt,3659,276,935,2448,7.54,25.55
 1/23/20,El Salvador,0,0,0,0,0.0,0.0
 1/24/20,El Salvador,0,0,0,0,0.0,0.0
 1/25/20,El Salvador,0,0,0,0,0.0,0.0
@@ -4751,6 +4910,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,El Salvador,177,7,38,132,3.95,21.47
 4/18/20,El Salvador,190,7,43,140,3.68,22.63
 4/19/20,El Salvador,201,7,44,150,3.48,21.89
+4/20/20,El Salvador,218,7,46,165,3.21,21.1
+4/21/20,El Salvador,225,7,48,170,3.11,21.33
+4/22/20,El Salvador,237,7,63,167,2.95,26.58
 1/23/20,Equatorial Guinea,0,0,0,0,0.0,0.0
 1/24/20,Equatorial Guinea,0,0,0,0,0.0,0.0
 1/25/20,Equatorial Guinea,0,0,0,0,0.0,0.0
@@ -4839,6 +5001,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Equatorial Guinea,79,0,4,75,0.0,5.06
 4/18/20,Equatorial Guinea,79,0,4,75,0.0,5.06
 4/19/20,Equatorial Guinea,79,0,4,75,0.0,5.06
+4/20/20,Equatorial Guinea,79,0,7,72,0.0,8.86
+4/21/20,Equatorial Guinea,83,0,7,76,0.0,8.43
+4/22/20,Equatorial Guinea,84,1,7,76,1.19,8.33
 1/23/20,Eritrea,0,0,0,0,0.0,0.0
 1/24/20,Eritrea,0,0,0,0,0.0,0.0
 1/25/20,Eritrea,0,0,0,0,0.0,0.0
@@ -4927,6 +5092,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Eritrea,35,0,0,35,0.0,0.0
 4/18/20,Eritrea,39,0,3,36,0.0,7.69
 4/19/20,Eritrea,39,0,3,36,0.0,7.69
+4/20/20,Eritrea,39,0,3,36,0.0,7.69
+4/21/20,Eritrea,39,0,6,33,0.0,15.38
+4/22/20,Eritrea,39,0,6,33,0.0,15.38
 1/23/20,Estonia,0,0,0,0,0.0,0.0
 1/24/20,Estonia,0,0,0,0,0.0,0.0
 1/25/20,Estonia,0,0,0,0,0.0,0.0
@@ -5015,6 +5183,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Estonia,1459,38,145,1276,2.6,9.94
 4/18/20,Estonia,1512,38,162,1312,2.51,10.71
 4/19/20,Estonia,1528,40,164,1324,2.62,10.73
+4/20/20,Estonia,1535,40,165,1330,2.61,10.75
+4/21/20,Estonia,1552,43,169,1340,2.77,10.89
+4/22/20,Estonia,1559,44,184,1331,2.82,11.8
 1/23/20,Eswatini,0,0,0,0,0.0,0.0
 1/24/20,Eswatini,0,0,0,0,0.0,0.0
 1/25/20,Eswatini,0,0,0,0,0.0,0.0
@@ -5103,6 +5274,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Eswatini,16,1,8,7,6.25,50.0
 4/18/20,Eswatini,22,1,8,13,4.55,36.36
 4/19/20,Eswatini,22,1,8,13,4.55,36.36
+4/20/20,Eswatini,24,1,8,15,4.17,33.33
+4/21/20,Eswatini,31,1,8,22,3.23,25.81
+4/22/20,Eswatini,31,1,8,22,3.23,25.81
 1/23/20,Ethiopia,0,0,0,0,0.0,0.0
 1/24/20,Ethiopia,0,0,0,0,0.0,0.0
 1/25/20,Ethiopia,0,0,0,0,0.0,0.0
@@ -5191,6 +5365,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Ethiopia,96,3,15,78,3.12,15.62
 4/18/20,Ethiopia,105,3,16,86,2.86,15.24
 4/19/20,Ethiopia,108,3,16,89,2.78,14.81
+4/20/20,Ethiopia,111,3,16,92,2.7,14.41
+4/21/20,Ethiopia,114,3,16,95,2.63,14.04
+4/22/20,Ethiopia,116,3,21,92,2.59,18.1
 1/23/20,Fiji,0,0,0,0,0.0,0.0
 1/24/20,Fiji,0,0,0,0,0.0,0.0
 1/25/20,Fiji,0,0,0,0,0.0,0.0
@@ -5279,6 +5456,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Fiji,17,0,0,17,0.0,0.0
 4/18/20,Fiji,17,0,0,17,0.0,0.0
 4/19/20,Fiji,17,0,0,17,0.0,0.0
+4/20/20,Fiji,18,0,3,15,0.0,16.67
+4/21/20,Fiji,18,0,3,15,0.0,16.67
+4/22/20,Fiji,18,0,8,10,0.0,44.44
 1/23/20,Finland,0,0,0,0,0.0,0.0
 1/24/20,Finland,0,0,0,0,0.0,0.0
 1/25/20,Finland,0,0,0,0,0.0,0.0
@@ -5367,6 +5547,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Finland,3489,82,1700,1707,2.35,48.72
 4/18/20,Finland,3681,90,1700,1891,2.44,46.18
 4/19/20,Finland,3783,94,1700,1989,2.48,44.94
+4/20/20,Finland,3868,98,2000,1770,2.53,51.71
+4/21/20,Finland,4014,141,2000,1873,3.51,49.83
+4/22/20,Finland,4129,149,2000,1980,3.61,48.44
 1/23/20,France,0,0,0,0,0.0,0.0
 1/24/20,France,2,0,0,2,0.0,0.0
 1/25/20,France,3,0,0,3,0.0,0.0
@@ -5455,6 +5638,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,France,149130,18703,35006,95421,12.54,23.47
 4/18/20,France,149149,19345,36587,93217,12.97,24.53
 4/19/20,France,154097,19744,37183,97170,12.81,24.13
+4/20/20,France,156480,20292,38036,98152,12.97,24.31
+4/21/20,France,159297,20829,39819,98649,13.08,25.0
+4/22/20,France,157125,21373,41326,94426,13.6,26.3
 1/23/20,Gabon,0,0,0,0,0.0,0.0
 1/24/20,Gabon,0,0,0,0,0.0,0.0
 1/25/20,Gabon,0,0,0,0,0.0,0.0
@@ -5543,6 +5729,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Gabon,108,1,7,100,0.93,6.48
 4/18/20,Gabon,108,1,7,100,0.93,6.48
 4/19/20,Gabon,109,1,7,101,0.92,6.42
+4/20/20,Gabon,120,1,7,112,0.83,5.83
+4/21/20,Gabon,156,1,16,139,0.64,10.26
+4/22/20,Gabon,166,1,24,141,0.6,14.46
 1/23/20,Gambia,0,0,0,0,0.0,0.0
 1/24/20,Gambia,0,0,0,0,0.0,0.0
 1/25/20,Gambia,0,0,0,0,0.0,0.0
@@ -5631,6 +5820,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Gambia,9,1,2,6,11.11,22.22
 4/18/20,Gambia,9,1,2,6,11.11,22.22
 4/19/20,Gambia,10,1,2,7,10.0,20.0
+4/20/20,Gambia,10,1,2,7,10.0,20.0
+4/21/20,Gambia,10,1,2,7,10.0,20.0
+4/22/20,Gambia,10,1,2,7,10.0,20.0
 1/23/20,Georgia,0,0,0,0,0.0,0.0
 1/24/20,Georgia,0,0,0,0,0.0,0.0
 1/25/20,Georgia,0,0,0,0,0.0,0.0
@@ -5719,6 +5911,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Georgia,370,3,79,288,0.81,21.35
 4/18/20,Georgia,388,4,86,298,1.03,22.16
 4/19/20,Georgia,394,4,93,297,1.02,23.6
+4/20/20,Georgia,402,4,95,303,1.0,23.63
+4/21/20,Georgia,408,4,97,307,0.98,23.77
+4/22/20,Georgia,416,5,107,304,1.2,25.72
 1/23/20,Germany,0,0,0,0,0.0,0.0
 1/24/20,Germany,0,0,0,0,0.0,0.0
 1/25/20,Germany,0,0,0,0,0.0,0.0
@@ -5807,6 +6002,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Germany,141397,4352,83114,53931,3.08,58.78
 4/18/20,Germany,143342,4459,85400,53483,3.11,59.58
 4/19/20,Germany,145184,4586,88000,52598,3.16,60.61
+4/20/20,Germany,147065,4862,91500,50703,3.31,62.22
+4/21/20,Germany,148291,5033,95200,48058,3.39,64.2
+4/22/20,Germany,150648,5279,99400,45969,3.5,65.98
 1/23/20,Ghana,0,0,0,0,0.0,0.0
 1/24/20,Ghana,0,0,0,0,0.0,0.0
 1/25/20,Ghana,0,0,0,0,0.0,0.0
@@ -5895,6 +6093,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Ghana,641,8,83,550,1.25,12.95
 4/18/20,Ghana,834,9,99,726,1.08,11.87
 4/19/20,Ghana,1042,9,99,934,0.86,9.5
+4/20/20,Ghana,1042,9,99,934,0.86,9.5
+4/21/20,Ghana,1042,9,99,934,0.86,9.5
+4/22/20,Ghana,1154,9,99,1046,0.78,8.58
 1/23/20,Greece,0,0,0,0,0.0,0.0
 1/24/20,Greece,0,0,0,0,0.0,0.0
 1/25/20,Greece,0,0,0,0,0.0,0.0
@@ -5983,6 +6184,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Greece,2224,108,269,1847,4.86,12.1
 4/18/20,Greece,2235,110,269,1856,4.92,12.04
 4/19/20,Greece,2235,113,269,1853,5.06,12.04
+4/20/20,Greece,2245,116,269,1860,5.17,11.98
+4/21/20,Greece,2401,121,577,1703,5.04,24.03
+4/22/20,Greece,2408,121,577,1710,5.02,23.96
 1/23/20,Grenada,0,0,0,0,0.0,0.0
 1/24/20,Grenada,0,0,0,0,0.0,0.0
 1/25/20,Grenada,0,0,0,0,0.0,0.0
@@ -6071,6 +6275,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Grenada,14,0,6,8,0.0,42.86
 4/18/20,Grenada,14,0,6,8,0.0,42.86
 4/19/20,Grenada,14,0,6,8,0.0,42.86
+4/20/20,Grenada,14,0,6,8,0.0,42.86
+4/21/20,Grenada,14,0,6,8,0.0,42.86
+4/22/20,Grenada,15,0,6,9,0.0,40.0
 1/23/20,Guatemala,0,0,0,0,0.0,0.0
 1/24/20,Guatemala,0,0,0,0,0.0,0.0
 1/25/20,Guatemala,0,0,0,0,0.0,0.0
@@ -6159,6 +6366,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Guatemala,214,7,21,186,3.27,9.81
 4/18/20,Guatemala,235,7,21,207,2.98,8.94
 4/19/20,Guatemala,257,7,21,229,2.72,8.17
+4/20/20,Guatemala,289,7,21,261,2.42,7.27
+4/21/20,Guatemala,294,7,24,263,2.38,8.16
+4/22/20,Guatemala,316,8,24,284,2.53,7.59
 1/23/20,Guinea,0,0,0,0,0.0,0.0
 1/24/20,Guinea,0,0,0,0,0.0,0.0
 1/25/20,Guinea,0,0,0,0,0.0,0.0
@@ -6247,6 +6457,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Guinea,477,3,59,415,0.63,12.37
 4/18/20,Guinea,518,3,65,450,0.58,12.55
 4/19/20,Guinea,579,5,87,487,0.86,15.03
+4/20/20,Guinea,622,5,122,495,0.8,19.61
+4/21/20,Guinea,688,6,127,555,0.87,18.46
+4/22/20,Guinea,761,6,164,591,0.79,21.55
 1/23/20,Guinea-Bissau,0,0,0,0,0.0,0.0
 1/24/20,Guinea-Bissau,0,0,0,0,0.0,0.0
 1/25/20,Guinea-Bissau,0,0,0,0,0.0,0.0
@@ -6335,6 +6548,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Guinea-Bissau,43,0,0,43,0.0,0.0
 4/18/20,Guinea-Bissau,46,0,0,46,0.0,0.0
 4/19/20,Guinea-Bissau,50,0,3,47,0.0,6.0
+4/20/20,Guinea-Bissau,50,0,3,47,0.0,6.0
+4/21/20,Guinea-Bissau,50,0,3,47,0.0,6.0
+4/22/20,Guinea-Bissau,50,0,3,47,0.0,6.0
 1/23/20,Guyana,0,0,0,0,0.0,0.0
 1/24/20,Guyana,0,0,0,0,0.0,0.0
 1/25/20,Guyana,0,0,0,0,0.0,0.0
@@ -6423,6 +6639,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Guyana,63,6,9,48,9.52,14.29
 4/18/20,Guyana,63,6,9,48,9.52,14.29
 4/19/20,Guyana,65,7,9,49,10.77,13.85
+4/20/20,Guyana,65,7,9,49,10.77,13.85
+4/21/20,Guyana,66,7,9,50,10.61,13.64
+4/22/20,Guyana,67,7,9,51,10.45,13.43
 1/23/20,Haiti,0,0,0,0,0.0,0.0
 1/24/20,Haiti,0,0,0,0,0.0,0.0
 1/25/20,Haiti,0,0,0,0,0.0,0.0
@@ -6511,6 +6730,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Haiti,43,3,0,40,6.98,0.0
 4/18/20,Haiti,44,3,0,41,6.82,0.0
 4/19/20,Haiti,47,3,0,44,6.38,0.0
+4/20/20,Haiti,57,3,0,54,5.26,0.0
+4/21/20,Haiti,57,3,0,54,5.26,0.0
+4/22/20,Haiti,62,4,2,56,6.45,3.23
 1/23/20,Holy See,0,0,0,0,0.0,0.0
 1/24/20,Holy See,0,0,0,0,0.0,0.0
 1/25/20,Holy See,0,0,0,0,0.0,0.0
@@ -6599,6 +6821,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Holy See,8,0,2,6,0.0,25.0
 4/18/20,Holy See,8,0,2,6,0.0,25.0
 4/19/20,Holy See,8,0,2,6,0.0,25.0
+4/20/20,Holy See,9,0,2,7,0.0,22.22
+4/21/20,Holy See,9,0,2,7,0.0,22.22
+4/22/20,Holy See,9,0,2,7,0.0,22.22
 1/23/20,Honduras,0,0,0,0,0.0,0.0
 1/24/20,Honduras,0,0,0,0,0.0,0.0
 1/25/20,Honduras,0,0,0,0,0.0,0.0
@@ -6687,6 +6912,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Honduras,442,41,10,391,9.28,2.26
 4/18/20,Honduras,457,46,10,401,10.07,2.19
 4/19/20,Honduras,472,46,15,411,9.75,3.18
+4/20/20,Honduras,477,46,25,406,9.64,5.24
+4/21/20,Honduras,494,46,29,419,9.31,5.87
+4/22/20,Honduras,510,46,30,434,9.02,5.88
 1/23/20,Hungary,0,0,0,0,0.0,0.0
 1/24/20,Hungary,0,0,0,0,0.0,0.0
 1/25/20,Hungary,0,0,0,0,0.0,0.0
@@ -6775,6 +7003,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Hungary,1763,156,207,1400,8.85,11.74
 4/18/20,Hungary,1834,172,231,1431,9.38,12.6
 4/19/20,Hungary,1916,189,250,1477,9.86,13.05
+4/20/20,Hungary,1984,199,267,1518,10.03,13.46
+4/21/20,Hungary,2098,213,287,1598,10.15,13.68
+4/22/20,Hungary,2168,225,295,1648,10.38,13.61
 1/23/20,Iceland,0,0,0,0,0.0,0.0
 1/24/20,Iceland,0,0,0,0,0.0,0.0
 1/25/20,Iceland,0,0,0,0,0.0,0.0
@@ -6863,6 +7094,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Iceland,1754,9,1224,521,0.51,69.78
 4/18/20,Iceland,1760,9,1291,460,0.51,73.35
 4/19/20,Iceland,1771,9,1291,471,0.51,72.9
+4/20/20,Iceland,1773,10,1362,401,0.56,76.82
+4/21/20,Iceland,1778,10,1417,351,0.56,79.7
+4/22/20,Iceland,1785,10,1462,313,0.56,81.9
 1/23/20,India,0,0,0,0,0.0,0.0
 1/24/20,India,0,0,0,0,0.0,0.0
 1/25/20,India,0,0,0,0,0.0,0.0
@@ -6951,6 +7185,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,India,14352,486,2041,11825,3.39,14.22
 4/18/20,India,15722,521,2463,12738,3.31,15.67
 4/19/20,India,17615,559,2854,14202,3.17,16.2
+4/20/20,India,18539,592,3273,14674,3.19,17.65
+4/21/20,India,20080,645,3975,15460,3.21,19.8
+4/22/20,India,21370,681,4370,16319,3.19,20.45
 1/23/20,Indonesia,0,0,0,0,0.0,0.0
 1/24/20,Indonesia,0,0,0,0,0.0,0.0
 1/25/20,Indonesia,0,0,0,0,0.0,0.0
@@ -7039,6 +7276,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Indonesia,5923,520,607,4796,8.78,10.25
 4/18/20,Indonesia,6248,535,631,5082,8.56,10.1
 4/19/20,Indonesia,6575,582,686,5307,8.85,10.43
+4/20/20,Indonesia,6760,590,747,5423,8.73,11.05
+4/21/20,Indonesia,7135,616,842,5677,8.63,11.8
+4/22/20,Indonesia,7418,635,913,5870,8.56,12.31
 1/23/20,Iran,0,0,0,0,0.0,0.0
 1/24/20,Iran,0,0,0,0,0.0,0.0
 1/25/20,Iran,0,0,0,0,0.0,0.0
@@ -7127,6 +7367,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Iran,79494,4958,54064,20472,6.24,68.01
 4/18/20,Iran,80868,5031,55987,19850,6.22,69.23
 4/19/20,Iran,82211,5118,57023,20070,6.23,69.36
+4/20/20,Iran,83505,5209,59273,19023,6.24,70.98
+4/21/20,Iran,84802,5297,60965,18540,6.25,71.89
+4/22/20,Iran,85996,5391,63113,17492,6.27,73.39
 1/23/20,Iraq,0,0,0,0,0.0,0.0
 1/24/20,Iraq,0,0,0,0,0.0,0.0
 1/25/20,Iraq,0,0,0,0,0.0,0.0
@@ -7215,6 +7458,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Iraq,1482,81,906,495,5.47,61.13
 4/18/20,Iraq,1513,82,953,478,5.42,62.99
 4/19/20,Iraq,1539,82,1009,448,5.33,65.56
+4/20/20,Iraq,1574,82,1043,449,5.21,66.26
+4/21/20,Iraq,1602,83,1096,423,5.18,68.41
+4/22/20,Iraq,1631,83,1146,402,5.09,70.26
 1/23/20,Ireland,0,0,0,0,0.0,0.0
 1/24/20,Ireland,0,0,0,0,0.0,0.0
 1/25/20,Ireland,0,0,0,0,0.0,0.0
@@ -7303,6 +7549,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Ireland,13980,530,77,13373,3.79,0.55
 4/18/20,Ireland,14758,571,77,14110,3.87,0.52
 4/19/20,Ireland,15251,610,77,14564,4.0,0.5
+4/20/20,Ireland,15652,687,77,14888,4.39,0.49
+4/21/20,Ireland,16040,730,9233,6077,4.55,57.56
+4/22/20,Ireland,16671,769,9233,6669,4.61,55.38
 1/23/20,Israel,0,0,0,0,0.0,0.0
 1/24/20,Israel,0,0,0,0,0.0,0.0
 1/25/20,Israel,0,0,0,0,0.0,0.0
@@ -7391,6 +7640,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Israel,12982,151,3126,9705,1.16,24.08
 4/18/20,Israel,13265,164,3456,9645,1.24,26.05
 4/19/20,Israel,13491,172,3754,9565,1.27,27.83
+4/20/20,Israel,13713,177,4049,9487,1.29,29.53
+4/21/20,Israel,13942,184,4507,9251,1.32,32.33
+4/22/20,Israel,14498,189,5215,9094,1.3,35.97
 1/23/20,Italy,0,0,0,0,0.0,0.0
 1/24/20,Italy,0,0,0,0,0.0,0.0
 1/25/20,Italy,0,0,0,0,0.0,0.0
@@ -7479,6 +7731,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Italy,172434,22745,42727,106962,13.19,24.78
 4/18/20,Italy,175925,23227,44927,107771,13.2,25.54
 4/19/20,Italy,178972,23660,47055,108257,13.22,26.29
+4/20/20,Italy,181228,24114,48877,108237,13.31,26.97
+4/21/20,Italy,183957,24648,51600,107709,13.4,28.05
+4/22/20,Italy,187327,25085,54543,107699,13.39,29.12
 1/23/20,Jamaica,0,0,0,0,0.0,0.0
 1/24/20,Jamaica,0,0,0,0,0.0,0.0
 1/25/20,Jamaica,0,0,0,0,0.0,0.0
@@ -7567,6 +7822,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Jamaica,143,5,25,113,3.5,17.48
 4/18/20,Jamaica,163,5,25,133,3.07,15.34
 4/19/20,Jamaica,173,5,27,141,2.89,15.61
+4/20/20,Jamaica,223,5,27,191,2.24,12.11
+4/21/20,Jamaica,223,6,27,190,2.69,12.11
+4/22/20,Jamaica,233,6,27,200,2.58,11.59
 1/23/20,Japan,2,0,0,2,0.0,0.0
 1/24/20,Japan,2,0,0,2,0.0,0.0
 1/25/20,Japan,2,0,0,2,0.0,0.0
@@ -7655,6 +7913,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Japan,9787,190,935,8662,1.94,9.55
 4/18/20,Japan,10296,222,1069,9005,2.16,10.38
 4/19/20,Japan,10797,236,1159,9402,2.19,10.73
+4/20/20,Japan,10797,236,1159,9402,2.19,10.73
+4/21/20,Japan,11135,263,1239,9633,2.36,11.13
+4/22/20,Japan,11512,281,1356,9875,2.44,11.78
 1/23/20,Jordan,0,0,0,0,0.0,0.0
 1/24/20,Jordan,0,0,0,0,0.0,0.0
 1/25/20,Jordan,0,0,0,0,0.0,0.0
@@ -7743,6 +8004,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Jordan,407,7,265,135,1.72,65.11
 4/18/20,Jordan,413,7,269,137,1.69,65.13
 4/19/20,Jordan,417,7,276,134,1.68,66.19
+4/20/20,Jordan,425,7,282,136,1.65,66.35
+4/21/20,Jordan,428,7,297,124,1.64,69.39
+4/22/20,Jordan,435,7,315,113,1.61,72.41
 1/23/20,Kazakhstan,0,0,0,0,0.0,0.0
 1/24/20,Kazakhstan,0,0,0,0,0.0,0.0
 1/25/20,Kazakhstan,0,0,0,0,0.0,0.0
@@ -7831,6 +8095,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Kazakhstan,1546,17,347,1182,1.1,22.45
 4/18/20,Kazakhstan,1615,17,377,1221,1.05,23.34
 4/19/20,Kazakhstan,1676,17,400,1259,1.01,23.87
+4/20/20,Kazakhstan,1852,19,447,1386,1.03,24.14
+4/21/20,Kazakhstan,1995,19,489,1487,0.95,24.51
+4/22/20,Kazakhstan,2135,19,515,1601,0.89,24.12
 1/23/20,Kenya,0,0,0,0,0.0,0.0
 1/24/20,Kenya,0,0,0,0,0.0,0.0
 1/25/20,Kenya,0,0,0,0,0.0,0.0
@@ -7919,6 +8186,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Kenya,246,11,53,182,4.47,21.54
 4/18/20,Kenya,262,12,60,190,4.58,22.9
 4/19/20,Kenya,270,14,67,189,5.19,24.81
+4/20/20,Kenya,281,14,69,198,4.98,24.56
+4/21/20,Kenya,296,14,74,208,4.73,25.0
+4/22/20,Kenya,303,14,74,215,4.62,24.42
 1/23/20,"Korea, South",1,0,0,1,0.0,0.0
 1/24/20,"Korea, South",2,0,0,2,0.0,0.0
 1/25/20,"Korea, South",2,0,0,2,0.0,0.0
@@ -8007,6 +8277,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,"Korea, South",10635,230,7829,2576,2.16,73.62
 4/18/20,"Korea, South",10653,232,7937,2484,2.18,74.5
 4/19/20,"Korea, South",10661,234,8042,2385,2.19,75.43
+4/20/20,"Korea, South",10674,236,8114,2324,2.21,76.02
+4/21/20,"Korea, South",10683,237,8213,2233,2.22,76.88
+4/22/20,"Korea, South",10694,238,8277,2179,2.23,77.4
 1/23/20,Kosovo,0,0,0,0,0.0,0.0
 1/24/20,Kosovo,0,0,0,0,0.0,0.0
 1/25/20,Kosovo,0,0,0,0,0.0,0.0
@@ -8095,6 +8368,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Kosovo,480,12,84,384,2.5,17.5
 4/18/20,Kosovo,510,12,93,405,2.35,18.24
 4/19/20,Kosovo,510,12,93,405,2.35,18.24
+4/20/20,Kosovo,510,12,93,405,2.35,18.24
+4/21/20,Kosovo,510,12,93,405,2.35,18.24
+4/22/20,Kosovo,510,12,93,405,2.35,18.24
 1/23/20,Kuwait,0,0,0,0,0.0,0.0
 1/24/20,Kuwait,0,0,0,0,0.0,0.0
 1/25/20,Kuwait,0,0,0,0,0.0,0.0
@@ -8183,6 +8459,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Kuwait,1658,5,258,1395,0.3,15.56
 4/18/20,Kuwait,1751,6,280,1465,0.34,15.99
 4/19/20,Kuwait,1915,7,305,1603,0.37,15.93
+4/20/20,Kuwait,1995,9,367,1619,0.45,18.4
+4/21/20,Kuwait,2080,11,412,1657,0.53,19.81
+4/22/20,Kuwait,2248,13,443,1792,0.58,19.71
 1/23/20,Kyrgyzstan,0,0,0,0,0.0,0.0
 1/24/20,Kyrgyzstan,0,0,0,0,0.0,0.0
 1/25/20,Kyrgyzstan,0,0,0,0,0.0,0.0
@@ -8271,6 +8550,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Kyrgyzstan,489,5,114,370,1.02,23.31
 4/18/20,Kyrgyzstan,506,5,130,371,0.99,25.69
 4/19/20,Kyrgyzstan,554,5,133,416,0.9,24.01
+4/20/20,Kyrgyzstan,568,7,201,360,1.23,35.39
+4/21/20,Kyrgyzstan,590,7,216,367,1.19,36.61
+4/22/20,Kyrgyzstan,612,7,254,351,1.14,41.5
 1/23/20,Laos,0,0,0,0,0.0,0.0
 1/24/20,Laos,0,0,0,0,0.0,0.0
 1/25/20,Laos,0,0,0,0,0.0,0.0
@@ -8359,6 +8641,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Laos,19,0,2,17,0.0,10.53
 4/18/20,Laos,19,0,2,17,0.0,10.53
 4/19/20,Laos,19,0,2,17,0.0,10.53
+4/20/20,Laos,19,0,2,17,0.0,10.53
+4/21/20,Laos,19,0,2,17,0.0,10.53
+4/22/20,Laos,19,0,4,15,0.0,21.05
 1/23/20,Latvia,0,0,0,0,0.0,0.0
 1/24/20,Latvia,0,0,0,0,0.0,0.0
 1/25/20,Latvia,0,0,0,0,0.0,0.0
@@ -8447,6 +8732,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Latvia,682,5,88,589,0.73,12.9
 4/18/20,Latvia,712,5,88,619,0.7,12.36
 4/19/20,Latvia,727,5,88,634,0.69,12.1
+4/20/20,Latvia,739,5,88,646,0.68,11.91
+4/21/20,Latvia,748,9,133,606,1.2,17.78
+4/22/20,Latvia,761,11,133,617,1.45,17.48
 1/23/20,Lebanon,0,0,0,0,0.0,0.0
 1/24/20,Lebanon,0,0,0,0,0.0,0.0
 1/25/20,Lebanon,0,0,0,0,0.0,0.0
@@ -8535,6 +8823,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Lebanon,668,21,86,561,3.14,12.87
 4/18/20,Lebanon,672,21,99,552,3.12,14.73
 4/19/20,Lebanon,673,21,102,550,3.12,15.16
+4/20/20,Lebanon,677,21,103,553,3.1,15.21
+4/21/20,Lebanon,677,21,108,548,3.1,15.95
+4/22/20,Lebanon,682,22,113,547,3.23,16.57
 1/23/20,Liberia,0,0,0,0,0.0,0.0
 1/24/20,Liberia,0,0,0,0,0.0,0.0
 1/25/20,Liberia,0,0,0,0,0.0,0.0
@@ -8623,6 +8914,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Liberia,76,7,7,62,9.21,9.21
 4/18/20,Liberia,76,7,7,62,9.21,9.21
 4/19/20,Liberia,91,8,7,76,8.79,7.69
+4/20/20,Liberia,99,8,7,84,8.08,7.07
+4/21/20,Liberia,101,8,7,86,7.92,6.93
+4/22/20,Liberia,101,8,20,73,7.92,19.8
 1/23/20,Libya,0,0,0,0,0.0,0.0
 1/24/20,Libya,0,0,0,0,0.0,0.0
 1/25/20,Libya,0,0,0,0,0.0,0.0
@@ -8711,6 +9005,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Libya,49,1,11,37,2.04,22.45
 4/18/20,Libya,49,1,11,37,2.04,22.45
 4/19/20,Libya,51,1,11,39,1.96,21.57
+4/20/20,Libya,51,1,15,35,1.96,29.41
+4/21/20,Libya,51,1,15,35,1.96,29.41
+4/22/20,Libya,59,1,15,43,1.69,25.42
 1/23/20,Liechtenstein,0,0,0,0,0.0,0.0
 1/24/20,Liechtenstein,0,0,0,0,0.0,0.0
 1/25/20,Liechtenstein,0,0,0,0,0.0,0.0
@@ -8799,6 +9096,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Liechtenstein,79,1,55,23,1.27,69.62
 4/18/20,Liechtenstein,79,1,55,23,1.27,69.62
 4/19/20,Liechtenstein,81,1,55,25,1.23,67.9
+4/20/20,Liechtenstein,81,1,55,25,1.23,67.9
+4/21/20,Liechtenstein,81,1,55,25,1.23,67.9
+4/22/20,Liechtenstein,81,1,55,25,1.23,67.9
 1/23/20,Lithuania,0,0,0,0,0.0,0.0
 1/24/20,Lithuania,0,0,0,0,0.0,0.0
 1/25/20,Lithuania,0,0,0,0,0.0,0.0
@@ -8887,6 +9187,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Lithuania,1149,33,210,906,2.87,18.28
 4/18/20,Lithuania,1239,33,228,978,2.66,18.4
 4/19/20,Lithuania,1298,35,242,1021,2.7,18.64
+4/20/20,Lithuania,1326,37,242,1047,2.79,18.25
+4/21/20,Lithuania,1350,38,298,1014,2.81,22.07
+4/22/20,Lithuania,1370,38,357,975,2.77,26.06
 1/23/20,Luxembourg,0,0,0,0,0.0,0.0
 1/24/20,Luxembourg,0,0,0,0,0.0,0.0
 1/25/20,Luxembourg,0,0,0,0,0.0,0.0
@@ -8975,6 +9278,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Luxembourg,3480,72,579,2829,2.07,16.64
 4/18/20,Luxembourg,3537,72,601,2864,2.04,16.99
 4/19/20,Luxembourg,3550,73,627,2850,2.06,17.66
+4/20/20,Luxembourg,3558,75,637,2846,2.11,17.9
+4/21/20,Luxembourg,3618,78,670,2870,2.16,18.52
+4/22/20,Luxembourg,3654,80,711,2863,2.19,19.46
 1/23/20,MS Zaandam,0,0,0,0,0.0,0.0
 1/24/20,MS Zaandam,0,0,0,0,0.0,0.0
 1/25/20,MS Zaandam,0,0,0,0,0.0,0.0
@@ -9063,6 +9369,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,MS Zaandam,9,2,0,7,22.22,0.0
 4/18/20,MS Zaandam,9,2,0,7,22.22,0.0
 4/19/20,MS Zaandam,9,2,0,7,22.22,0.0
+4/20/20,MS Zaandam,9,2,0,7,22.22,0.0
+4/21/20,MS Zaandam,9,2,0,7,22.22,0.0
+4/22/20,MS Zaandam,9,2,0,7,22.22,0.0
 1/23/20,Madagascar,0,0,0,0,0.0,0.0
 1/24/20,Madagascar,0,0,0,0,0.0,0.0
 1/25/20,Madagascar,0,0,0,0,0.0,0.0
@@ -9151,6 +9460,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Madagascar,117,0,33,84,0.0,28.21
 4/18/20,Madagascar,120,0,35,85,0.0,29.17
 4/19/20,Madagascar,121,0,39,82,0.0,32.23
+4/20/20,Madagascar,121,0,41,80,0.0,33.88
+4/21/20,Madagascar,121,0,44,77,0.0,36.36
+4/22/20,Madagascar,121,0,52,69,0.0,42.98
 1/23/20,Malawi,0,0,0,0,0.0,0.0
 1/24/20,Malawi,0,0,0,0,0.0,0.0
 1/25/20,Malawi,0,0,0,0,0.0,0.0
@@ -9239,6 +9551,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Malawi,17,2,3,12,11.76,17.65
 4/18/20,Malawi,17,2,3,12,11.76,17.65
 4/19/20,Malawi,17,2,3,12,11.76,17.65
+4/20/20,Malawi,17,2,3,12,11.76,17.65
+4/21/20,Malawi,18,2,3,13,11.11,16.67
+4/22/20,Malawi,23,3,3,17,13.04,13.04
 1/23/20,Malaysia,0,0,0,0,0.0,0.0
 1/24/20,Malaysia,0,0,0,0,0.0,0.0
 1/25/20,Malaysia,3,0,0,3,0.0,0.0
@@ -9327,6 +9642,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Malaysia,5251,86,2967,2198,1.64,56.5
 4/18/20,Malaysia,5305,88,3102,2115,1.66,58.47
 4/19/20,Malaysia,5389,89,3197,2103,1.65,59.32
+4/20/20,Malaysia,5425,89,3295,2041,1.64,60.74
+4/21/20,Malaysia,5482,92,3349,2041,1.68,61.09
+4/22/20,Malaysia,5532,93,3452,1987,1.68,62.4
 1/23/20,Maldives,0,0,0,0,0.0,0.0
 1/24/20,Maldives,0,0,0,0,0.0,0.0
 1/25/20,Maldives,0,0,0,0,0.0,0.0
@@ -9415,6 +9733,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Maldives,28,0,16,12,0.0,57.14
 4/18/20,Maldives,35,0,16,19,0.0,45.71
 4/19/20,Maldives,52,0,16,36,0.0,30.77
+4/20/20,Maldives,69,0,16,53,0.0,23.19
+4/21/20,Maldives,83,0,16,67,0.0,19.28
+4/22/20,Maldives,86,0,16,70,0.0,18.6
 1/23/20,Mali,0,0,0,0,0.0,0.0
 1/24/20,Mali,0,0,0,0,0.0,0.0
 1/25/20,Mali,0,0,0,0,0.0,0.0
@@ -9503,6 +9824,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Mali,171,13,34,124,7.6,19.88
 4/18/20,Mali,216,13,41,162,6.02,18.98
 4/19/20,Mali,224,14,42,168,6.25,18.75
+4/20/20,Mali,246,14,56,176,5.69,22.76
+4/21/20,Mali,258,14,57,187,5.43,22.09
+4/22/20,Mali,293,17,73,203,5.8,24.91
 1/23/20,Malta,0,0,0,0,0.0,0.0
 1/24/20,Malta,0,0,0,0,0.0,0.0
 1/25/20,Malta,0,0,0,0,0.0,0.0
@@ -9591,6 +9915,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Malta,422,3,91,328,0.71,21.56
 4/18/20,Malta,426,3,99,324,0.7,23.24
 4/19/20,Malta,427,3,118,306,0.7,27.63
+4/20/20,Malta,431,3,126,302,0.7,29.23
+4/21/20,Malta,443,3,150,290,0.68,33.86
+4/22/20,Malta,444,3,165,276,0.68,37.16
 1/23/20,Mauritania,0,0,0,0,0.0,0.0
 1/24/20,Mauritania,0,0,0,0,0.0,0.0
 1/25/20,Mauritania,0,0,0,0,0.0,0.0
@@ -9679,6 +10006,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Mauritania,7,1,2,4,14.29,28.57
 4/18/20,Mauritania,7,1,2,4,14.29,28.57
 4/19/20,Mauritania,7,1,6,0,14.29,85.71
+4/20/20,Mauritania,7,1,6,0,14.29,85.71
+4/21/20,Mauritania,7,1,6,0,14.29,85.71
+4/22/20,Mauritania,7,1,6,0,14.29,85.71
 1/23/20,Mauritius,0,0,0,0,0.0,0.0
 1/24/20,Mauritius,0,0,0,0,0.0,0.0
 1/25/20,Mauritius,0,0,0,0,0.0,0.0
@@ -9767,6 +10097,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Mauritius,324,9,108,207,2.78,33.33
 4/18/20,Mauritius,325,9,180,136,2.77,55.38
 4/19/20,Mauritius,328,9,208,111,2.74,63.41
+4/20/20,Mauritius,328,9,224,95,2.74,68.29
+4/21/20,Mauritius,328,9,243,76,2.74,74.09
+4/22/20,Mauritius,329,9,261,59,2.74,79.33
 1/23/20,Mexico,0,0,0,0,0.0,0.0
 1/24/20,Mexico,0,0,0,0,0.0,0.0
 1/25/20,Mexico,0,0,0,0,0.0,0.0
@@ -9855,6 +10188,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Mexico,6297,486,2125,3686,7.72,33.75
 4/18/20,Mexico,6875,546,2125,4204,7.94,30.91
 4/19/20,Mexico,7497,650,2627,4220,8.67,35.04
+4/20/20,Mexico,8261,686,2627,4948,8.3,31.8
+4/21/20,Mexico,8772,712,2627,5433,8.12,29.95
+4/22/20,Mexico,9501,857,2627,6017,9.02,27.65
 1/23/20,Moldova,0,0,0,0,0.0,0.0
 1/24/20,Moldova,0,0,0,0,0.0,0.0
 1/25/20,Moldova,0,0,0,0,0.0,0.0
@@ -9943,6 +10279,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Moldova,2264,56,276,1932,2.47,12.19
 4/18/20,Moldova,2378,57,391,1930,2.4,16.44
 4/19/20,Moldova,2472,67,457,1948,2.71,18.49
+4/20/20,Moldova,2548,70,457,2021,2.75,17.94
+4/21/20,Moldova,2614,72,505,2037,2.75,19.32
+4/22/20,Moldova,2778,75,560,2143,2.7,20.16
 1/23/20,Monaco,0,0,0,0,0.0,0.0
 1/24/20,Monaco,0,0,0,0,0.0,0.0
 1/25/20,Monaco,0,0,0,0,0.0,0.0
@@ -10031,6 +10370,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Monaco,94,3,20,71,3.19,21.28
 4/18/20,Monaco,94,3,22,69,3.19,23.4
 4/19/20,Monaco,94,3,22,69,3.19,23.4
+4/20/20,Monaco,94,3,23,68,3.19,24.47
+4/21/20,Monaco,94,3,26,65,3.19,27.66
+4/22/20,Monaco,94,3,26,65,3.19,27.66
 1/23/20,Mongolia,0,0,0,0,0.0,0.0
 1/24/20,Mongolia,0,0,0,0,0.0,0.0
 1/25/20,Mongolia,0,0,0,0,0.0,0.0
@@ -10119,6 +10461,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Mongolia,31,0,5,26,0.0,16.13
 4/18/20,Mongolia,31,0,5,26,0.0,16.13
 4/19/20,Mongolia,32,0,7,25,0.0,21.88
+4/20/20,Mongolia,33,0,7,26,0.0,21.21
+4/21/20,Mongolia,34,0,8,26,0.0,23.53
+4/22/20,Mongolia,35,0,8,27,0.0,22.86
 1/23/20,Montenegro,0,0,0,0,0.0,0.0
 1/24/20,Montenegro,0,0,0,0,0.0,0.0
 1/25/20,Montenegro,0,0,0,0,0.0,0.0
@@ -10207,6 +10552,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Montenegro,303,5,55,243,1.65,18.15
 4/18/20,Montenegro,307,5,55,247,1.63,17.92
 4/19/20,Montenegro,308,5,55,248,1.62,17.86
+4/20/20,Montenegro,312,5,88,219,1.6,28.21
+4/21/20,Montenegro,313,5,101,207,1.6,32.27
+4/22/20,Montenegro,315,5,116,194,1.59,36.83
 1/23/20,Morocco,0,0,0,0,0.0,0.0
 1/24/20,Morocco,0,0,0,0,0.0,0.0
 1/25/20,Morocco,0,0,0,0,0.0,0.0
@@ -10295,6 +10643,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Morocco,2564,135,281,2148,5.27,10.96
 4/18/20,Morocco,2685,137,314,2234,5.1,11.69
 4/19/20,Morocco,2855,141,327,2387,4.94,11.45
+4/20/20,Morocco,3046,143,350,2553,4.69,11.49
+4/21/20,Morocco,3209,145,393,2671,4.52,12.25
+4/22/20,Morocco,3446,149,417,2880,4.32,12.1
 1/23/20,Mozambique,0,0,0,0,0.0,0.0
 1/24/20,Mozambique,0,0,0,0,0.0,0.0
 1/25/20,Mozambique,0,0,0,0,0.0,0.0
@@ -10383,6 +10734,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Mozambique,34,0,2,32,0.0,5.88
 4/18/20,Mozambique,35,0,4,31,0.0,11.43
 4/19/20,Mozambique,39,0,8,31,0.0,20.51
+4/20/20,Mozambique,39,0,8,31,0.0,20.51
+4/21/20,Mozambique,39,0,8,31,0.0,20.51
+4/22/20,Mozambique,41,0,8,33,0.0,19.51
 1/23/20,Namibia,0,0,0,0,0.0,0.0
 1/24/20,Namibia,0,0,0,0,0.0,0.0
 1/25/20,Namibia,0,0,0,0,0.0,0.0
@@ -10471,6 +10825,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Namibia,16,0,4,12,0.0,25.0
 4/18/20,Namibia,16,0,6,10,0.0,37.5
 4/19/20,Namibia,16,0,6,10,0.0,37.5
+4/20/20,Namibia,16,0,6,10,0.0,37.5
+4/21/20,Namibia,16,0,6,10,0.0,37.5
+4/22/20,Namibia,16,0,6,10,0.0,37.5
 1/23/20,Nepal,0,0,0,0,0.0,0.0
 1/24/20,Nepal,0,0,0,0,0.0,0.0
 1/25/20,Nepal,1,0,0,1,0.0,0.0
@@ -10559,6 +10916,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Nepal,30,0,2,28,0.0,6.67
 4/18/20,Nepal,31,0,2,29,0.0,6.45
 4/19/20,Nepal,31,0,4,27,0.0,12.9
+4/20/20,Nepal,31,0,4,27,0.0,12.9
+4/21/20,Nepal,43,0,4,39,0.0,9.3
+4/22/20,Nepal,45,0,7,38,0.0,15.56
 1/23/20,Netherlands,0,0,0,0,0.0,0.0
 1/24/20,Netherlands,0,0,0,0,0.0,0.0
 1/25/20,Netherlands,0,0,0,0,0.0,0.0
@@ -10647,6 +11007,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Netherlands,30619,3471,315,26833,11.34,1.03
 4/18/20,Netherlands,31766,3613,317,27836,11.37,1.0
 4/19/20,Netherlands,32838,3697,322,28819,11.26,0.98
+4/20/20,Netherlands,33588,3764,322,29502,11.21,0.96
+4/21/20,Netherlands,34317,3929,74,30314,11.45,0.22
+4/22/20,Netherlands,35032,4068,101,30863,11.61,0.29
 1/23/20,New Zealand,0,0,0,0,0.0,0.0
 1/24/20,New Zealand,0,0,0,0,0.0,0.0
 1/25/20,New Zealand,0,0,0,0,0.0,0.0
@@ -10735,6 +11098,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,New Zealand,1409,11,816,582,0.78,57.91
 4/18/20,New Zealand,1422,11,867,544,0.77,60.97
 4/19/20,New Zealand,1431,12,912,507,0.84,63.73
+4/20/20,New Zealand,1440,12,974,454,0.83,67.64
+4/21/20,New Zealand,1445,13,1006,426,0.9,69.62
+4/22/20,New Zealand,1451,14,1036,401,0.96,71.4
 1/23/20,Nicaragua,0,0,0,0,0.0,0.0
 1/24/20,Nicaragua,0,0,0,0,0.0,0.0
 1/25/20,Nicaragua,0,0,0,0,0.0,0.0
@@ -10823,6 +11189,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Nicaragua,9,1,4,4,11.11,44.44
 4/18/20,Nicaragua,9,2,6,1,22.22,66.67
 4/19/20,Nicaragua,10,2,6,2,20.0,60.0
+4/20/20,Nicaragua,10,2,6,2,20.0,60.0
+4/21/20,Nicaragua,10,2,7,1,20.0,70.0
+4/22/20,Nicaragua,10,2,7,1,20.0,70.0
 1/23/20,Niger,0,0,0,0,0.0,0.0
 1/24/20,Niger,0,0,0,0,0.0,0.0
 1/25/20,Niger,0,0,0,0,0.0,0.0
@@ -10911,6 +11280,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Niger,627,18,110,499,2.87,17.54
 4/18/20,Niger,639,19,113,507,2.97,17.68
 4/19/20,Niger,648,20,117,511,3.09,18.06
+4/20/20,Niger,648,20,117,511,3.09,18.06
+4/21/20,Niger,657,20,127,510,3.04,19.33
+4/22/20,Niger,662,22,193,447,3.32,29.15
 1/23/20,Nigeria,0,0,0,0,0.0,0.0
 1/24/20,Nigeria,0,0,0,0,0.0,0.0
 1/25/20,Nigeria,0,0,0,0,0.0,0.0
@@ -10999,6 +11371,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Nigeria,493,17,159,317,3.45,32.25
 4/18/20,Nigeria,542,19,166,357,3.51,30.63
 4/19/20,Nigeria,627,21,170,436,3.35,27.11
+4/20/20,Nigeria,665,22,188,455,3.31,28.27
+4/21/20,Nigeria,665,22,188,455,3.31,28.27
+4/22/20,Nigeria,873,28,197,648,3.21,22.57
 1/23/20,North Macedonia,0,0,0,0,0.0,0.0
 1/24/20,North Macedonia,0,0,0,0,0.0,0.0
 1/25/20,North Macedonia,0,0,0,0,0.0,0.0
@@ -11087,6 +11462,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,North Macedonia,1117,49,139,929,4.39,12.44
 4/18/20,North Macedonia,1170,49,164,957,4.19,14.02
 4/19/20,North Macedonia,1207,51,179,977,4.23,14.83
+4/20/20,North Macedonia,1225,54,200,971,4.41,16.33
+4/21/20,North Macedonia,1231,55,224,952,4.47,18.2
+4/22/20,North Macedonia,1259,56,272,931,4.45,21.6
 1/23/20,Norway,0,0,0,0,0.0,0.0
 1/24/20,Norway,0,0,0,0,0.0,0.0
 1/25/20,Norway,0,0,0,0,0.0,0.0
@@ -11175,6 +11553,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Norway,6937,161,32,6744,2.32,0.46
 4/18/20,Norway,7036,164,32,6840,2.33,0.45
 4/19/20,Norway,7078,165,32,6881,2.33,0.45
+4/20/20,Norway,7156,181,32,6943,2.53,0.45
+4/21/20,Norway,7191,182,32,6977,2.53,0.45
+4/22/20,Norway,7338,187,32,7119,2.55,0.44
 1/23/20,Oman,0,0,0,0,0.0,0.0
 1/24/20,Oman,0,0,0,0,0.0,0.0
 1/25/20,Oman,0,0,0,0,0.0,0.0
@@ -11263,6 +11644,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Oman,1069,6,176,887,0.56,16.46
 4/18/20,Oman,1180,6,176,998,0.51,14.92
 4/19/20,Oman,1266,7,233,1026,0.55,18.4
+4/20/20,Oman,1410,7,238,1165,0.5,16.88
+4/21/20,Oman,1508,8,238,1262,0.53,15.78
+4/22/20,Oman,1614,8,238,1368,0.5,14.75
 1/23/20,Pakistan,0,0,0,0,0.0,0.0
 1/24/20,Pakistan,0,0,0,0,0.0,0.0
 1/25/20,Pakistan,0,0,0,0,0.0,0.0
@@ -11351,6 +11735,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Pakistan,7025,135,1765,5125,1.92,25.12
 4/18/20,Pakistan,7638,143,1832,5663,1.87,23.99
 4/19/20,Pakistan,8348,168,1868,6312,2.01,22.38
+4/20/20,Pakistan,8418,176,1970,6272,2.09,23.4
+4/21/20,Pakistan,9565,201,2073,7291,2.1,21.67
+4/22/20,Pakistan,10076,212,2156,7708,2.1,21.4
 1/23/20,Panama,0,0,0,0,0.0,0.0
 1/24/20,Panama,0,0,0,0,0.0,0.0
 1/25/20,Panama,0,0,0,0,0.0,0.0
@@ -11439,6 +11826,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Panama,4016,109,98,3809,2.71,2.44
 4/18/20,Panama,4210,116,122,3972,2.76,2.9
 4/19/20,Panama,4273,120,140,4013,2.81,3.28
+4/20/20,Panama,4467,126,165,4176,2.82,3.69
+4/21/20,Panama,4658,136,204,4318,2.92,4.38
+4/22/20,Panama,4821,141,231,4449,2.92,4.79
 1/23/20,Papua New Guinea,0,0,0,0,0.0,0.0
 1/24/20,Papua New Guinea,0,0,0,0,0.0,0.0
 1/25/20,Papua New Guinea,0,0,0,0,0.0,0.0
@@ -11527,6 +11917,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Papua New Guinea,7,0,0,7,0.0,0.0
 4/18/20,Papua New Guinea,7,0,0,7,0.0,0.0
 4/19/20,Papua New Guinea,7,0,0,7,0.0,0.0
+4/20/20,Papua New Guinea,7,0,0,7,0.0,0.0
+4/21/20,Papua New Guinea,7,0,0,7,0.0,0.0
+4/22/20,Papua New Guinea,8,0,0,8,0.0,0.0
 1/23/20,Paraguay,0,0,0,0,0.0,0.0
 1/24/20,Paraguay,0,0,0,0,0.0,0.0
 1/25/20,Paraguay,0,0,0,0,0.0,0.0
@@ -11615,6 +12008,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Paraguay,199,8,30,161,4.02,15.08
 4/18/20,Paraguay,202,8,35,159,3.96,17.33
 4/19/20,Paraguay,206,8,41,157,3.88,19.9
+4/20/20,Paraguay,208,8,46,154,3.85,22.12
+4/21/20,Paraguay,208,8,53,147,3.85,25.48
+4/22/20,Paraguay,213,9,62,142,4.23,29.11
 1/23/20,Peru,0,0,0,0,0.0,0.0
 1/24/20,Peru,0,0,0,0,0.0,0.0
 1/25/20,Peru,0,0,0,0,0.0,0.0
@@ -11703,6 +12099,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Peru,13489,300,6541,6648,2.22,48.49
 4/18/20,Peru,14420,348,6684,7388,2.41,46.35
 4/19/20,Peru,15628,400,6811,8417,2.56,43.58
+4/20/20,Peru,16325,445,6968,8912,2.73,42.68
+4/21/20,Peru,17837,484,6982,10371,2.71,39.14
+4/22/20,Peru,19250,530,7027,11693,2.75,36.5
 1/23/20,Philippines,0,0,0,0,0.0,0.0
 1/24/20,Philippines,0,0,0,0,0.0,0.0
 1/25/20,Philippines,0,0,0,0,0.0,0.0
@@ -11791,6 +12190,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Philippines,5878,387,487,5004,6.58,8.29
 4/18/20,Philippines,6087,397,516,5174,6.52,8.48
 4/19/20,Philippines,6259,409,572,5278,6.53,9.14
+4/20/20,Philippines,6459,428,613,5418,6.63,9.49
+4/21/20,Philippines,6599,437,654,5508,6.62,9.91
+4/22/20,Philippines,6710,446,693,5571,6.65,10.33
 1/23/20,Poland,0,0,0,0,0.0,0.0
 1/24/20,Poland,0,0,0,0,0.0,0.0
 1/25/20,Poland,0,0,0,0,0.0,0.0
@@ -11879,6 +12281,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Poland,8379,332,866,7181,3.96,10.34
 4/18/20,Poland,8742,347,981,7414,3.97,11.22
 4/19/20,Poland,9287,360,1040,7887,3.88,11.2
+4/20/20,Poland,9593,380,1133,8080,3.96,11.81
+4/21/20,Poland,9856,401,1297,8158,4.07,13.16
+4/22/20,Poland,10169,426,1513,8230,4.19,14.88
 1/23/20,Portugal,0,0,0,0,0.0,0.0
 1/24/20,Portugal,0,0,0,0,0.0,0.0
 1/25/20,Portugal,0,0,0,0,0.0,0.0
@@ -11967,6 +12372,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Portugal,19022,657,519,17846,3.45,2.73
 4/18/20,Portugal,19685,687,610,18388,3.49,3.1
 4/19/20,Portugal,20206,714,610,18882,3.53,3.02
+4/20/20,Portugal,20863,735,610,19518,3.52,2.92
+4/21/20,Portugal,21379,762,917,19700,3.56,4.29
+4/22/20,Portugal,21982,785,1143,20054,3.57,5.2
 1/23/20,Qatar,0,0,0,0,0.0,0.0
 1/24/20,Qatar,0,0,0,0,0.0,0.0
 1/25/20,Qatar,0,0,0,0,0.0,0.0
@@ -12055,6 +12463,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Qatar,4663,7,464,4192,0.15,9.95
 4/18/20,Qatar,5008,8,510,4490,0.16,10.18
 4/19/20,Qatar,5448,8,518,4922,0.15,9.51
+4/20/20,Qatar,6015,9,555,5451,0.15,9.23
+4/21/20,Qatar,6533,9,614,5910,0.14,9.4
+4/22/20,Qatar,7141,10,689,6442,0.14,9.65
 1/23/20,Romania,0,0,0,0,0.0,0.0
 1/24/20,Romania,0,0,0,0,0.0,0.0
 1/25/20,Romania,0,0,0,0,0.0,0.0
@@ -12143,6 +12554,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Romania,8067,411,1508,6148,5.09,18.69
 4/18/20,Romania,8418,421,1730,6267,5.0,20.55
 4/19/20,Romania,8746,451,1892,6403,5.16,21.63
+4/20/20,Romania,8936,478,2017,6441,5.35,22.57
+4/21/20,Romania,9242,498,2153,6591,5.39,23.3
+4/22/20,Romania,9710,524,2406,6780,5.4,24.78
 1/23/20,Russia,0,0,0,0,0.0,0.0
 1/24/20,Russia,0,0,0,0,0.0,0.0
 1/25/20,Russia,0,0,0,0,0.0,0.0
@@ -12231,6 +12645,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Russia,32008,273,2590,29145,0.85,8.09
 4/18/20,Russia,36793,313,3057,33423,0.85,8.31
 4/19/20,Russia,42853,361,3291,39201,0.84,7.68
+4/20/20,Russia,47121,405,3446,43270,0.86,7.31
+4/21/20,Russia,52763,456,3873,48434,0.86,7.34
+4/22/20,Russia,57999,513,4420,53066,0.88,7.62
 1/23/20,Rwanda,0,0,0,0,0.0,0.0
 1/24/20,Rwanda,0,0,0,0,0.0,0.0
 1/25/20,Rwanda,0,0,0,0,0.0,0.0
@@ -12319,6 +12736,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Rwanda,143,0,65,78,0.0,45.45
 4/18/20,Rwanda,144,0,69,75,0.0,47.92
 4/19/20,Rwanda,147,0,76,71,0.0,51.7
+4/20/20,Rwanda,147,0,76,71,0.0,51.7
+4/21/20,Rwanda,150,0,84,66,0.0,56.0
+4/22/20,Rwanda,153,0,84,69,0.0,54.9
 1/23/20,Saint Kitts and Nevis,0,0,0,0,0.0,0.0
 1/24/20,Saint Kitts and Nevis,0,0,0,0,0.0,0.0
 1/25/20,Saint Kitts and Nevis,0,0,0,0,0.0,0.0
@@ -12407,6 +12827,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Saint Kitts and Nevis,14,0,0,14,0.0,0.0
 4/18/20,Saint Kitts and Nevis,14,0,0,14,0.0,0.0
 4/19/20,Saint Kitts and Nevis,14,0,0,14,0.0,0.0
+4/20/20,Saint Kitts and Nevis,15,0,0,15,0.0,0.0
+4/21/20,Saint Kitts and Nevis,15,0,0,15,0.0,0.0
+4/22/20,Saint Kitts and Nevis,15,0,1,14,0.0,6.67
 1/23/20,Saint Lucia,0,0,0,0,0.0,0.0
 1/24/20,Saint Lucia,0,0,0,0,0.0,0.0
 1/25/20,Saint Lucia,0,0,0,0,0.0,0.0
@@ -12495,6 +12918,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Saint Lucia,15,0,11,4,0.0,73.33
 4/18/20,Saint Lucia,15,0,11,4,0.0,73.33
 4/19/20,Saint Lucia,15,0,11,4,0.0,73.33
+4/20/20,Saint Lucia,15,0,13,2,0.0,86.67
+4/21/20,Saint Lucia,15,0,13,2,0.0,86.67
+4/22/20,Saint Lucia,15,0,15,0,0.0,100.0
 1/23/20,Saint Vincent and the Grenadines,0,0,0,0,0.0,0.0
 1/24/20,Saint Vincent and the Grenadines,0,0,0,0,0.0,0.0
 1/25/20,Saint Vincent and the Grenadines,0,0,0,0,0.0,0.0
@@ -12583,6 +13009,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Saint Vincent and the Grenadines,12,0,1,11,0.0,8.33
 4/18/20,Saint Vincent and the Grenadines,12,0,1,11,0.0,8.33
 4/19/20,Saint Vincent and the Grenadines,12,0,1,11,0.0,8.33
+4/20/20,Saint Vincent and the Grenadines,12,0,1,11,0.0,8.33
+4/21/20,Saint Vincent and the Grenadines,12,0,2,10,0.0,16.67
+4/22/20,Saint Vincent and the Grenadines,13,0,3,10,0.0,23.08
 1/23/20,San Marino,0,0,0,0,0.0,0.0
 1/24/20,San Marino,0,0,0,0,0.0,0.0
 1/25/20,San Marino,0,0,0,0,0.0,0.0
@@ -12671,6 +13100,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,San Marino,435,39,57,339,8.97,13.1
 4/18/20,San Marino,455,39,60,356,8.57,13.19
 4/19/20,San Marino,461,39,60,362,8.46,13.02
+4/20/20,San Marino,462,39,61,362,8.44,13.2
+4/21/20,San Marino,476,40,62,374,8.4,13.03
+4/22/20,San Marino,488,40,62,386,8.2,12.7
 1/23/20,Sao Tome and Principe,0,0,0,0,0.0,0.0
 1/24/20,Sao Tome and Principe,0,0,0,0,0.0,0.0
 1/25/20,Sao Tome and Principe,0,0,0,0,0.0,0.0
@@ -12759,6 +13191,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Sao Tome and Principe,4,0,0,4,0.0,0.0
 4/18/20,Sao Tome and Principe,4,0,0,4,0.0,0.0
 4/19/20,Sao Tome and Principe,4,0,0,4,0.0,0.0
+4/20/20,Sao Tome and Principe,4,0,0,4,0.0,0.0
+4/21/20,Sao Tome and Principe,4,0,0,4,0.0,0.0
+4/22/20,Sao Tome and Principe,4,0,0,4,0.0,0.0
 1/23/20,Saudi Arabia,0,0,0,0,0.0,0.0
 1/24/20,Saudi Arabia,0,0,0,0,0.0,0.0
 1/25/20,Saudi Arabia,0,0,0,0,0.0,0.0
@@ -12847,6 +13282,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Saudi Arabia,7142,87,1049,6006,1.22,14.69
 4/18/20,Saudi Arabia,8274,92,1329,6853,1.11,16.06
 4/19/20,Saudi Arabia,9362,97,1398,7867,1.04,14.93
+4/20/20,Saudi Arabia,10484,103,1490,8891,0.98,14.21
+4/21/20,Saudi Arabia,11631,109,1640,9882,0.94,14.1
+4/22/20,Saudi Arabia,12772,114,1812,10846,0.89,14.19
 1/23/20,Senegal,0,0,0,0,0.0,0.0
 1/24/20,Senegal,0,0,0,0,0.0,0.0
 1/25/20,Senegal,0,0,0,0,0.0,0.0
@@ -12935,6 +13373,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Senegal,342,2,198,142,0.58,57.89
 4/18/20,Senegal,350,3,211,136,0.86,60.29
 4/19/20,Senegal,367,3,220,144,0.82,59.95
+4/20/20,Senegal,377,5,235,137,1.33,62.33
+4/21/20,Senegal,412,5,242,165,1.21,58.74
+4/22/20,Senegal,442,6,253,183,1.36,57.24
 1/23/20,Serbia,0,0,0,0,0.0,0.0
 1/24/20,Serbia,0,0,0,0,0.0,0.0
 1/25/20,Serbia,0,0,0,0,0.0,0.0
@@ -13023,6 +13464,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Serbia,5690,110,534,5046,1.93,9.38
 4/18/20,Serbia,5994,117,637,5240,1.95,10.63
 4/19/20,Serbia,6318,122,753,5443,1.93,11.92
+4/20/20,Serbia,6630,125,870,5635,1.89,13.12
+4/21/20,Serbia,6630,125,870,5635,1.89,13.12
+4/22/20,Serbia,6630,125,870,5635,1.89,13.12
 1/23/20,Seychelles,0,0,0,0,0.0,0.0
 1/24/20,Seychelles,0,0,0,0,0.0,0.0
 1/25/20,Seychelles,0,0,0,0,0.0,0.0
@@ -13111,6 +13555,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Seychelles,11,0,5,6,0.0,45.45
 4/18/20,Seychelles,11,0,5,6,0.0,45.45
 4/19/20,Seychelles,11,0,5,6,0.0,45.45
+4/20/20,Seychelles,11,0,5,6,0.0,45.45
+4/21/20,Seychelles,11,0,5,6,0.0,45.45
+4/22/20,Seychelles,11,0,5,6,0.0,45.45
 1/23/20,Sierra Leone,0,0,0,0,0.0,0.0
 1/24/20,Sierra Leone,0,0,0,0,0.0,0.0
 1/25/20,Sierra Leone,0,0,0,0,0.0,0.0
@@ -13199,6 +13646,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Sierra Leone,26,0,0,26,0.0,0.0
 4/18/20,Sierra Leone,30,0,0,30,0.0,0.0
 4/19/20,Sierra Leone,35,0,6,29,0.0,17.14
+4/20/20,Sierra Leone,43,0,6,37,0.0,13.95
+4/21/20,Sierra Leone,50,0,6,44,0.0,12.0
+4/22/20,Sierra Leone,61,0,6,55,0.0,9.84
 1/23/20,Singapore,1,0,0,1,0.0,0.0
 1/24/20,Singapore,3,0,0,3,0.0,0.0
 1/25/20,Singapore,3,0,0,3,0.0,0.0
@@ -13287,6 +13737,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Singapore,5050,11,708,4331,0.22,14.02
 4/18/20,Singapore,5992,11,740,5241,0.18,12.35
 4/19/20,Singapore,6588,11,768,5809,0.17,11.66
+4/20/20,Singapore,8014,11,801,7202,0.14,10.0
+4/21/20,Singapore,9125,11,839,8275,0.12,9.19
+4/22/20,Singapore,10141,12,896,9233,0.12,8.84
 1/23/20,Slovakia,0,0,0,0,0.0,0.0
 1/24/20,Slovakia,0,0,0,0,0.0,0.0
 1/25/20,Slovakia,0,0,0,0,0.0,0.0
@@ -13375,6 +13828,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Slovakia,1049,9,175,865,0.86,16.68
 4/18/20,Slovakia,1089,11,213,865,1.01,19.56
 4/19/20,Slovakia,1161,12,229,920,1.03,19.72
+4/20/20,Slovakia,1173,13,251,909,1.11,21.4
+4/21/20,Slovakia,1199,14,258,927,1.17,21.52
+4/22/20,Slovakia,1244,14,284,946,1.13,22.83
 1/23/20,Slovenia,0,0,0,0,0.0,0.0
 1/24/20,Slovenia,0,0,0,0,0.0,0.0
 1/25/20,Slovenia,0,0,0,0,0.0,0.0
@@ -13463,6 +13919,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Slovenia,1304,66,174,1064,5.06,13.34
 4/18/20,Slovenia,1317,70,190,1057,5.32,14.43
 4/19/20,Slovenia,1330,74,192,1064,5.56,14.44
+4/20/20,Slovenia,1335,77,193,1065,5.77,14.46
+4/21/20,Slovenia,1344,77,197,1070,5.73,14.66
+4/22/20,Slovenia,1353,79,205,1069,5.84,15.15
 1/23/20,Somalia,0,0,0,0,0.0,0.0
 1/24/20,Somalia,0,0,0,0,0.0,0.0
 1/25/20,Somalia,0,0,0,0,0.0,0.0
@@ -13551,6 +14010,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Somalia,116,6,2,108,5.17,1.72
 4/18/20,Somalia,135,7,2,126,5.19,1.48
 4/19/20,Somalia,164,7,3,154,4.27,1.83
+4/20/20,Somalia,237,8,4,225,3.38,1.69
+4/21/20,Somalia,286,8,4,274,2.8,1.4
+4/22/20,Somalia,286,8,4,274,2.8,1.4
 1/23/20,South Africa,0,0,0,0,0.0,0.0
 1/24/20,South Africa,0,0,0,0,0.0,0.0
 1/25/20,South Africa,0,0,0,0,0.0,0.0
@@ -13639,6 +14101,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,South Africa,2783,50,903,1830,1.8,32.45
 4/18/20,South Africa,3034,52,903,2079,1.71,29.76
 4/19/20,South Africa,3158,54,903,2201,1.71,28.59
+4/20/20,South Africa,3300,58,1055,2187,1.76,31.97
+4/21/20,South Africa,3465,58,1055,2352,1.67,30.45
+4/22/20,South Africa,3635,65,1055,2515,1.79,29.02
 1/23/20,South Sudan,0,0,0,0,0.0,0.0
 1/24/20,South Sudan,0,0,0,0,0.0,0.0
 1/25/20,South Sudan,0,0,0,0,0.0,0.0
@@ -13727,6 +14192,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,South Sudan,4,0,0,4,0.0,0.0
 4/18/20,South Sudan,4,0,0,4,0.0,0.0
 4/19/20,South Sudan,4,0,0,4,0.0,0.0
+4/20/20,South Sudan,4,0,0,4,0.0,0.0
+4/21/20,South Sudan,4,0,0,4,0.0,0.0
+4/22/20,South Sudan,4,0,0,4,0.0,0.0
 1/23/20,Spain,0,0,0,0,0.0,0.0
 1/24/20,Spain,0,0,0,0,0.0,0.0
 1/25/20,Spain,0,0,0,0,0.0,0.0
@@ -13815,6 +14283,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Spain,190839,20002,74797,96040,10.48,39.19
 4/18/20,Spain,191726,20043,74797,96886,10.45,39.01
 4/19/20,Spain,198674,20453,77357,100864,10.29,38.94
+4/20/20,Spain,200210,20852,80587,98771,10.42,40.25
+4/21/20,Spain,204178,21282,82514,100382,10.42,40.41
+4/22/20,Spain,208389,21717,85915,100757,10.42,41.23
 1/23/20,Sri Lanka,0,0,0,0,0.0,0.0
 1/24/20,Sri Lanka,0,0,0,0,0.0,0.0
 1/25/20,Sri Lanka,0,0,0,0,0.0,0.0
@@ -13903,6 +14374,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Sri Lanka,244,7,77,160,2.87,31.56
 4/18/20,Sri Lanka,254,7,86,161,2.76,33.86
 4/19/20,Sri Lanka,271,7,96,168,2.58,35.42
+4/20/20,Sri Lanka,304,7,98,199,2.3,32.24
+4/21/20,Sri Lanka,310,7,102,201,2.26,32.9
+4/22/20,Sri Lanka,330,7,105,218,2.12,31.82
 1/23/20,Sudan,0,0,0,0,0.0,0.0
 1/24/20,Sudan,0,0,0,0,0.0,0.0
 1/25/20,Sudan,0,0,0,0,0.0,0.0
@@ -13991,6 +14465,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Sudan,33,6,4,23,18.18,12.12
 4/18/20,Sudan,66,10,6,50,15.15,9.09
 4/19/20,Sudan,66,10,6,50,15.15,9.09
+4/20/20,Sudan,107,12,8,87,11.21,7.48
+4/21/20,Sudan,107,12,8,87,11.21,7.48
+4/22/20,Sudan,140,13,12,115,9.29,8.57
 1/23/20,Suriname,0,0,0,0,0.0,0.0
 1/24/20,Suriname,0,0,0,0,0.0,0.0
 1/25/20,Suriname,0,0,0,0,0.0,0.0
@@ -14079,6 +14556,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Suriname,10,1,6,3,10.0,60.0
 4/18/20,Suriname,10,1,6,3,10.0,60.0
 4/19/20,Suriname,10,1,6,3,10.0,60.0
+4/20/20,Suriname,10,1,6,3,10.0,60.0
+4/21/20,Suriname,10,1,6,3,10.0,60.0
+4/22/20,Suriname,10,1,6,3,10.0,60.0
 1/23/20,Sweden,0,0,0,0,0.0,0.0
 1/24/20,Sweden,0,0,0,0,0.0,0.0
 1/25/20,Sweden,0,0,0,0,0.0,0.0
@@ -14167,6 +14647,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Sweden,13216,1400,550,11266,10.59,4.16
 4/18/20,Sweden,13822,1511,550,11761,10.93,3.98
 4/19/20,Sweden,14385,1540,550,12295,10.71,3.82
+4/20/20,Sweden,14777,1580,550,12647,10.69,3.72
+4/21/20,Sweden,15322,1765,550,13007,11.52,3.59
+4/22/20,Sweden,16004,1937,550,13517,12.1,3.44
 1/23/20,Switzerland,0,0,0,0,0.0,0.0
 1/24/20,Switzerland,0,0,0,0,0.0,0.0
 1/25/20,Switzerland,0,0,0,0,0.0,0.0
@@ -14255,6 +14738,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Switzerland,27078,1327,16400,9351,4.9,60.57
 4/18/20,Switzerland,27404,1368,17100,8936,4.99,62.4
 4/19/20,Switzerland,27740,1393,17800,8547,5.02,64.17
+4/20/20,Switzerland,27944,1429,18600,7915,5.11,66.56
+4/21/20,Switzerland,28063,1478,19400,7185,5.27,69.13
+4/22/20,Switzerland,28268,1509,19900,6859,5.34,70.4
 1/23/20,Syria,0,0,0,0,0.0,0.0
 1/24/20,Syria,0,0,0,0,0.0,0.0
 1/25/20,Syria,0,0,0,0,0.0,0.0
@@ -14343,6 +14829,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Syria,38,2,5,31,5.26,13.16
 4/18/20,Syria,38,2,5,31,5.26,13.16
 4/19/20,Syria,39,3,5,31,7.69,12.82
+4/20/20,Syria,39,3,5,31,7.69,12.82
+4/21/20,Syria,42,3,6,33,7.14,14.29
+4/22/20,Syria,42,3,6,33,7.14,14.29
 1/23/20,Taiwan*,1,0,0,1,0.0,0.0
 1/24/20,Taiwan*,3,0,0,3,0.0,0.0
 1/25/20,Taiwan*,3,0,0,3,0.0,0.0
@@ -14431,6 +14920,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Taiwan*,395,6,166,223,1.52,42.03
 4/18/20,Taiwan*,398,6,178,214,1.51,44.72
 4/19/20,Taiwan*,420,6,189,225,1.43,45.0
+4/20/20,Taiwan*,422,6,203,213,1.42,48.1
+4/21/20,Taiwan*,425,6,217,202,1.41,51.06
+4/22/20,Taiwan*,426,6,236,184,1.41,55.4
 1/23/20,Tanzania,0,0,0,0,0.0,0.0
 1/24/20,Tanzania,0,0,0,0,0.0,0.0
 1/25/20,Tanzania,0,0,0,0,0.0,0.0
@@ -14519,6 +15011,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Tanzania,147,5,11,131,3.4,7.48
 4/18/20,Tanzania,147,5,11,131,3.4,7.48
 4/19/20,Tanzania,170,7,11,152,4.12,6.47
+4/20/20,Tanzania,254,10,11,233,3.94,4.33
+4/21/20,Tanzania,254,10,11,233,3.94,4.33
+4/22/20,Tanzania,284,10,11,263,3.52,3.87
 1/23/20,Thailand,3,0,0,3,0.0,0.0
 1/24/20,Thailand,5,0,0,5,0.0,0.0
 1/25/20,Thailand,7,0,0,7,0.0,0.0
@@ -14607,6 +15102,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Thailand,2700,47,1689,964,1.74,62.56
 4/18/20,Thailand,2733,47,1787,899,1.72,65.39
 4/19/20,Thailand,2765,47,1928,790,1.7,69.73
+4/20/20,Thailand,2792,47,1999,746,1.68,71.6
+4/21/20,Thailand,2811,48,2108,655,1.71,74.99
+4/22/20,Thailand,2826,49,2352,425,1.73,83.23
 1/23/20,Timor-Leste,0,0,0,0,0.0,0.0
 1/24/20,Timor-Leste,0,0,0,0,0.0,0.0
 1/25/20,Timor-Leste,0,0,0,0,0.0,0.0
@@ -14695,6 +15193,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Timor-Leste,18,0,1,17,0.0,5.56
 4/18/20,Timor-Leste,18,0,1,17,0.0,5.56
 4/19/20,Timor-Leste,19,0,1,18,0.0,5.26
+4/20/20,Timor-Leste,22,0,1,21,0.0,4.55
+4/21/20,Timor-Leste,23,0,1,22,0.0,4.35
+4/22/20,Timor-Leste,23,0,1,22,0.0,4.35
 1/23/20,Togo,0,0,0,0,0.0,0.0
 1/24/20,Togo,0,0,0,0,0.0,0.0
 1/25/20,Togo,0,0,0,0,0.0,0.0
@@ -14783,6 +15284,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Togo,83,5,48,30,6.02,57.83
 4/18/20,Togo,84,5,49,30,5.95,58.33
 4/19/20,Togo,84,5,52,27,5.95,61.9
+4/20/20,Togo,84,6,53,25,7.14,63.1
+4/21/20,Togo,86,6,56,24,6.98,65.12
+4/22/20,Togo,88,6,56,26,6.82,63.64
 1/23/20,Trinidad and Tobago,0,0,0,0,0.0,0.0
 1/24/20,Trinidad and Tobago,0,0,0,0,0.0,0.0
 1/25/20,Trinidad and Tobago,0,0,0,0,0.0,0.0
@@ -14871,6 +15375,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Trinidad and Tobago,114,8,20,86,7.02,17.54
 4/18/20,Trinidad and Tobago,114,8,21,85,7.02,18.42
 4/19/20,Trinidad and Tobago,114,8,21,85,7.02,18.42
+4/20/20,Trinidad and Tobago,114,8,22,84,7.02,19.3
+4/21/20,Trinidad and Tobago,115,8,28,79,6.96,24.35
+4/22/20,Trinidad and Tobago,115,8,37,70,6.96,32.17
 1/23/20,Tunisia,0,0,0,0,0.0,0.0
 1/24/20,Tunisia,0,0,0,0,0.0,0.0
 1/25/20,Tunisia,0,0,0,0,0.0,0.0
@@ -14959,6 +15466,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Tunisia,864,37,43,784,4.28,4.98
 4/18/20,Tunisia,864,37,43,784,4.28,4.98
 4/19/20,Tunisia,879,38,43,798,4.32,4.89
+4/20/20,Tunisia,884,38,148,698,4.3,16.74
+4/21/20,Tunisia,884,38,148,698,4.3,16.74
+4/22/20,Tunisia,909,38,190,681,4.18,20.9
 1/23/20,Turkey,0,0,0,0,0.0,0.0
 1/24/20,Turkey,0,0,0,0,0.0,0.0
 1/25/20,Turkey,0,0,0,0,0.0,0.0
@@ -15047,6 +15557,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Turkey,78546,1769,8631,68146,2.25,10.99
 4/18/20,Turkey,82329,1890,10453,69986,2.3,12.7
 4/19/20,Turkey,86306,2017,11976,72313,2.34,13.88
+4/20/20,Turkey,90980,2140,13430,75410,2.35,14.76
+4/21/20,Turkey,95591,2259,14918,78414,2.36,15.61
+4/22/20,Turkey,98674,2376,16477,79821,2.41,16.7
 1/23/20,US,1,0,0,1,0.0,0.0
 1/24/20,US,2,0,0,2,0.0,0.0
 1/25/20,US,2,0,0,2,0.0,0.0
@@ -15115,26 +15628,29 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 3/28/20,US,121465,2026,1072,118367,1.67,0.88
 3/29/20,US,140909,2467,2665,135777,1.75,1.89
 3/30/20,US,161831,2978,5644,153209,1.84,3.49
-3/31/20,US,188172,3873,7024,177275,2.06,3.73
-4/1/20,US,213372,4757,8474,200141,2.23,3.97
-4/2/20,US,243762,5926,9001,228835,2.43,3.69
-4/3/20,US,275586,7087,9707,258792,2.57,3.52
-4/4/20,US,308853,8407,14652,285794,2.72,4.74
-4/5/20,US,337072,9619,17448,310005,2.85,5.18
-4/6/20,US,366667,10783,19581,336303,2.94,5.34
-4/7/20,US,397505,12794,21763,362948,3.22,5.47
-4/8/20,US,429052,14695,23559,390798,3.42,5.49
+3/31/20,US,188172,3874,7024,177274,2.06,3.73
+4/1/20,US,213242,4760,8474,200008,2.23,3.97
+4/2/20,US,243622,5929,9001,228692,2.43,3.69
+4/3/20,US,275367,7090,9707,258570,2.57,3.53
+4/4/20,US,308650,8408,14652,285590,2.72,4.75
+4/5/20,US,336802,9619,17448,309735,2.86,5.18
+4/6/20,US,366317,10783,19581,335953,2.94,5.35
+4/7/20,US,397121,12794,21763,362564,3.22,5.48
+4/8/20,US,428654,14704,23559,390391,3.43,5.5
 4/9/20,US,462780,16544,25410,420826,3.57,5.49
-4/10/20,US,496535,18586,28790,449159,3.74,5.8
-4/11/20,US,526396,20462,31270,474664,3.89,5.94
-4/12/20,US,555313,22019,32988,500306,3.97,5.94
-4/13/20,US,580619,23528,43482,513609,4.05,7.49
-4/14/20,US,607670,25831,47763,534076,4.25,7.86
-4/15/20,US,636350,28325,52096,555929,4.45,8.19
-4/16/20,US,667592,32916,54703,579973,4.93,8.19
-4/17/20,US,699706,36773,58545,604388,5.26,8.37
+4/10/20,US,496535,18595,28790,449150,3.74,5.8
+4/11/20,US,526396,20471,31270,474655,3.89,5.94
+4/12/20,US,555313,22029,32988,500296,3.97,5.94
+4/13/20,US,580619,23538,43482,513599,4.05,7.49
+4/14/20,US,607670,25843,47763,534064,4.25,7.86
+4/15/20,US,636350,28338,52096,555916,4.45,8.19
+4/16/20,US,667592,32930,54703,579959,4.93,8.19
+4/17/20,US,699706,36787,58545,604374,5.26,8.37
 4/18/20,US,732197,38664,64840,628693,5.28,8.86
-4/19/20,US,759086,40661,70337,648088,5.36,9.27
+4/19/20,US,758809,40661,70337,647811,5.36,9.27
+4/20/20,US,784326,42094,72329,669903,5.37,9.22
+4/21/20,US,812036,44444,75204,692388,5.47,9.26
+4/22/20,US,839675,46583,77366,715726,5.55,9.21
 1/23/20,Uganda,0,0,0,0,0.0,0.0
 1/24/20,Uganda,0,0,0,0,0.0,0.0
 1/25/20,Uganda,0,0,0,0,0.0,0.0
@@ -15223,6 +15739,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Uganda,56,0,20,36,0.0,35.71
 4/18/20,Uganda,55,0,22,33,0.0,40.0
 4/19/20,Uganda,55,0,28,27,0.0,50.91
+4/20/20,Uganda,56,0,38,18,0.0,67.86
+4/21/20,Uganda,61,0,38,23,0.0,62.3
+4/22/20,Uganda,63,0,45,18,0.0,71.43
 1/23/20,Ukraine,0,0,0,0,0.0,0.0
 1/24/20,Ukraine,0,0,0,0,0.0,0.0
 1/25/20,Ukraine,0,0,0,0,0.0,0.0
@@ -15311,6 +15830,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Ukraine,4662,125,246,4291,2.68,5.28
 4/18/20,Ukraine,5106,133,275,4698,2.6,5.39
 4/19/20,Ukraine,5449,141,347,4961,2.59,6.37
+4/20/20,Ukraine,5710,151,359,5200,2.64,6.29
+4/21/20,Ukraine,6125,161,367,5597,2.63,5.99
+4/22/20,Ukraine,6592,174,424,5994,2.64,6.43
 1/23/20,United Arab Emirates,0,0,0,0,0.0,0.0
 1/24/20,United Arab Emirates,0,0,0,0,0.0,0.0
 1/25/20,United Arab Emirates,0,0,0,0,0.0,0.0
@@ -15399,6 +15921,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,United Arab Emirates,6302,37,1188,5077,0.59,18.85
 4/18/20,United Arab Emirates,6302,37,1188,5077,0.59,18.85
 4/19/20,United Arab Emirates,6781,41,1286,5454,0.6,18.96
+4/20/20,United Arab Emirates,7265,43,1360,5862,0.59,18.72
+4/21/20,United Arab Emirates,7755,46,1443,6266,0.59,18.61
+4/22/20,United Arab Emirates,8238,52,1546,6640,0.63,18.77
 1/23/20,United Kingdom,0,0,0,0,0.0,0.0
 1/24/20,United Kingdom,0,0,0,0,0.0,0.0
 1/25/20,United Kingdom,0,0,0,0,0.0,0.0
@@ -15487,6 +16012,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,United Kingdom,109769,14607,394,94768,13.31,0.36
 4/18/20,United Kingdom,115314,15498,414,99402,13.44,0.36
 4/19/20,United Kingdom,121172,16095,436,104641,13.28,0.36
+4/20/20,United Kingdom,125856,16550,446,108860,13.15,0.35
+4/21/20,United Kingdom,130172,17378,638,112156,13.35,0.49
+4/22/20,United Kingdom,134638,18151,683,115804,13.48,0.51
 1/23/20,Uruguay,0,0,0,0,0.0,0.0
 1/24/20,Uruguay,0,0,0,0,0.0,0.0
 1/25/20,Uruguay,0,0,0,0,0.0,0.0
@@ -15575,6 +16103,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Uruguay,502,9,286,207,1.79,56.97
 4/18/20,Uruguay,508,9,294,205,1.77,57.87
 4/19/20,Uruguay,517,10,298,209,1.93,57.64
+4/20/20,Uruguay,535,10,313,212,1.87,58.5
+4/21/20,Uruguay,535,11,313,211,2.06,58.5
+4/22/20,Uruguay,543,12,324,207,2.21,59.67
 1/23/20,Uzbekistan,0,0,0,0,0.0,0.0
 1/24/20,Uzbekistan,0,0,0,0,0.0,0.0
 1/25/20,Uzbekistan,0,0,0,0,0.0,0.0
@@ -15663,6 +16194,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Uzbekistan,1405,4,156,1245,0.28,11.1
 4/18/20,Uzbekistan,1490,5,194,1291,0.34,13.02
 4/19/20,Uzbekistan,1565,5,225,1335,0.32,14.38
+4/20/20,Uzbekistan,1627,5,261,1361,0.31,16.04
+4/21/20,Uzbekistan,1678,6,357,1315,0.36,21.28
+4/22/20,Uzbekistan,1716,7,450,1259,0.41,26.22
 1/23/20,Venezuela,0,0,0,0,0.0,0.0
 1/24/20,Venezuela,0,0,0,0,0.0,0.0
 1/25/20,Venezuela,0,0,0,0,0.0,0.0
@@ -15751,6 +16285,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Venezuela,204,9,111,84,4.41,54.41
 4/18/20,Venezuela,227,9,113,105,3.96,49.78
 4/19/20,Venezuela,256,9,117,130,3.52,45.7
+4/20/20,Venezuela,256,9,117,130,3.52,45.7
+4/21/20,Venezuela,285,10,117,158,3.51,41.05
+4/22/20,Venezuela,288,10,122,156,3.47,42.36
 1/23/20,Vietnam,2,0,0,2,0.0,0.0
 1/24/20,Vietnam,2,0,0,2,0.0,0.0
 1/25/20,Vietnam,2,0,0,2,0.0,0.0
@@ -15839,6 +16376,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Vietnam,268,0,198,70,0.0,73.88
 4/18/20,Vietnam,268,0,201,67,0.0,75.0
 4/19/20,Vietnam,268,0,202,66,0.0,75.37
+4/20/20,Vietnam,268,0,214,54,0.0,79.85
+4/21/20,Vietnam,268,0,216,52,0.0,80.6
+4/22/20,Vietnam,268,0,223,45,0.0,83.21
 1/23/20,West Bank and Gaza,0,0,0,0,0.0,0.0
 1/24/20,West Bank and Gaza,0,0,0,0,0.0,0.0
 1/25/20,West Bank and Gaza,0,0,0,0,0.0,0.0
@@ -15927,6 +16467,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,West Bank and Gaza,402,2,69,331,0.5,17.16
 4/18/20,West Bank and Gaza,418,2,69,347,0.48,16.51
 4/19/20,West Bank and Gaza,437,3,71,363,0.69,16.25
+4/20/20,West Bank and Gaza,449,3,71,375,0.67,15.81
+4/21/20,West Bank and Gaza,466,4,71,391,0.86,15.24
+4/22/20,West Bank and Gaza,474,4,71,399,0.84,14.98
 1/23/20,Western Sahara,0,0,0,0,0.0,0.0
 1/24/20,Western Sahara,0,0,0,0,0.0,0.0
 1/25/20,Western Sahara,0,0,0,0,0.0,0.0
@@ -16015,6 +16558,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Western Sahara,6,0,0,6,0.0,0.0
 4/18/20,Western Sahara,6,0,0,6,0.0,0.0
 4/19/20,Western Sahara,6,0,0,6,0.0,0.0
+4/20/20,Western Sahara,6,0,0,6,0.0,0.0
+4/21/20,Western Sahara,6,0,0,6,0.0,0.0
+4/22/20,Western Sahara,6,0,0,6,0.0,0.0
 1/23/20,Yemen,0,0,0,0,0.0,0.0
 1/24/20,Yemen,0,0,0,0,0.0,0.0
 1/25/20,Yemen,0,0,0,0,0.0,0.0
@@ -16103,6 +16649,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Yemen,1,0,0,1,0.0,0.0
 4/18/20,Yemen,1,0,0,1,0.0,0.0
 4/19/20,Yemen,1,0,0,1,0.0,0.0
+4/20/20,Yemen,1,0,0,1,0.0,0.0
+4/21/20,Yemen,1,0,0,1,0.0,0.0
+4/22/20,Yemen,1,0,0,1,0.0,0.0
 1/23/20,Zambia,0,0,0,0,0.0,0.0
 1/24/20,Zambia,0,0,0,0,0.0,0.0
 1/25/20,Zambia,0,0,0,0,0.0,0.0
@@ -16191,6 +16740,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Zambia,52,2,30,20,3.85,57.69
 4/18/20,Zambia,57,2,33,22,3.51,57.89
 4/19/20,Zambia,61,3,33,25,4.92,54.1
+4/20/20,Zambia,65,3,35,27,4.62,53.85
+4/21/20,Zambia,70,3,35,32,4.29,50.0
+4/22/20,Zambia,74,3,35,36,4.05,47.3
 1/23/20,Zimbabwe,0,0,0,0,0.0,0.0
 1/24/20,Zimbabwe,0,0,0,0,0.0,0.0
 1/25/20,Zimbabwe,0,0,0,0,0.0,0.0
@@ -16279,6 +16831,9 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 4/17/20,Zimbabwe,24,3,2,19,12.5,8.33
 4/18/20,Zimbabwe,25,3,2,20,12.0,8.0
 4/19/20,Zimbabwe,25,3,2,20,12.0,8.0
+4/20/20,Zimbabwe,25,3,2,20,12.0,8.0
+4/21/20,Zimbabwe,28,3,2,23,10.71,7.14
+4/22/20,Zimbabwe,28,4,2,22,14.29,7.14
 1/23/20,WORLD,654,18,30,606,0.015135135135135135,0.025243243243243244
 1/24/20,WORLD,941,26,36,879,0.015297297297297298,0.021135135135135135
 1/25/20,WORLD,1434,42,39,1353,0.016162162162162163,0.014972972972972972
@@ -16347,23 +16902,26 @@ Date,Country/Region,Confirmed,Death,Recovered,Active,Mortality_Rate,Recovered_Ra
 3/28/20,WORLD,660693,30652,139415,490626,2.2799459459459466,7.3174594594594575
 3/29/20,WORLD,720140,33925,149082,537133,2.479945945945946,7.668432432432437
 3/30/20,WORLD,782389,37582,164566,580241,2.8498918918918914,8.366702702702701
-3/31/20,WORLD,857487,42107,178034,637346,3.026864864864864,9.53302702702703
-4/1/20,WORLD,932605,47180,193177,692248,3.2118378378378383,10.187351351351356
-4/2/20,WORLD,1013466,52983,210263,750220,3.3794054054054037,10.771189189189188
-4/3/20,WORLD,1095917,58787,225796,811334,3.440972972972975,11.417945945945949
-4/4/20,WORLD,1176060,64606,246152,865302,3.5827567567567575,12.245405405405405
-4/5/20,WORLD,1249754,69374,260012,920368,3.642864864864863,12.457783783783782
-4/6/20,WORLD,1321481,74565,276515,970401,3.7665405405405408,13.905513513513514
-4/7/20,WORLD,1396476,81937,300054,1014485,3.9611351351351356,14.700864864864863
-4/8/20,WORLD,1480202,88338,328661,1063203,4.111567567567568,15.61016216216216
+3/31/20,WORLD,857487,42108,178034,637345,3.026864864864864,9.53302702702703
+4/1/20,WORLD,932475,47183,193177,692115,3.2118378378378383,10.187351351351356
+4/2/20,WORLD,1013326,52986,210263,750077,3.3794054054054037,10.771189189189188
+4/3/20,WORLD,1095698,58790,225796,811112,3.440972972972975,11.418000000000005
+4/4/20,WORLD,1175857,64607,246152,865098,3.5827567567567575,12.245459459459461
+4/5/20,WORLD,1249484,69374,260012,920098,3.6429189189189173,12.457783783783782
+4/6/20,WORLD,1321131,74565,276515,970051,3.7665405405405408,13.905567567567566
+4/7/20,WORLD,1396092,81937,300054,1014101,3.9611351351351356,14.70091891891892
+4/8/20,WORLD,1479804,88347,328661,1062796,4.111621621621622,15.610216216216216
 4/9/20,WORLD,1565278,95521,353975,1115782,4.02081081081081,16.44854054054055
-4/10/20,WORLD,1657526,102525,376096,1178905,4.054324324324323,17.463783783783796
-4/11/20,WORLD,1735650,108502,402110,1225038,3.8908108108108124,17.986
-4/12/20,WORLD,1834721,114090,421722,1298909,3.9035675675675727,19.190756756756745
-4/13/20,WORLD,1904838,119481,448655,1336702,3.912864864864865,19.764486486486486
-4/14/20,WORLD,1976191,125983,474261,1375947,3.93572972972973,21.12037837837838
-4/15/20,WORLD,2056054,134176,511019,1410859,3.8664864864864854,21.875243243243247
-4/16/20,WORLD,2152437,143800,542107,1466530,3.922216216216217,23.195729729729734
-4/17/20,WORLD,2240190,153821,568343,1518026,3.939621621621621,24.506270270270264
+4/10/20,WORLD,1657526,102534,376096,1178896,4.054324324324323,17.463783783783796
+4/11/20,WORLD,1735650,108511,402110,1225029,3.8908108108108124,17.986
+4/12/20,WORLD,1834721,114100,421722,1298899,3.9035675675675727,19.190756756756745
+4/13/20,WORLD,1904838,119491,448655,1336692,3.912864864864865,19.764486486486486
+4/14/20,WORLD,1976191,125995,474261,1375935,3.93572972972973,21.12037837837838
+4/15/20,WORLD,2056054,134189,511019,1410846,3.8664864864864854,21.875243243243247
+4/16/20,WORLD,2152437,143814,542107,1466516,3.922216216216217,23.195729729729734
+4/17/20,WORLD,2240190,153835,568343,1518012,3.939621621621621,24.506270270270264
 4/18/20,WORLD,2317758,159509,592319,1565930,3.9503243243243267,25.364918918918914
-4/19/20,WORLD,2401378,165043,623903,1612432,3.9592432432432427,26.52767567567567
+4/19/20,WORLD,2401101,165043,623903,1612155,3.9592432432432427,26.52767567567567
+4/20/20,WORLD,2472258,169985,645738,1656535,3.900972972972973,27.816162162162172
+4/21/20,WORLD,2549293,176582,679819,1692892,3.8841621621621623,29.144540540540543
+4/22/20,WORLD,2623413,183025,709694,1730694,3.865729729729729,30.355243243243226
